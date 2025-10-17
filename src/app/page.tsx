@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import destinations from './destinations.json';
+import { useState } from "react";
+import destinations from "./destinations.json";
 
 type Destination = {
   city: string;
@@ -15,7 +15,8 @@ type Destination = {
 export default function Home() {
   // STEP 1: Set up state management
   const [isSpinning, setIsSpinning] = useState(false);
-  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
+  const [selectedDestination, setSelectedDestination] =
+    useState<Destination | null>(null);
 
   // STEP 2: Create the click handler function
   const handleSpin = () => {
@@ -33,13 +34,20 @@ export default function Home() {
     }, 2000);
   };
 
+  // Copy destination station to clipboard
+  const copyDestination = () => {
+    if (selectedDestination) {
+      navigator.clipboard.writeText(selectedDestination.station);
+      alert("Destination copied! Paste it in SNCF Connect");
+    }
+  };
+  
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="text-center">
         {/* STEP 3: Show spinner while spinning */}
-        {isSpinning && (
-          <div className="spinner"></div>
-        )}
+        {isSpinning && <div className="spinner"></div>}
 
         {/* STEP 4: Show result after spinning */}
         {!isSpinning && selectedDestination && (
@@ -54,16 +62,26 @@ export default function Home() {
               <h2 className="text-lg font-semibold mb-2">Activities:</h2>
               <ul className="list-disc list-inside space-y-1">
                 {selectedDestination.activities.map((activity, index) => (
-                  <li key={index} className="text-gray-700">{activity}</li>
+                  <li key={index} className="text-gray-700">
+                    {activity}
+                  </li>
                 ))}
               </ul>
             </div>
-            <button
-              onClick={handleSpin}
-              className="px-8 py-3 text-lg font-bold text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 transition-colors duration-200"
-            >
-              SPIN AGAIN
-            </button>
+            <div className="flex gap-4 justify-center">
+              <button
+                onClick={copyDestination}
+                className="px-8 py-3 text-lg font-bold text-white bg-purple-600 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-200"
+              >
+                COPY STATION
+              </button>
+              <button
+                onClick={handleSpin}
+                className="px-8 py-3 text-lg font-bold text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 transition-colors duration-200"
+              >
+                SPIN AGAIN
+              </button>
+            </div>
           </div>
         )}
 
@@ -75,6 +93,15 @@ export default function Home() {
           >
             SPIN FOR ADVENTURE
           </button>
+        )}
+        {selectedDestination && (
+          <a
+            href="https://www.sncf-connect.com"
+            target="_blank"
+            className="bg-blue-600 text-white py-3 px-6 rounded-lg"
+          >
+            Book on SNCF Connect →
+          </a>
         )}
       </div>
 
@@ -91,10 +118,15 @@ export default function Home() {
         }
 
         @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
       `}</style>
     </div>
   );
+  
 }
