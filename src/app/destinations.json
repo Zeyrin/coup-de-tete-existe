@@ -1,0 +1,43 @@
+[
+  {
+    "city": "Fontainebleau",
+    "tagline": "Palace & forest adventures",
+    "activities": ["Visit the château", "Hike in the forest", "Climb the boulders"],
+    "station": "Fontainebleau-Avon",
+    "typical_price": "€15",
+    "travel_time": "40min"
+  },
+  {
+    "city": "Marseille",
+    "tagline": "Beach and Pastis",
+    "activities": ["Visit the port", "Hike in the calanques", "Climb the stairs of the train station"],
+    "station": "Marseille-Saint-Charles",
+    "typical_price": "€30",
+    "travel_time": "3hours"
+  },
+  {
+    "city": "Lausanne",
+    "tagline": "Cheese and Money",
+    "activities": ["Visit the Flon", "Hike around the lake", "Climb city to the chruch"],
+    "station": "Lausanne",
+    "typical_price": "€90",
+    "travel_time": "4hours"
+  },
+  {
+    "city": "Strasbourg",
+    "tagline": "Sausage and Beer",
+    "activities": ["Visit the City Center", "Hike around the river", "Climb the church"],
+    "station": "Lausanne",
+    "typical_price": "€90",
+    "travel_time": "4hours"
+  },
+  {
+    "city": "Barcelona",
+    "tagline": "Summer and Mojitos",
+    "activities": ["Visit Las Ramblas", "Hike the Montserrat Monastery", "Climb to the bunkers"],
+    "station": "Barcelona",
+    "typical_price": "€20",
+    "travel_time": "6hours"
+  }
+  
+]
