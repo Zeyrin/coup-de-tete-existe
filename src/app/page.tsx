@@ -1,132 +1,135 @@
-"use client";
+'use client';
+import { useState } from 'react';
+import destinations from './destinations.json';
 
-import { useState } from "react";
-import destinations from "./destinations.json";
-
-type Destination = {
+interface Destination {
   city: string;
   tagline: string;
-  activities: string[];
   station: string;
-  typical_price: string;
+  activities: string[];
   travel_time: string;
-};
+  travel_time_minutes: number;
+  typical_price: string;
+  typical_price_euros: number;
+  vibe: string;
+}
 
 export default function Home() {
-  // STEP 1: Set up state management
+  const [maxTravelTime, setMaxTravelTime] = useState(120); // minutes
+  const [maxBudget, setMaxBudget] = useState(30); // euros
+  const [destination, setDestination] = useState<Destination | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [selectedDestination, setSelectedDestination] =
-    useState<Destination | null>(null);
 
-  // STEP 2: Create the click handler function
-  const handleSpin = () => {
+  const spin = () => {
     setIsSpinning(true);
-    setSelectedDestination(null); // Clear previous result
-
-    // Pick random destination
-    const randomIndex = Math.floor(Math.random() * destinations.length);
-    const randomDestination = destinations[randomIndex];
-
-    // Wait 2 seconds, then show result
+    
+    // Filter destinations based on preferences
+    const filtered = destinations.filter(d => 
+      d.travel_time_minutes <= maxTravelTime &&
+      d.typical_price_euros <= maxBudget
+    );
+    
     setTimeout(() => {
-      setSelectedDestination(randomDestination);
+      const random = filtered[Math.floor(Math.random() * filtered.length)];
+      setDestination(random);
       setIsSpinning(false);
     }, 2000);
   };
 
-  // Copy destination station to clipboard
-  const copyDestination = () => {
-    if (selectedDestination) {
-      navigator.clipboard.writeText(selectedDestination.station);
-      alert("Destination copied! Paste it in SNCF Connect");
-    }
-  };
-  
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="text-center">
-        {/* STEP 3: Show spinner while spinning */}
-        {isSpinning && <div className="spinner"></div>}
-
-        {/* STEP 4: Show result after spinning */}
-        {!isSpinning && selectedDestination && (
-          <div className="bg-white p-8 rounded-lg shadow-xl max-w-md">
-            <h1 className="text-4xl font-bold text-blue-600 mb-2">
-              {selectedDestination.city}
-            </h1>
-            <p className="text-xl text-gray-600 italic mb-6">
-              {selectedDestination.tagline}
-            </p>
-            <div className="text-left mb-6">
-              <h2 className="text-lg font-semibold mb-2">Activities:</h2>
-              <ul className="list-disc list-inside space-y-1">
-                {selectedDestination.activities.map((activity, index) => (
-                  <li key={index} className="text-gray-700">
-                    {activity}
-                  </li>
-                ))}
-              </ul>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500 p-8">
+      {!destination ? (
+        <div className="bg-white rounded-2xl p-8 max-w-md">
+          <h1 className="text-3xl font-bold mb-6 text-center">
+            Coup de Tête
+          </h1>
+          
+          <div className="space-y-4 mb-6">
+            <div>
+              <label className="block text-sm font-semibold mb-2">
+                Temps de trajet max:
+              </label>
+              <select 
+                value={maxTravelTime}
+                onChange={(e) => setMaxTravelTime(Number(e.target.value))}
+                className="w-full p-3 border rounded-lg"
+              >
+                <option value="30">30 minutes</option>
+                <option value="60">1 heure</option>
+                <option value="90">1h30</option>
+                <option value="120">2 heures</option>
+              </select>
             </div>
-            <div className="flex gap-4 justify-center">
-              <button
-                onClick={copyDestination}
-                className="px-8 py-3 text-lg font-bold text-white bg-purple-600 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-200"
+
+            <div>
+              <label className="block text-sm font-semibold mb-2">
+                Budget max:
+              </label>
+              <select 
+                value={maxBudget}
+                onChange={(e) => setMaxBudget(Number(e.target.value))}
+                className="w-full p-3 border rounded-lg"
               >
-                COPY STATION
-              </button>
-              <button
-                onClick={handleSpin}
-                className="px-8 py-3 text-lg font-bold text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 transition-colors duration-200"
-              >
-                SPIN AGAIN
-              </button>
+                <option value="15">€15</option>
+                <option value="20">€20</option>
+                <option value="30">€30</option>
+                <option value="40">€40</option>
+              </select>
             </div>
           </div>
-        )}
 
-        {/* STEP 5: Show initial button */}
-        {!isSpinning && !selectedDestination && (
-          <button
-            onClick={handleSpin}
-            className="px-12 py-6 text-2xl font-bold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-200 transform hover:scale-105"
+          <button 
+            onClick={spin}
+            disabled={isSpinning}
+            className="w-full bg-purple-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-purple-700 transition disabled:opacity-50"
           >
-            SPIN FOR ADVENTURE
+            {isSpinning ? '🎰 Spinning...' : '🎲 LANCE L\'AVENTURE'}
           </button>
-        )}
-        {selectedDestination && (
-          <a
-            href="https://www.sncf-connect.com"
-            target="_blank"
-            className="bg-blue-600 text-white py-3 px-6 rounded-lg"
-          >
-            Book on SNCF Connect →
-          </a>
-        )}
-      </div>
-
-      {/* STEP 6: CSS for the spinner */}
-      <style jsx>{`
-        .spinner {
-          border: 8px solid #f3f3f3;
-          border-top: 8px solid #3498db;
-          border-radius: 50%;
-          width: 60px;
-          height: 60px;
-          animation: spin 1s linear infinite;
-          margin: 0 auto;
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
+        </div>
+      ) : (
+        <div className="bg-white rounded-2xl p-8 max-w-md">
+          <h1 className="text-3xl font-bold mb-2">{destination.city}</h1>
+          <p className="text-gray-600 mb-4">{destination.tagline}</p>
+          
+          <div className="mb-4 text-sm">
+            <p>🚂 {destination.travel_time} • 💰 {destination.typical_price}</p>
+          </div>
+          
+          <h3 className="font-bold mb-2">À faire:</h3>
+          <ul className="text-sm space-y-1 mb-6">
+            {destination.activities.map((activity, i) => (
+              <li key={i}>• {activity}</li>
+            ))}
+          </ul>
+          
+          <div className="space-y-2">
+            <button 
+              onClick={() => {
+                navigator.clipboard.writeText(destination.station);
+                alert('✅ Destination copiée!');
+              }}
+              className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300"
+            >
+              📋 Copier la destination
+            </button>
+            
+            <a 
+              href="https://www.sncf-connect.com"
+              target="_blank"
+              className="block w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-center hover:bg-blue-700"
+            >
+              🚂 Réserver sur SNCF Connect
+            </a>
+            
+            <button 
+              onClick={() => setDestination(null)}
+              className="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700"
+            >
+              ↻ Relancer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-  
 }

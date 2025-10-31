@@ -1,43 +1,152 @@
 [
   {
+    "city": "Versailles",
+    "tagline": "Palais royal & jardins majestueux",
+    "station": "Versailles Château Rive Gauche",
+    "activities": [
+      "Explorer le château de Versailles",
+      "Se promener dans les jardins à la française",
+      "Visiter le domaine de Marie-Antoinette"
+    ],
+    "travel_time": "20 min",
+    "travel_time_minutes": 20,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "👑 Royauté & splendeur"
+  },
+  {
+    "city": "Chantilly",
+    "tagline": "Château, chevaux & crème fouettée",
+    "station": "Chantilly-Gouvieux",
+    "activities": [
+      "Visiter le château et son musée Condé",
+      "Découvrir les Grandes Écuries",
+      "Déguster la crème Chantilly au Hameau"
+    ],
+    "travel_time": "25 min",
+    "travel_time_minutes": 25,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "🐴 Élégance équestre"
+  },
+  {
     "city": "Fontainebleau",
-    "tagline": "Palace & forest adventures",
-    "activities": ["Visit the château", "Hike in the forest", "Climb the boulders"],
+    "tagline": "Château, forêt & escalade",
     "station": "Fontainebleau-Avon",
+    "activities": [
+      "Visiter le château de Fontainebleau",
+      "Randonner dans 25,000 hectares de forêt",
+      "Observer les grimpeurs sur les rochers"
+    ],
+    "travel_time": "40 min",
+    "travel_time_minutes": 40,
+    "typical_price": "€9",
+    "typical_price_euros": 9,
+    "vibe": "🏰 Histoire & nature"
+  },
+  {
+    "city": "Auvers-sur-Oise",
+    "tagline": "Village de Van Gogh",
+    "station": "Auvers-sur-Oise",
+    "activities": [
+      "Marcher sur les traces de Van Gogh",
+      "Visiter l'auberge Ravoux",
+      "Explorer le château d'Auvers"
+    ],
+    "travel_time": "35 min",
+    "travel_time_minutes": 35,
+    "typical_price": "€5",
+    "typical_price_euros": 5,
+    "vibe": "🖼️ Impressionnisme"
+  },
+  {
+    "city": "Chartres",
+    "tagline": "Cathédrale gothique légendaire",
+    "station": "Chartres",
+    "activities": [
+      "Admirer les vitraux de la cathédrale",
+      "Se balader dans la vieille ville",
+      "Descendre au bord de l'Eure"
+    ],
+    "travel_time": "60 min",
+    "travel_time_minutes": 60,
+    "typical_price": "€12",
+    "typical_price_euros": 12,
+    "vibe": "⛪ Architecture sacrée"
+  },
+  {
+    "city": "Reims",
+    "tagline": "Champagne & cathédrale",
+    "station": "Reims",
+    "activities": [
+      "Visiter les caves de champagne",
+      "Admirer la cathédrale Notre-Dame",
+      "Déguster le champagne local"
+    ],
+    "travel_time": "46 min",
+    "travel_time_minutes": 46,
+    "typical_price": "€18",
+    "typical_price_euros": 18,
+    "vibe": "🍾 Bulles & patrimoine"
+  },
+  {
+    "city": "Rouen",
+    "tagline": "Ville de Jeanne d'Arc",
+    "station": "Rouen Rive-Droite",
+    "activities": [
+      "Voir la cathédrale immortalisée par Monet",
+      "Découvrir le Gros-Horloge",
+      "Flâner dans le vieux Rouen médiéval"
+    ],
+    "travel_time": "75 min",
+    "travel_time_minutes": 75,
+    "typical_price": "€12",
+    "typical_price_euros": 12,
+    "vibe": "🏛️ Histoire normande"
+  },
+  {
+    "city": "Provins",
+    "tagline": "Ville médiévale fortifiée",
+    "station": "Provins",
+    "activities": [
+      "Explorer les remparts médiévaux",
+      "Assister à un spectacle de fauconnerie",
+      "Visiter la Tour César"
+    ],
+    "travel_time": "83 min",
+    "travel_time_minutes": 83,
+    "typical_price": "€10",
+    "typical_price_euros": 10,
+    "vibe": "⚔️ Moyen-Âge"
+  },
+  {
+    "city": "Compiègne",
+    "tagline": "Forêt impériale & histoire",
+    "station": "Compiègne",
+    "activities": [
+      "Visiter le château impérial",
+      "Se balader dans la forêt domaniale",
+      "Découvrir la clairière de l'Armistice"
+    ],
+    "travel_time": "55 min",
+    "travel_time_minutes": 55,
     "typical_price": "€15",
-    "travel_time": "40min"
+    "typical_price_euros": 15,
+    "vibe": "🌲 Nature & empire"
   },
   {
-    "city": "Marseille",
-    "tagline": "Beach and Pastis",
-    "activities": ["Visit the port", "Hike in the calanques", "Climb the stairs of the train station"],
-    "station": "Marseille-Saint-Charles",
-    "typical_price": "€30",
-    "travel_time": "3hours"
-  },
-  {
-    "city": "Lausanne",
-    "tagline": "Cheese and Money",
-    "activities": ["Visit the Flon", "Hike around the lake", "Climb city to the chruch"],
-    "station": "Lausanne",
-    "typical_price": "€90",
-    "travel_time": "4hours"
-  },
-  {
-    "city": "Strasbourg",
-    "tagline": "Sausage and Beer",
-    "activities": ["Visit the City Center", "Hike around the river", "Climb the church"],
-    "station": "Lausanne",
-    "typical_price": "€90",
-    "travel_time": "4hours"
-  },
-  {
-    "city": "Barcelona",
-    "tagline": "Summer and Mojitos",
-    "activities": ["Visit Las Ramblas", "Hike the Montserrat Monastery", "Climb to the bunkers"],
-    "station": "Barcelona",
+    "city": "Amiens",
+    "tagline": "Cathédrale & hortillonnages",
+    "station": "Amiens",
+    "activities": [
+      "Visiter la plus grande cathédrale de France",
+      "Naviguer dans les hortillonnages",
+      "Découvrir le quartier Saint-Leu"
+    ],
+    "travel_time": "65 min",
+    "travel_time_minutes": 65,
     "typical_price": "€20",
-    "travel_time": "6hours"
+    "typical_price_euros": 20,
+    "vibe": "⛪ Patrimoine & nature"
   }
-  
 ]
