@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -12,15 +13,63 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: #FFE951;
+  color: #000000;
+  font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+}
+
+/* Neo-brutalist utility classes */
+.neo-border {
+  border: 4px solid #000000;
+}
+
+.neo-shadow {
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.neo-shadow-sm {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.neo-shadow-hover:hover {
+  box-shadow: 12px 12px 0px #000000;
+  transform: translate(-2px, -2px);
+  transition: all 0.1s ease;
+}
+
+.neo-shadow-active:active {
+  box-shadow: 4px 4px 0px #000000;
+  transform: translate(4px, 4px);
+}
+
+/* Roulette wheel animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1800deg); }
+}
+
+@keyframes spinFast {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(900deg); }
+  100% { transform: rotate(1800deg); }
+}
+
+.roulette-spin {
+  animation: spinFast 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-in-out infinite;
 }
