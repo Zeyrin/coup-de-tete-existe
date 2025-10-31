@@ -148,5 +148,80 @@
     "typical_price": "€20",
     "typical_price_euros": 20,
     "vibe": "⛪ Patrimoine & nature"
+  },
+  {
+    "city": "Giverny",
+    "tagline": "Les jardins de Monet",
+    "station": "Vernon",
+    "activities": [
+      "Explorer les jardins de Claude Monet",
+      "Photographier le pont japonais iconique",
+      "Déjeuner au restaurant Les Nymphéas"
+    ],
+    "travel_time": "50 min",
+    "travel_time_minutes": 50,
+    "typical_price": "€9",
+    "typical_price_euros": 9,
+    "vibe": "🎨 Impressionnisme & nature"
+  },
+  {
+    "city": "Senlis",
+    "tagline": "Médiéval secret sans touristes",
+    "station": "Chantilly-Gouvieux",
+    "activities": [
+      "Se perdre dans les ruelles pavées médiévales",
+      "Visiter la cathédrale gothique",
+      "Découvrir les arènes romaines"
+    ],
+    "travel_time": "45 min",
+    "travel_time_minutes": 45,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "🏰 Conte de fées médiéval"
+  },
+  {
+    "city": "Meaux",
+    "tagline": "Mini Paris & capitale du Brie",
+    "station": "Meaux",
+    "activities": [
+      "Déguster le Brie de Meaux authentique",
+      "Admirer la cathédrale Saint-Étienne",
+      "Flâner au marché local le samedi"
+    ],
+    "travel_time": "35 min",
+    "travel_time_minutes": 35,
+    "typical_price": "€5",
+    "typical_price_euros": 5,
+    "vibe": "🧀 Fromage & patrimoine"
+  },
+  {
+    "city": "Moret-sur-Loing",
+    "tagline": "Village d'Alfred Sisley",
+    "station": "Moret-Veneux-les-Sablons",
+    "activities": [
+      "Marcher sur les traces de Sisley le long du Loing",
+      "Explorer la cité médiévale fortifiée",
+      "Déguster des crêpes face à la rivière"
+    ],
+    "travel_time": "60 min",
+    "travel_time_minutes": 60,
+    "typical_price": "€10",
+    "typical_price_euros": 10,
+    "vibe": "🖼️ Impressionnisme & rivière"
+  },
+  {
+    "city": "Maintenon",
+    "tagline": "Château & aqueduc spectaculaire",
+    "station": "Maintenon",
+    "activities": [
+      "Visiter le château de Madame de Maintenon",
+      "Se promener dans les jardins de Le Nôtre",
+      "Photographier l'aqueduc monumental"
+    ],
+    "travel_time": "55 min",
+    "travel_time_minutes": 55,
+    "typical_price": "€12",
+    "typical_price_euros": 12,
+    "vibe": "💧 Architecture & jardins"
   }
 ]
