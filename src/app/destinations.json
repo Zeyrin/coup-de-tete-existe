@@ -3,6 +3,7 @@
     "city": "Versailles",
     "tagline": "Palais royal & jardins majestueux",
     "station": "Versailles Château Rive Gauche",
+    "departure": "paris",
     "activities": [
       "Explorer le château de Versailles",
       "Se promener dans les jardins à la française",
@@ -27,7 +28,8 @@
     "travel_time_minutes": 25,
     "typical_price": "€3",
     "typical_price_euros": 3,
-    "vibe": "🐴 Élégance équestre"
+    "vibe": "🐴 Élégance équestre",
+    "departure": "paris"
   },
   {
     "city": "Fontainebleau",
@@ -42,7 +44,8 @@
     "travel_time_minutes": 40,
     "typical_price": "€9",
     "typical_price_euros": 9,
-    "vibe": "🏰 Histoire & nature"
+    "vibe": "🏰 Histoire & nature",
+    "departure": "paris"
   },
   {
     "city": "Auvers-sur-Oise",
@@ -57,7 +60,8 @@
     "travel_time_minutes": 35,
     "typical_price": "€5",
     "typical_price_euros": 5,
-    "vibe": "🖼️ Impressionnisme"
+    "vibe": "🖼️ Impressionnisme",
+    "departure": "paris"
   },
   {
     "city": "Chartres",
@@ -72,7 +76,8 @@
     "travel_time_minutes": 60,
     "typical_price": "€12",
     "typical_price_euros": 12,
-    "vibe": "⛪ Architecture sacrée"
+    "vibe": "⛪ Architecture sacrée",
+    "departure": "paris"
   },
   {
     "city": "Reims",
@@ -87,7 +92,8 @@
     "travel_time_minutes": 46,
     "typical_price": "€18",
     "typical_price_euros": 18,
-    "vibe": "🍾 Bulles & patrimoine"
+    "vibe": "🍾 Bulles & patrimoine",
+    "departure": "paris"
   },
   {
     "city": "Rouen",
@@ -102,7 +108,8 @@
     "travel_time_minutes": 75,
     "typical_price": "€12",
     "typical_price_euros": 12,
-    "vibe": "🏛️ Histoire normande"
+    "vibe": "🏛️ Histoire normande",
+    "departure": "paris"
   },
   {
     "city": "Provins",
@@ -117,7 +124,8 @@
     "travel_time_minutes": 83,
     "typical_price": "€10",
     "typical_price_euros": 10,
-    "vibe": "⚔️ Moyen-Âge"
+    "vibe": "⚔️ Moyen-Âge",
+    "departure": "paris"
   },
   {
     "city": "Compiègne",
@@ -132,7 +140,8 @@
     "travel_time_minutes": 55,
     "typical_price": "€15",
     "typical_price_euros": 15,
-    "vibe": "🌲 Nature & empire"
+    "vibe": "🌲 Nature & empire",
+    "departure": "paris"
   },
   {
     "city": "Amiens",
@@ -147,7 +156,8 @@
     "travel_time_minutes": 65,
     "typical_price": "€20",
     "typical_price_euros": 20,
-    "vibe": "⛪ Patrimoine & nature"
+    "vibe": "⛪ Patrimoine & nature",
+    "departure": "paris"
   },
   {
     "city": "Giverny",
@@ -162,7 +172,8 @@
     "travel_time_minutes": 50,
     "typical_price": "€9",
     "typical_price_euros": 9,
-    "vibe": "🎨 Impressionnisme & nature"
+    "vibe": "🎨 Impressionnisme & nature",
+    "departure": "paris"
   },
   {
     "city": "Senlis",
@@ -177,7 +188,8 @@
     "travel_time_minutes": 45,
     "typical_price": "€3",
     "typical_price_euros": 3,
-    "vibe": "🏰 Conte de fées médiéval"
+    "vibe": "🏰 Conte de fées médiéval",
+    "departure": "paris"
   },
   {
     "city": "Meaux",
@@ -192,7 +204,8 @@
     "travel_time_minutes": 35,
     "typical_price": "€5",
     "typical_price_euros": 5,
-    "vibe": "🧀 Fromage & patrimoine"
+    "vibe": "🧀 Fromage & patrimoine",
+    "departure": "paris"
   },
   {
     "city": "Moret-sur-Loing",
@@ -207,7 +220,8 @@
     "travel_time_minutes": 60,
     "typical_price": "€10",
     "typical_price_euros": 10,
-    "vibe": "🖼️ Impressionnisme & rivière"
+    "vibe": "🖼️ Impressionnisme & rivière",
+    "departure": "paris"
   },
   {
     "city": "Maintenon",
@@ -222,6 +236,247 @@
     "travel_time_minutes": 55,
     "typical_price": "€12",
     "typical_price_euros": 12,
-    "vibe": "💧 Architecture & jardins"
+    "vibe": "💧 Architecture & jardins",
+    "departure": "paris"
+  },
+  {
+    "city": "Monaco",
+    "tagline": "Glamour, jardins & rocher princier",
+    "station": "Monaco-Monte-Carlo",
+    "activities": [
+      "Visiter le Palais princier et voir la relève de la garde",
+      "Explorer le Jardin exotique avec vue panoramique",
+      "Flâner dans les rues luxueuses de Monte-Carlo"
+    ],
+    "travel_time": "20 min",
+    "travel_time_minutes": 20,
+    "typical_price": "€5",
+    "typical_price_euros": 5,
+    "vibe": "👑 Luxe & Méditerranée",
+    "departure": "nice"
+  },
+  {
+    "city": "Antibes",
+    "tagline": "Vieille ville & musée Picasso",
+    "station": "Antibes",
+    "activities": [
+      "Découvrir le musée Picasso au château Grimaldi",
+      "Se balader sur les remparts avec vue mer",
+      "Explorer le marché provençal coloré"
+    ],
+    "travel_time": "25 min",
+    "travel_time_minutes": 25,
+    "typical_price": "€5",
+    "typical_price_euros": 5,
+    "vibe": "🎨 Art & vieille ville",
+    "departure": "nice"
+  },
+  {
+    "city": "Cannes",
+    "tagline": "Croisette, plages & îles de Lérins",
+    "station": "Cannes",
+    "activities": [
+      "Marcher sur la Croisette mythique",
+      "Prendre le bateau pour l'île Sainte-Marguerite",
+      "Explorer le vieux Cannes (Le Suquet)"
+    ],
+    "travel_time": "35 min",
+    "travel_time_minutes": 35,
+    "typical_price": "€7",
+    "typical_price_euros": 7,
+    "vibe": "🎬 Glamour & îles",
+    "departure": "nice"
+  },
+  {
+    "city": "Menton",
+    "tagline": "Jardins d'exception & citrons",
+    "station": "Menton",
+    "activities": [
+      "Visiter le jardin Serre de la Madone",
+      "Explorer la vieille ville colorée italienne",
+      "Déguster une tarte au citron de Menton"
+    ],
+    "travel_time": "35 min",
+    "travel_time_minutes": 35,
+    "typical_price": "€8",
+    "typical_price_euros": 8,
+    "vibe": "🍋 Jardins & dolce vita",
+    "departure": "nice"
+  },
+  {
+    "city": "Villefranche-sur-Mer",
+    "tagline": "Baie spectaculaire & village pêcheur",
+    "station": "Villefranche-sur-Mer",
+    "activities": [
+      "Nager dans la baie aux eaux turquoise",
+      "Se perdre dans les ruelles colorées",
+      "Visiter la citadelle et ses musées gratuits"
+    ],
+    "travel_time": "10 min",
+    "travel_time_minutes": 10,
+    "typical_price": "€2",
+    "typical_price_euros": 2,
+    "vibe": "🏖️ Plage & authenticité",
+    "departure": "nice"
+  },
+  {
+    "city": "Èze-sur-Mer",
+    "tagline": "Plage secrète sous le village perché",
+    "station": "Èze-sur-Mer",
+    "activities": [
+      "Se baigner dans une crique tranquille",
+      "Déjeuner de poisson au bord de l'eau",
+      "Admirer le village d'Èze perché au-dessus"
+    ],
+    "travel_time": "15 min",
+    "travel_time_minutes": 15,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "🏖️ Plage cachée",
+    "departure": "nice"
+  },
+  {
+    "city": "Grasse",
+    "tagline": "Capitale mondiale du parfum",
+    "station": "Grasse",
+    "activities": [
+      "Créer son propre parfum chez Fragonard ou Molinard",
+      "Explorer la vieille ville provençale",
+      "Visiter les usines de parfumerie gratuitement"
+    ],
+    "travel_time": "50 min",
+    "travel_time_minutes": 50,
+    "typical_price": "€9",
+    "typical_price_euros": 9,
+    "vibe": "🌸 Parfums & Provence",
+    "departure": "nice"
+  },
+  {
+    "city": "Ventimiglia (Italie)",
+    "tagline": "Marché italien & dolce vita",
+    "station": "Ventimiglia",
+    "activities": [
+      "Chiner au marché du vendredi (le plus grand de la région)",
+      "Manger une vraie pizza italienne pas chère",
+      "Explorer la vieille ville médiévale Ventimiglia Alta"
+    ],
+    "travel_time": "50 min",
+    "travel_time_minutes": 50,
+    "typical_price": "€10",
+    "typical_price_euros": 10,
+    "vibe": "🇮🇹 Italie & shopping",
+    "departure": "nice"
+  },
+  {
+    "city": "Beaulieu-sur-Mer",
+    "tagline": "Villa grecque & baie des Fourmis",
+    "station": "Beaulieu-sur-Mer",
+    "activities": [
+      "Visiter la Villa Kérylos (reconstitution grecque incroyable)",
+      "Se baigner dans la baie des Fourmis protégée",
+      "Déjeuner face à la mer sur le port chic"
+    ],
+    "travel_time": "12 min",
+    "travel_time_minutes": 12,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "🏛️ Grèce antique & plage",
+    "departure": "nice"
+  },
+  {
+    "city": "Juan-les-Pins",
+    "tagline": "Plages de sable & soirées animées",
+    "station": "Juan-les-Pins",
+    "activities": [
+      "Bronzer sur les plages de sable fin",
+      "Faire du paddle le long de la pinède",
+      "Boire un verre sur le front de mer animé"
+    ],
+    "travel_time": "30 min",
+    "travel_time_minutes": 30,
+    "typical_price": "€6",
+    "typical_price_euros": 6,
+    "vibe": "🎷 Plage & ambiance",
+    "departure": "nice"
+  },
+  {
+    "city": "Cagnes-sur-Mer",
+    "tagline": "Château médiéval & hippodrome",
+    "station": "Cagnes-sur-Mer",
+    "activities": [
+      "Monter au Haut-de-Cagnes médiéval perché",
+      "Visiter le château-musée Grimaldi",
+      "Se balader sur la longue plage du Cros"
+    ],
+    "travel_time": "15 min",
+    "travel_time_minutes": 15,
+    "typical_price": "€3",
+    "typical_price_euros": 3,
+    "vibe": "🏰 Village perché & mer",
+    "departure": "nice"
+  },
+  {
+    "city": "Saint-Raphaël",
+    "tagline": "Massif de l'Estérel rouge & calanques",
+    "station": "Saint-Raphaël-Valescure",
+    "activities": [
+      "Randonner dans le massif de l'Estérel aux roches rouges",
+      "Plonger dans les calanques spectaculaires",
+      "Explorer le vieux port et ses terrasses"
+    ],
+    "travel_time": "60 min",
+    "travel_time_minutes": 60,
+    "typical_price": "€12",
+    "typical_price_euros": 12,
+    "vibe": "🔴 Roches rouges & mer",
+    "departure": "nice"
+  },
+  {
+    "city": "Toulon",
+    "tagline": "Port militaire & Mont Faron",
+    "station": "Toulon",
+    "activities": [
+      "Prendre le téléphérique du Mont Faron pour la vue à 360°",
+      "Visiter le musée de la Marine nationale",
+      "Déjeuner de poisson frais au marché du Mourillon"
+    ],
+    "travel_time": "75 min",
+    "travel_time_minutes": 75,
+    "typical_price": "€15",
+    "typical_price_euros": 15,
+    "vibe": "⚓ Naval & panoramas",
+    "departure": "nice"
+  },
+  {
+    "city": "Sanremo (Italie)",
+    "tagline": "Riviera italienne & casino belle époque",
+    "station": "Sanremo",
+    "activities": [
+      "Flâner sur le lungomare face à la mer",
+      "Explorer la vieille ville La Pigna",
+      "Déguster un gelato artisanal italien"
+    ],
+    "travel_time": "60 min",
+    "travel_time_minutes": 60,
+    "typical_price": "€12",
+    "typical_price_euros": 12,
+    "vibe": "🇮🇹 Dolce vita italienne",
+    "departure": "nice"
+  },
+  {
+    "city": "Théoule-sur-Mer",
+    "tagline": "Calanques sauvages de l'Estérel",
+    "station": "Théoule-sur-Mer",
+    "activities": [
+      "Randonner le sentier du littoral aux roches rouges",
+      "Se baigner dans des criques isolées",
+      "Faire du kayak dans les calanques"
+    ],
+    "travel_time": "45 min",
+    "travel_time_minutes": 45,
+    "typical_price": "€9",
+    "typical_price_euros": 9,
+    "vibe": "🏞️ Nature sauvage & mer",
+    "departure": "nice"
   }
 ]

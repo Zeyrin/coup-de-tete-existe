@@ -6,6 +6,7 @@ interface Destination {
   city: string;
   tagline: string;
   station: string;
+  departure: 'paris' | 'nice';
   activities: string[];
   travel_time: string;
   travel_time_minutes: number;
@@ -67,24 +68,43 @@ export default function Home() {
   const [maxBudget, setMaxBudget] = useState(30); // euros
   const [destination, setDestination] = useState<Destination | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [departureCity, setDepartureCity] = useState<'paris' | 'nice'>('paris');
+  const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
 
   const spin = () => {
     setIsSpinning(true);
 
-    // Filter destinations based on preferences
-    const filtered = destinations.filter(d =>
+    // Filter destinations based on preferences AND departure city
+    let filtered = (destinations as Destination[]).filter(d =>
+      d.departure === departureCity &&
       d.travel_time_minutes <= maxTravelTime &&
       d.typical_price_euros <= maxBudget
     );
 
+    // Exclude the last 3 destinations if there are enough alternatives
+    const availableWithoutRecent = filtered.filter(d => !recentDestinations.includes(d.city));
+
+    // Only exclude recent destinations if we have at least 4 other options
+    if (availableWithoutRecent.length >= 4) {
+      filtered = availableWithoutRecent;
+    }
+
     setTimeout(() => {
       const random = filtered[Math.floor(Math.random() * filtered.length)];
       setDestination(random);
+
+      // Update recent destinations: add new one and keep only last 3
+      setRecentDestinations(prev => {
+        const updated = [random.city, ...prev];
+        return updated.slice(0, 3); // Keep only the 3 most recent
+      });
+
       setIsSpinning(false);
-    }, 3000);
+    }, 2000);
   };
 
-  const filteredDestinations = destinations.filter(d =>
+  const filteredDestinations = (destinations as Destination[]).filter(d =>
+    d.departure === departureCity &&
     d.travel_time_minutes <= maxTravelTime &&
     d.typical_price_euros <= maxBudget
   );
@@ -92,11 +112,52 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
       {!destination ? (
-        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full">
+        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
+          {/* Feedback button in top right corner */}
+          <a
+            href="https://forms.gle/2aYJDkfBSweDCVzD8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
+          >
+            💬 Feedback
+          </a>
           <h1 className="text-5xl md:text-6xl font-bold mb-2 text-center uppercase">
             COUP DE TÊTE
           </h1>
-          <p className="text-center text-xl mb-8 font-bold">⚡ AVENTURE SPONTANÉE ⚡</p>
+          <p className="text-center text-xl mb-6 font-bold">⚡ AVENTURE SPONTANÉE ⚡</p>
+
+          {/* Departure City Switch */}
+          <div className="flex justify-center mb-8">
+            <div className="relative bg-white neo-border inline-flex gap-1 p-1">
+              {/* Sliding background */}
+              <div
+                className={`absolute top-1 bottom-1 bg-[#FF6B6B] neo-border transition-all duration-300 ease-out ${
+                  departureCity === 'paris' ? 'left-1 right-[50%]' : 'left-[50%] right-1'
+                }`}
+              ></div>
+
+              {/* Paris button */}
+              <button
+                onClick={() => setDepartureCity('paris')}
+                className={`relative z-10 px-6 py-3 font-bold text-lg uppercase transition-colors duration-300 ${
+                  departureCity === 'paris' ? 'text-white' : 'text-black'
+                }`}
+              >
+                🗼 PARIS
+              </button>
+
+              {/* Nice button */}
+              <button
+                onClick={() => setDepartureCity('nice')}
+                className={`relative z-10 px-6 py-3 font-bold text-lg uppercase transition-colors duration-300 ${
+                  departureCity === 'nice' ? 'text-white' : 'text-black'
+                }`}
+              >
+                🌊 NICE
+              </button>
+            </div>
+          </div>
 
           {isSpinning ? (
             <RouletteWheel destinations={filteredDestinations} isSpinning={isSpinning} />
@@ -153,10 +214,12 @@ export default function Home() {
           )}
         </div>
       ) : (
-        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full">
-          <div className="bg-[#FF6B6B] neo-border p-6 mb-6 -mt-8 -mx-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white uppercase text-center">
-              {destination.city}
+        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full animate-[shake_0.5s_ease-in-out]">
+          <div className="bg-[#FF6B6B] neo-border p-6 mb-6 -mt-8 -mx-8 relative overflow-hidden">
+            {/* Winning flash effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-yellow-400 opacity-0 animate-[winning-flash_0.5s_ease-in-out_3]"></div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white uppercase text-center relative z-10">
+              🎉 {destination.city} 🎉
             </h1>
           </div>
 

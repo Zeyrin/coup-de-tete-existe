@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -14,9 +13,9 @@
 }
 
 body {
-  background: #FFE951;
+  background: #80a0c3;
   color: #000000;
-  font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+  font-family: var(--font-space-grotesk), 'Arial Black', sans-serif;
 }
 
 /* Neo-brutalist utility classes */
@@ -72,4 +71,53 @@ body {
 
 .pulse-ring {
   animation: pulse-ring 1.5s ease-in-out infinite;
+}
+
+/* Slot machine ring effect - intense spinning glow */
+@keyframes ring-effect {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8),
+                0 0 40px rgba(255, 107, 107, 0.5),
+                8px 8px 0px #000000;
+    transform: scale(1);
+  }
+  25% {
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.8),
+                0 0 60px rgba(78, 205, 196, 0.5),
+                8px 8px 0px #000000;
+    transform: scale(1.02);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 229, 81, 0.8),
+                0 0 40px rgba(255, 229, 81, 0.5),
+                8px 8px 0px #000000;
+    transform: scale(1);
+  }
+  75% {
+    box-shadow: 0 0 30px rgba(247, 220, 111, 0.8),
+                0 0 60px rgba(247, 220, 111, 0.5),
+                8px 8px 0px #000000;
+    transform: scale(1.02);
+  }
+}
+
+.ring-effect {
+  animation: ring-effect 0.5s ease-in-out infinite;
+}
+
+/* Winning flash animation */
+@keyframes winning-flash {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Shake animation for excitement */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
