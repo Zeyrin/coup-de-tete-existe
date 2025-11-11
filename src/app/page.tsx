@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import destinations from './destinations.json';
+import TravelTimeCombobox from '@/components/TravelTimeCombobox';
+import BudgetCombobox from '@/components/BudgetCombobox';
+import HelpDialog from '@/components/HelpDialog';
+import BookingHelpPopover from '@/components/BookingHelpPopover';
 
 interface Destination {
   city: string;
@@ -72,7 +76,6 @@ export default function Home() {
   const [departureCity, setDepartureCity] = useState<'paris' | 'nice'>('paris');
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
   const [showActivities, setShowActivities] = useState(false); // Track if activities section is expanded
-  const [showBookingHelp, setShowBookingHelp] = useState(false); // Track if booking help tooltip is shown
 
   const spin = () => {
     setIsSpinning(true);
@@ -118,12 +121,7 @@ export default function Home() {
       {!destination ? (
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
           {/* Help button in top left corner */}
-          <Link
-            href="/aide"
-            className="absolute -top-3 -left-3 bg-[#FFE951] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#FFD700] transition z-10"
-          >
-            ❓ Aide
-          </Link>
+          <HelpDialog />
 
           {/* Feedback button in top right corner */}
           <a
@@ -180,46 +178,34 @@ export default function Home() {
                   <label className="block text-lg font-bold mb-3 uppercase">
                     🚂 Temps de trajet max:
                   </label>
-                  <select
+                  <TravelTimeCombobox
                     value={maxTravelTime}
-                    onChange={(e) => setMaxTravelTime(Number(e.target.value))}
-                    className="w-full p-4 neo-border bg-[#FFE951] font-bold text-lg cursor-pointer hover:bg-[#FFD700] transition"
-                  >
-                    <option value="30">30 minutes</option>
-                    <option value="60">1 heure</option>
-                    <option value="90">1h30</option>
-                    <option value="120">2 heures</option>
-                  </select>
+                    onChange={setMaxTravelTime}
+                  />
                 </div>
 
                 <div>
                   <label className="block text-lg font-bold mb-3 uppercase">
                     💰 Budget max:
                   </label>
-                  <select
+                  <BudgetCombobox
                     value={maxBudget}
-                    onChange={(e) => setMaxBudget(Number(e.target.value))}
-                    className="w-full p-4 neo-border bg-[#4ECDC4] font-bold text-lg cursor-pointer hover:bg-[#45B7D1] transition"
-                  >
-                    <option value="15">€15</option>
-                    <option value="20">€20</option>
-                    <option value="30">€30</option>
-                    <option value="40">€40</option>
-                  </select>
+                    onChange={setMaxBudget}
+                  />
                 </div>
               </div>
 
-              <div className="bg-[#FF6B6B] neo-border p-4 mb-8">
+              <div className="bg-[#FF6B6B] neo-card p-4 mb-8">
                 <p className="text-center font-bold text-lg">
                   {filteredDestinations.length} DESTINATIONS DISPONIBLES
                 </p>
               </div>
 
-              
+
                 <button
                   onClick={spin}
                   disabled={isSpinning || filteredDestinations.length === 0}
-                  className="w-full bg-[#FF6B6B] text-white neo-border neo-shadow neo-shadow-hover neo-shadow-active px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#FF6B6B] text-white neo-button px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSpinning ? '🎰 EN COURS...' : '🎲 LANCE LA ROUE !'}
                 </button>
@@ -248,19 +234,19 @@ export default function Home() {
           <p className="text-2xl font-bold mb-6 text-center">{destination.tagline}</p>
 
           <div className="flex gap-4 mb-6 flex-wrap">
-            <div className="bg-[#4ECDC4] neo-border px-4 py-2 font-bold flex-1 text-center">
+            <div className="bg-[#4ECDC4] neo-card px-4 py-3 font-bold flex-1 text-center text-lg">
               🚂 {destination.travel_time}
             </div>
-            <div className="bg-[#FFE951] neo-border px-4 py-2 font-bold flex-1 text-center">
+            <div className="bg-[#FFE951] neo-card px-4 py-3 font-bold flex-1 text-center text-lg">
               💰 {destination.typical_price}
             </div>
           </div>
 
-          <div className="bg-[#98D8C8] neo-border p-4 text-center mb-6">
+          <div className="bg-[#98D8C8] neo-card p-4 text-center mb-6">
             <p className="text-xl font-bold">{destination.vibe}</p>
           </div>
 
-          <div className="bg-white neo-border mb-6 overflow-hidden">
+          <div className="bg-white neo-card mb-6 overflow-hidden">
             <div className="p-6">
               {/* Desktop version - full list */}
               <div className="hidden min-[768px]:block">
@@ -325,72 +311,32 @@ export default function Home() {
                 navigator.clipboard.writeText(destination.station);
                 alert('✅ Gare copiée: ' + destination.station);
               }}
-              className="w-full bg-[#F7DC6F] text-black neo-border neo-shadow-sm neo-shadow-hover neo-shadow-active py-4 font-bold text-lg uppercase"
+              className="w-full bg-[#F7DC6F] text-black neo-button py-4 font-bold text-lg uppercase"
             >
               📋 Copier la gare
             </button>
 
-            <div className="relative">
-              <div className="flex gap-2">
-                <a
-                  href="https://www.sncf-connect.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-[#4ECDC4] text-black neo-border neo-shadow-sm neo-shadow-hover py-4 font-bold text-lg text-center uppercase"
-                >
-                  🚂 Réserver SNCF
-                </a>
-                <button
-                  onClick={() => setShowBookingHelp(!showBookingHelp)}
-                  className="bg-[#FFE951] text-black neo-border neo-shadow-sm neo-shadow-hover w-14 font-bold text-xl uppercase hover:bg-[#FFD700] transition"
-                >
-                  ?
-                </button>
-              </div>
-
-              {/* Booking help tooltip */}
-              {showBookingHelp && (
-                <div className="absolute top-full mt-2 left-0 right-0 bg-white neo-border p-4 z-20 animate-[shake_0.3s_ease-in-out]">
-                  <div className="flex justify-between items-start mb-3">
-                    <h4 className="font-bold text-base uppercase">📱 Comment réserver:</h4>
-                    <button
-                      onClick={() => setShowBookingHelp(false)}
-                      className="text-xl font-bold hover:text-gray-600 transition"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  <ol className="space-y-2 text-sm font-bold">
-                    <li className="flex items-start">
-                      <span className="mr-2">1.</span>
-                      <span>Clique sur &ldquo;Copier la gare&rdquo;</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-2">2.</span>
-                      <span>Ouvre SNCF Connect</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-2">3.</span>
-                      <span>Colle la gare dans la recherche</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-2">4.</span>
-                      <span>Réserve ton billet!</span>
-                    </li>
-                  </ol>
-                </div>
-              )}
+            <div className="flex gap-2">
+              <a
+                href="https://www.sncf-connect.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-[#4ECDC4] text-black neo-button py-4 font-bold text-lg text-center uppercase inline-block"
+              >
+                🚂 Réserver SNCF
+              </a>
+              <BookingHelpPopover />
             </div>
 
             <button
               onClick={() => setDestination(null)}
-              className="w-full bg-[#FF6B6B] text-white neo-border neo-shadow-sm neo-shadow-hover neo-shadow-active py-4 font-bold text-lg uppercase"
+              className="w-full bg-[#FF6B6B] text-white neo-button py-4 font-bold text-lg uppercase"
             >
               ↻ RELANCER LA ROUE
             </button>
 
             {/* Feedback message */}
-            <div className="bg-[#98D8C8] neo-border p-4 text-center">
+            <div className="bg-[#98D8C8] neo-card p-4 text-center">
               <p className="font-bold text-base">
                 <a
                   href="https://forms.gle/2aYJDkfBSweDCVzD8"
