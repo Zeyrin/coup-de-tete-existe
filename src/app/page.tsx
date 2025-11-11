@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
 import destinations from './destinations.json';
 import TravelTimeCombobox from '@/components/TravelTimeCombobox';
 import BudgetCombobox from '@/components/BudgetCombobox';

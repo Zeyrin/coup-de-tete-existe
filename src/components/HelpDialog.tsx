@@ -71,7 +71,7 @@ export default function HelpDialog() {
               <h3 className="font-bold text-lg uppercase">Lance la roue !</h3>
             </div>
             <p className="text-base pl-[52px]">
-              Clique sur <strong>"LANCE LA ROUE"</strong> et découvre ta destination surprise !
+              Clique sur <strong>LANCE LA ROUE</strong> et découvre ta destination surprise !
             </p>
           </div>
 
