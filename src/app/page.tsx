@@ -203,18 +203,28 @@ export default function Home() {
                 </p>
               </div>
 
-              <button
-                onClick={spin}
-                disabled={isSpinning || filteredDestinations.length === 0}
-                className="w-full bg-[#FF6B6B] text-white neo-border neo-shadow neo-shadow-hover neo-shadow-active px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSpinning ? '🎰 EN COURS...' : '🎲 LANCE LA ROUE !'}
-              </button>
+              
+                <button
+                  onClick={spin}
+                  disabled={isSpinning || filteredDestinations.length === 0}
+                  className="w-full bg-[#FF6B6B] text-white neo-border neo-shadow neo-shadow-hover neo-shadow-active px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSpinning ? '🎰 EN COURS...' : '🎲 LANCE LA ROUE !'}
+                </button>
             </>
           )}
         </div>
       ) : (
-        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full animate-[shake_0.5s_ease-in-out]">
+        <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full animate-[shake_0.5s_ease-in-out] relative">
+          {/* Feedback button in top right corner */}
+          <a
+            href="https://forms.gle/2aYJDkfBSweDCVzD8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
+          >
+            💬 Feedback
+          </a>
           <div className="bg-[#FF6B6B] neo-border p-6 mb-6 -mt-8 -mx-8 relative overflow-hidden">
             {/* Winning flash effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-yellow-400 opacity-0 animate-[winning-flash_0.5s_ease-in-out_3]"></div>
@@ -276,6 +286,20 @@ export default function Home() {
             >
               ↻ RELANCER LA ROUE
             </button>
+
+            {/* Feedback message */}
+            <div className="bg-[#98D8C8] neo-border p-4 text-center">
+              <p className="font-bold text-base">
+                <a
+                  href="https://forms.gle/2aYJDkfBSweDCVzD8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-black transition"
+                >
+                  Partage ton expérience avec nous !
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       )}
