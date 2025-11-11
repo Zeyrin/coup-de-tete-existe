@@ -40,3 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 src/app/page2.tsx
+
+# claude
+.claude
+.mcp.json
+components.json
+package-lock.json
