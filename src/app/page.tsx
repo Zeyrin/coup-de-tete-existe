@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import destinations from './destinations.json';
 
 interface Destination {
@@ -20,10 +21,10 @@ function RouletteWheel({ destinations, isSpinning }: { destinations: Destination
   const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
 
   return (
-    <div className="relative w-80 h-80 mx-auto mb-8">
+    <div className="relative w-80 h-80 max-[400px]:w-52 max-[400px]:h-52 mx-auto mb-8">
       {/* Pointer/Arrow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 z-20">
-        <div className="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[40px] border-t-black"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 max-[400px]:-translate-y-2 z-20">
+        <div className="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[40px] border-t-black max-[400px]:border-l-[12px] max-[400px]:border-r-[12px] max-[400px]:border-t-[24px]"></div>
       </div>
 
       {/* Outer ring */}
@@ -70,6 +71,7 @@ export default function Home() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [departureCity, setDepartureCity] = useState<'paris' | 'nice'>('paris');
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
+  const [showActivities, setShowActivities] = useState(false); // Track if activities section is expanded
 
   const spin = () => {
     setIsSpinning(true);
@@ -92,6 +94,7 @@ export default function Home() {
     setTimeout(() => {
       const random = filtered[Math.floor(Math.random() * filtered.length)];
       setDestination(random);
+      setShowActivities(false); // Reset activities section to collapsed
 
       // Update recent destinations: add new one and keep only last 3
       setRecentDestinations(prev => {
@@ -113,6 +116,14 @@ export default function Home() {
     <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
       {!destination ? (
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
+          {/* Help button in top left corner */}
+          <Link
+            href="/aide"
+            className="absolute -top-3 -left-3 bg-[#FFE951] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#FFD700] transition z-10"
+          >
+            ❓ Aide
+          </Link>
+
           {/* Feedback button in top right corner */}
           <a
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
@@ -248,16 +259,63 @@ export default function Home() {
             <p className="text-xl font-bold">{destination.vibe}</p>
           </div>
 
-          <div className="bg-white neo-border p-6 mb-6">
-            <h3 className="font-bold text-xl mb-4 uppercase">⚡ À FAIRE:</h3>
-            <ul className="space-y-3">
-              {destination.activities.map((activity, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="text-2xl mr-3">→</span>
-                  <span className="font-bold text-lg">{activity}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="bg-white neo-border mb-6 overflow-hidden">
+            <div className="p-6">
+              {/* Desktop version - full list */}
+              <div className="hidden min-[768px]:block">
+                <h3 className="font-bold text-xl mb-4 uppercase">⚡ À FAIRE:</h3>
+                <ul className="space-y-3">
+                  {destination.activities.map((activity, i) => (
+                    <li key={i} className="flex items-center">
+                      <span className="text-xl mr-3">→</span>
+                      <span className="font-bold text-base leading-relaxed">{activity}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Mobile version - collapsible with first activity inline */}
+              <div className="min-[768px]:hidden">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center flex-1 min-w-0 gap-2">
+                    <h3 className="font-bold text-lg uppercase whitespace-nowrap">⚡ À FAIRE:</h3>
+                    <span className="text-lg">→</span>
+                    <span className="font-bold text-lg truncate">
+                      {destination.activities[0]}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setShowActivities(!showActivities)}
+                    className="flex items-center gap-1 text-xs font-bold uppercase hover:text-gray-600 transition whitespace-nowrap flex-shrink-0"
+                  >
+                    <span>{showActivities ? 'Masquer' : destination.activities.length > 1 ? `+${destination.activities.length - 1}` : '...'}</span>
+                    <span
+                      className={`text-lg transition-transform duration-300 ${showActivities ? 'rotate-90' : 'rotate-0'}`}
+                    >
+                      ▶
+                    </span>
+                  </button>
+                </div>
+
+                {/* All activities with slide animation - mobile only */}
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    showActivities
+                      ? 'max-h-[500px] opacity-100'
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <ul className="space-y-3 pl-0">
+                    {destination.activities.map((activity, i) => (
+                      <li key={i} className="flex items-center">
+                        <span className="text-lg mr-2">→</span>
+                        <span className="font-bold text-sm leading-relaxed">{activity}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-4">
