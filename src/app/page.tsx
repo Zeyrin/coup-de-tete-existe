@@ -72,6 +72,7 @@ export default function Home() {
   const [departureCity, setDepartureCity] = useState<'paris' | 'nice'>('paris');
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
   const [showActivities, setShowActivities] = useState(false); // Track if activities section is expanded
+  const [showBookingHelp, setShowBookingHelp] = useState(false); // Track if booking help tooltip is shown
 
   const spin = () => {
     setIsSpinning(true);
@@ -329,14 +330,57 @@ export default function Home() {
               📋 Copier la gare
             </button>
 
-            <a
-              href="https://www.sncf-connect.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-[#4ECDC4] text-black neo-border neo-shadow-sm neo-shadow-hover py-4 font-bold text-lg text-center uppercase"
-            >
-              🚂 Réserver SNCF
-            </a>
+            <div className="relative">
+              <div className="flex gap-2">
+                <a
+                  href="https://www.sncf-connect.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-[#4ECDC4] text-black neo-border neo-shadow-sm neo-shadow-hover py-4 font-bold text-lg text-center uppercase"
+                >
+                  🚂 Réserver SNCF
+                </a>
+                <button
+                  onClick={() => setShowBookingHelp(!showBookingHelp)}
+                  className="bg-[#FFE951] text-black neo-border neo-shadow-sm neo-shadow-hover w-14 font-bold text-xl uppercase hover:bg-[#FFD700] transition"
+                >
+                  ?
+                </button>
+              </div>
+
+              {/* Booking help tooltip */}
+              {showBookingHelp && (
+                <div className="absolute top-full mt-2 left-0 right-0 bg-white neo-border p-4 z-20 animate-[shake_0.3s_ease-in-out]">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-bold text-base uppercase">📱 Comment réserver:</h4>
+                    <button
+                      onClick={() => setShowBookingHelp(false)}
+                      className="text-xl font-bold hover:text-gray-600 transition"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  <ol className="space-y-2 text-sm font-bold">
+                    <li className="flex items-start">
+                      <span className="mr-2">1.</span>
+                      <span>Clique sur &ldquo;Copier la gare&rdquo;</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">2.</span>
+                      <span>Ouvre SNCF Connect</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">3.</span>
+                      <span>Colle la gare dans la recherche</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">4.</span>
+                      <span>Réserve ton billet!</span>
+                    </li>
+                  </ol>
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() => setDestination(null)}
