@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { toast } from 'sonner';
 import destinations from './destinations.json';
 import TravelTimeCombobox from '@/components/TravelTimeCombobox';
 import BudgetCombobox from '@/components/BudgetCombobox';
@@ -115,6 +116,26 @@ export default function Home() {
     d.typical_price_euros <= maxBudget
   );
 
+  // Keyboard shortcut: Press R to spin the wheel
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      // Only trigger if not in an input/textarea and wheel is not already spinning
+      if (
+        event.key.toLowerCase() === 'r' &&
+        !isSpinning &&
+        !destination &&
+        filteredDestinations.length > 0 &&
+        !(event.target instanceof HTMLInputElement) &&
+        !(event.target instanceof HTMLTextAreaElement)
+      ) {
+        spin();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isSpinning, destination, filteredDestinations.length]);
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
       {!destination ? (
@@ -138,19 +159,14 @@ export default function Home() {
 
           {/* Departure City Switch */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-white neo-border inline-flex gap-1 p-1">
-              {/* Sliding background */}
-              <div
-                className={`absolute top-1 bottom-1 bg-[#FF6B6B] neo-border transition-all duration-300 ease-out ${
-                  departureCity === 'paris' ? 'left-1 right-[50%]' : 'left-[50%] right-1'
-                }`}
-              ></div>
-
+            <div className="inline-flex gap-3">
               {/* Paris button */}
               <button
                 onClick={() => setDepartureCity('paris')}
-                className={`relative z-10 px-6 py-3 font-bold text-lg uppercase transition-colors duration-300 ${
-                  departureCity === 'paris' ? 'text-white' : 'text-black'
+                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                  departureCity === 'paris'
+                    ? 'bg-[#FF6B6B] text-white neo-border shadow-[4px_4px_0px_#000000]'
+                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
                 }`}
               >
                 🗼 PARIS
@@ -159,8 +175,10 @@ export default function Home() {
               {/* Nice button */}
               <button
                 onClick={() => setDepartureCity('nice')}
-                className={`relative z-10 px-6 py-3 font-bold text-lg uppercase transition-colors duration-300 ${
-                  departureCity === 'nice' ? 'text-white' : 'text-black'
+                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                  departureCity === 'nice'
+                    ? 'bg-[#4ECDC4] text-white neo-border shadow-[4px_4px_0px_#000000]'
+                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
                 }`}
               >
                 🌊 NICE
@@ -304,48 +322,51 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(destination.station);
-                alert('✅ Gare copiée: ' + destination.station);
-              }}
-              className="w-full bg-[#F7DC6F] text-black neo-button py-4 font-bold text-lg uppercase"
-            >
-              📋 Copier la gare
-            </button>
+          <div className="space-y-6">
+            {/* Ligne unique avec les 3 boutons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(destination.station);
+                  toast("Gare copiée!", {
+                    description: destination.station,
+                  });
+                }}
+                className="flex-1 bg-[#F7DC6F] text-black neo-button py-4 font-bold text-base uppercase"
+              >
+                📋 Copier la gare
+              </button>
 
-            <div className="flex gap-2">
               <a
                 href="https://www.sncf-connect.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-[#4ECDC4] text-black neo-button py-4 font-bold text-lg text-center uppercase inline-block"
+                className="flex-1 bg-[#4ECDC4] text-black neo-button py-4 font-bold text-base text-center uppercase inline-block"
               >
                 🚂 Réserver SNCF
               </a>
+
               <BookingHelpPopover />
             </div>
 
+            {/* Bouton relancer avec plus d'espace */}
             <button
               onClick={() => setDestination(null)}
-              className="w-full bg-[#FF6B6B] text-white neo-button py-4 font-bold text-lg uppercase"
+              className="w-full bg-[#FF6B6B] text-white neo-button py-6 font-bold text-xl uppercase mt-2"
             >
               ↻ RELANCER LA ROUE
             </button>
 
             {/* Feedback message */}
-            <div className="bg-[#98D8C8] neo-card p-4 text-center">
-              <p className="font-bold text-base">
-                <a
-                  href="https://forms.gle/2aYJDkfBSweDCVzD8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-black transition"
-                >
-                  Partage ton expérience avec nous !
-                </a>
-              </p>
+            <div className="flex justify-center">
+              <a
+                href="https://forms.gle/2aYJDkfBSweDCVzD8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#98D8C8] neo-card px-6 py-3 font-bold text-sm hover:bg-[#85C1B5] transition inline-block"
+              >
+                💬 Partage ton expérience
+              </a>
             </div>
           </div>
         </div>
