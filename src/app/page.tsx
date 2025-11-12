@@ -21,8 +21,7 @@ interface Destination {
 }
 
 // Roulette Wheel Component
-function RouletteWheel({ destinations, isSpinning }: { destinations: Destination[], isSpinning: boolean }) {
-  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
+function RouletteWheel({isSpinning}: { isSpinning: boolean }) {
 
   return (
     <div className="relative w-80 h-80 max-[400px]:w-52 max-[400px]:h-52 mx-auto mb-8">
@@ -34,35 +33,9 @@ function RouletteWheel({ destinations, isSpinning }: { destinations: Destination
       {/* Outer ring */}
       <div className="absolute inset-0 rounded-full neo-border bg-white neo-shadow pulse-ring"></div>
 
-      {/* Spinning wheel */}
-      <div className={`absolute inset-4 rounded-full neo-border overflow-hidden ${isSpinning ? 'roulette-spin' : ''}`}>
-        {destinations.map((dest, i) => {
-          const rotation = (360 / destinations.length) * i;
-          const skew = 90 - (360 / destinations.length);
-
-          return (
-            <div
-              key={i}
-              className="absolute w-1/2 h-1/2 origin-bottom-right"
-              style={{
-                transform: `rotate(${rotation}deg) skewY(${skew}deg)`,
-                left: '50%',
-                top: '50%',
-                backgroundColor: colors[i % colors.length],
-              }}
-            >
-              <div
-                className="absolute bottom-4 right-4 font-bold text-xs text-black transform rotate-45"
-                style={{ transform: `skewY(${-skew}deg) rotate(${-rotation}deg)` }}
-              >
-                {dest.city.slice(0, 8)}
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Center circle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black neo-border border-white"></div>
+      {/* Spinning wheel - solid color with rotating emoji */}
+      <div className={`absolute inset-4 rounded-full neo-border bg-[#FF6B6B] flex items-center justify-center ${isSpinning ? 'roulette-spin' : ''}`}>
+        <span className="text-8xl max-[400px]:text-6xl">🎲</span>
       </div>
     </div>
   );
@@ -157,37 +130,39 @@ export default function Home() {
           </h1>
           <p className="text-center text-xl mb-6 font-bold">⚡ AVENTURE SPONTANÉE ⚡</p>
 
-          {/* Departure City Switch */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex gap-3">
-              {/* Paris button */}
-              <button
-                onClick={() => setDepartureCity('paris')}
-                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
-                  departureCity === 'paris'
-                    ? 'bg-[#FF6B6B] text-white neo-border shadow-[4px_4px_0px_#000000]'
-                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
-                }`}
-              >
-                🗼 PARIS
-              </button>
+          {/* Departure City Switch - hidden when spinning */}
+          {!isSpinning && (
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex gap-3">
+                {/* Paris button */}
+                <button
+                  onClick={() => setDepartureCity('paris')}
+                  className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                    departureCity === 'paris'
+                      ? 'bg-[#FF6B6B] text-white neo-border shadow-[4px_4px_0px_#000000]'
+                      : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
+                  }`}
+                >
+                  🗼 PARIS
+                </button>
 
-              {/* Nice button */}
-              <button
-                onClick={() => setDepartureCity('nice')}
-                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
-                  departureCity === 'nice'
-                    ? 'bg-[#4ECDC4] text-white neo-border shadow-[4px_4px_0px_#000000]'
-                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
-                }`}
-              >
-                🌊 NICE
-              </button>
+                {/* Nice button */}
+                <button
+                  onClick={() => setDepartureCity('nice')}
+                  className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                    departureCity === 'nice'
+                      ? 'bg-[#4ECDC4] text-white neo-border shadow-[4px_4px_0px_#000000]'
+                      : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
+                  }`}
+                >
+                  🌊 NICE
+                </button>
+              </div>
             </div>
-          </div>
+          )}
 
           {isSpinning ? (
-            <RouletteWheel destinations={filteredDestinations} isSpinning={isSpinning} />
+            <RouletteWheel isSpinning={isSpinning} />
           ) : (
             <>
               <div className="grid md:grid-cols-2 gap-4 mb-8">
