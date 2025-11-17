@@ -478,5 +478,582 @@
     "typical_price_euros": 9,
     "vibe": "🏞️ Nature sauvage & mer",
     "departure": "nice"
-  }
+  },
+  {
+        "city": "Nice",
+        "tagline": "Promenade des Anglais & Côte d'Azur",
+        "station": "Nice-Ville",
+        "activities": [
+          "Se promener sur la Promenade des Anglais",
+          "Explorer le Vieux Nice et ses ruelles colorées",
+          "Visiter le marché aux fleurs du Cours Saleya"
+        ],
+        "travel_time": "5h30",
+        "travel_time_minutes": 330,
+        "typical_price": "€35",
+        "typical_price_euros": 35,
+        "vibe": "🌴 Riviera & dolce vita",
+        "departure": "paris"
+      },
+      {
+        "city": "Marseille",
+        "tagline": "Calanques & authenticité méditerranéenne",
+        "station": "Marseille-Saint-Charles",
+        "activities": [
+          "Randonner dans les Calanques de Cassis",
+          "Découvrir le Vieux-Port et le Panier",
+          "Visiter le MuCEM et Notre-Dame de la Garde"
+        ],
+        "travel_time": "3h15",
+        "travel_time_minutes": 195,
+        "typical_price": "€19",
+        "typical_price_euros": 19,
+        "vibe": "☀️ Calanques & bouillabaisse",
+        "departure": "paris"
+      },
+      {
+        "city": "La Rochelle",
+        "tagline": "Vieux-Port & Île de Ré",
+        "station": "La Rochelle-Ville",
+        "activities": [
+          "Visiter les 3 tours médiévales du Vieux-Port",
+          "Prendre le vélo pour l'Île de Ré",
+          "Explorer l'Aquarium de La Rochelle"
+        ],
+        "travel_time": "2h30",
+        "travel_time_minutes": 150,
+        "typical_price": "€20",
+        "typical_price_euros": 20,
+        "vibe": "⚓ Port historique & vélo",
+        "departure": "paris"
+      },
+      {
+        "city": "Saint-Malo",
+        "tagline": "Cité corsaire & remparts",
+        "station": "Saint-Malo",
+        "activities": [
+          "Marcher sur les remparts avec vue mer",
+          "Découvrir l'intra-muros et ses ruelles pavées",
+          "Visiter le Fort National à marée basse"
+        ],
+        "travel_time": "3h",
+        "travel_time_minutes": 180,
+        "typical_price": "€42",
+        "typical_price_euros": 42,
+        "vibe": "🏴‍☠️ Corsaires & marées",
+        "departure": "paris"
+      },
+      {
+        "city": "Biarritz",
+        "tagline": "Surf & Pays Basque",
+        "station": "Biarritz",
+        "activities": [
+          "Surfer sur la Côte des Basques",
+          "Admirer le Rocher de la Vierge",
+          "Déguster des pintxos au marché"
+        ],
+        "travel_time": "4h30",
+        "travel_time_minutes": 270,
+        "typical_price": "€35",
+        "typical_price_euros": 35,
+        "vibe": "🏄 Surf & Belle Époque",
+        "departure": "paris"
+      },
+      {
+        "city": "Menton",
+        "tagline": "Citrons & jardins méditerranéens",
+        "station": "Menton",
+        "activities": [
+          "Visiter le jardin Serre de la Madone",
+          "Explorer la vieille ville colorée italienne",
+          "Déguster une tarte au citron de Menton"
+        ],
+        "travel_time": "6h",
+        "travel_time_minutes": 360,
+        "typical_price": "€35",
+        "typical_price_euros": 35,
+        "vibe": "🍋 Jardins & dolce vita",
+        "departure": "paris"
+      },
+      {
+        "city": "Antibes",
+        "tagline": "Cap d'Antibes & Picasso",
+        "station": "Antibes",
+        "activities": [
+          "Parcourir le sentier du Cap d'Antibes",
+          "Visiter le Musée Picasso",
+          "Flâner au marché provençal"
+        ],
+        "travel_time": "5h30",
+        "travel_time_minutes": 330,
+        "typical_price": "€35",
+        "typical_price_euros": 35,
+        "vibe": "🏖️ Cap & art moderne",
+        "departure": "paris"
+      },
+      {
+        "city": "Toulon",
+        "tagline": "Port militaire & îles d'Hyères",
+        "station": "Toulon",
+        "activities": [
+          "Monter au Mont Faron en téléphérique",
+          "Prendre le bateau pour Porquerolles",
+          "Visiter le port militaire et la rade"
+        ],
+        "travel_time": "4h",
+        "travel_time_minutes": 240,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "⚓ Marine & îles paradisiaques",
+        "departure": "paris"
+      },
+      {
+        "city": "Montpellier",
+        "tagline": "Méditerranée & architecture moderne",
+        "station": "Montpellier-Saint-Roch",
+        "activities": [
+          "Explorer l'Écusson médiéval",
+          "Prendre le tram pour les plages (15 min)",
+          "Découvrir le quartier Antigone néoclassique"
+        ],
+        "travel_time": "3h20",
+        "travel_time_minutes": 200,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🌞 Jeunesse & Méditerranée",
+        "departure": "paris"
+      },
+      {
+        "city": "Annecy",
+        "tagline": "Lac le plus pur d'Europe & Alpes",
+        "station": "Annecy",
+        "activities": [
+          "Faire le tour du lac à vélo (40 km)",
+          "Se baigner dans les eaux turquoise",
+          "Explorer la vieille ville et ses canaux"
+        ],
+        "travel_time": "3h40",
+        "travel_time_minutes": 220,
+        "typical_price": "€30",
+        "typical_price_euros": 30,
+        "vibe": "⛰️ Lac & montagne",
+        "departure": "paris"
+      },
+      {
+        "city": "Chambéry",
+        "tagline": "Lac du Bourget & Massif des Bauges",
+        "station": "Chambéry-Challes-les-Eaux",
+        "activities": [
+          "Randonner au massif des Bauges",
+          "Visiter la Fontaine des Éléphants",
+          "Explorer le lac du Bourget (plus grand lac naturel)"
+        ],
+        "travel_time": "3h",
+        "travel_time_minutes": 180,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🏔️ Savoie authentique",
+        "departure": "paris"
+      },
+      {
+        "city": "Aix-les-Bains",
+        "tagline": "Thermes & lac du Bourget",
+        "station": "Aix-les-Bains-Le Revard",
+        "activities": [
+          "Se détendre dans les spas et thermes",
+          "Faire du bateau sur le lac du Bourget",
+          "Admirer l'architecture Belle Époque"
+        ],
+        "travel_time": "3h",
+        "travel_time_minutes": 180,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "💆 Bien-être & lac",
+        "departure": "paris"
+      },
+      {
+        "city": "Lyon",
+        "tagline": "Capitale gastronomique & traboules",
+        "station": "Lyon-Part-Dieu",
+        "activities": [
+          "Découvrir les traboules du Vieux Lyon",
+          "Dîner dans un bouchon lyonnais",
+          "Visiter la Basilique de Fourvière"
+        ],
+        "travel_time": "2h",
+        "travel_time_minutes": 120,
+        "typical_price": "€16",
+        "typical_price_euros": 16,
+        "vibe": "🍽️ Gastronomie & UNESCO",
+        "departure": "paris"
+      },
+      {
+        "city": "Avignon",
+        "tagline": "Palais des Papes & Festival",
+        "station": "Avignon TGV",
+        "activities": [
+          "Visiter le Palais des Papes (UNESCO)",
+          "Marcher sur le Pont d'Avignon",
+          "Assister au Festival d'Avignon (juillet)"
+        ],
+        "travel_time": "2h40",
+        "travel_time_minutes": 160,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🎭 Théâtre & patrimoine",
+        "departure": "paris"
+      },
+      {
+        "city": "Arles",
+        "tagline": "Van Gogh & amphithéâtre romain",
+        "station": "Arles",
+        "activities": [
+          "Visiter les Arènes romaines (UNESCO)",
+          "Découvrir la Fondation Luma (Frank Gehry)",
+          "Suivre les pas de Van Gogh"
+        ],
+        "travel_time": "3h40",
+        "travel_time_minutes": 220,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🎨 Art & patrimoine romain",
+        "departure": "paris"
+      },
+      {
+        "city": "Aix-en-Provence",
+        "tagline": "Cézanne & marchés provençaux",
+        "station": "Aix-en-Provence TGV",
+        "activities": [
+          "Flâner sur le Cours Mirabeau",
+          "Randonner à la Montagne Sainte-Victoire",
+          "Visiter les marchés provençaux quotidiens"
+        ],
+        "travel_time": "3h",
+        "travel_time_minutes": 180,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🎨 Élégance provençale",
+        "departure": "paris"
+      },
+      {
+        "city": "Metz",
+        "tagline": "Centre Pompidou & gare monumentale",
+        "station": "Metz-Ville",
+        "activities": [
+          "Visiter le Centre Pompidou-Metz",
+          "Admirer la Cathédrale Saint-Étienne",
+          "Découvrir la gare style Empire allemand"
+        ],
+        "travel_time": "1h24",
+        "travel_time_minutes": 84,
+        "typical_price": "€20",
+        "typical_price_euros": 20,
+        "vibe": "🎨 Art contemporain & histoire",
+        "departure": "paris"
+      },
+      {
+        "city": "Tours",
+        "tagline": "Châteaux de la Loire & douceur de vivre",
+        "station": "Tours",
+        "activities": [
+          "Explorer la Place Plumereau médiévale",
+          "Visiter les châteaux de la Loire",
+          "Déguster les vins de Vouvray"
+        ],
+        "travel_time": "1h",
+        "travel_time_minutes": 60,
+        "typical_price": "€15",
+        "typical_price_euros": 15,
+        "vibe": "🏰 Châteaux & Renaissance",
+        "departure": "paris"
+      },
+      {
+        "city": "Strasbourg",
+        "tagline": "Capitale européenne & Petite France",
+        "station": "Strasbourg",
+        "activities": [
+          "Se perdre dans la Petite France",
+          "Visiter la Cathédrale Notre-Dame",
+          "Découvrir le marché de Noël (décembre)"
+        ],
+        "travel_time": "1h45",
+        "travel_time_minutes": 105,
+        "typical_price": "€29",
+        "typical_price_euros": 29,
+        "vibe": "🇪🇺 Europe & tradition alsacienne",
+        "departure": "paris"
+      },
+      {
+        "city": "Bordeaux",
+        "tagline": "Capitale mondiale du vin",
+        "station": "Bordeaux-Saint-Jean",
+        "activities": [
+          "Visiter la Cité du Vin",
+          "Admirer le Miroir d'eau",
+          "Découvrir les vignobles du Médoc"
+        ],
+        "travel_time": "2h",
+        "travel_time_minutes": 120,
+        "typical_price": "€16",
+        "typical_price_euros": 16,
+        "vibe": "🍇 Grands crus & architecture",
+        "departure": "paris"
+      },
+      {
+        "city": "Lyon",
+        "tagline": "Bouchons & gastronomie lyonnaise",
+        "station": "Lyon-Part-Dieu",
+        "activities": [
+          "Dîner dans un bouchon lyonnais traditionnel",
+          "Visiter les Halles Paul Bocuse",
+          "Découvrir les quenelles et rosette"
+        ],
+        "travel_time": "2h",
+        "travel_time_minutes": 120,
+        "typical_price": "€16",
+        "typical_price_euros": 16,
+        "vibe": "🍽️ Capitale gastronomique",
+        "departure": "paris"
+      },
+      {
+        "city": "Dijon",
+        "tagline": "Bourgogne & Route des Grands Crus",
+        "station": "Dijon-Ville",
+        "activities": [
+          "Visiter le Palais des Ducs de Bourgogne",
+          "Parcourir la Route des Grands Crus",
+          "Déguster moutarde et pain d'épices"
+        ],
+        "travel_time": "1h35",
+        "travel_time_minutes": 95,
+        "typical_price": "€20",
+        "typical_price_euros": 20,
+        "vibe": "🍷 Grands vins & patrimoine",
+        "departure": "paris"
+      },
+      {
+        "city": "Reims",
+        "tagline": "Champagne & caves prestigieuses",
+        "station": "Reims",
+        "activities": [
+          "Visiter les caves Veuve Clicquot",
+          "Découvrir la Cathédrale UNESCO",
+          "Déguster le champagne avec des biscuits roses"
+        ],
+        "travel_time": "45 min",
+        "travel_time_minutes": 45,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🍾 Bulles & couronnements",
+        "departure": "paris"
+      },
+      {
+        "city": "Toulouse",
+        "tagline": "Cassoulet & spécialités du Sud-Ouest",
+        "station": "Toulouse-Matabiau",
+        "activities": [
+          "Déguster le cassoulet toulousain",
+          "Flâner sur la Place du Capitole",
+          "Visiter la Cité de l'Espace"
+        ],
+        "travel_time": "4h10",
+        "travel_time_minutes": 250,
+        "typical_price": "€30",
+        "typical_price_euros": 30,
+        "vibe": "✈️ Ville rose & aviation",
+        "departure": "paris"
+      },
+      {
+        "city": "Strasbourg",
+        "tagline": "Choucroute & Route des vins d'Alsace",
+        "station": "Strasbourg",
+        "activities": [
+          "Déguster la choucroute alsacienne",
+          "Parcourir la Route des vins",
+          "Visiter les winstubs traditionnels"
+        ],
+        "travel_time": "1h45",
+        "travel_time_minutes": 105,
+        "typical_price": "€29",
+        "typical_price_euros": 29,
+        "vibe": "🍷 Tradition alsacienne",
+        "departure": "paris"
+      },
+      {
+        "city": "Avignon",
+        "tagline": "Palais des Papes & remparts",
+        "station": "Avignon TGV",
+        "activities": [
+          "Visiter le Palais des Papes (UNESCO)",
+          "Marcher sur les remparts médiévaux",
+          "Découvrir le Pont d'Avignon"
+        ],
+        "travel_time": "2h40",
+        "travel_time_minutes": 160,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "👑 Cité des Papes",
+        "departure": "paris"
+      },
+      {
+        "city": "Reims",
+        "tagline": "Cathédrale des sacres royaux",
+        "station": "Reims",
+        "activities": [
+          "Visiter la Cathédrale Notre-Dame (UNESCO)",
+          "Découvrir le lieu de couronnement des rois",
+          "Explorer le Palais du Tau"
+        ],
+        "travel_time": "45 min",
+        "travel_time_minutes": 45,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "👑 Rois & champagne",
+        "departure": "paris"
+      },
+      {
+        "city": "Saint-Malo",
+        "tagline": "Cité corsaire fortifiée",
+        "station": "Saint-Malo",
+        "activities": [
+          "Marcher sur les remparts (2 km)",
+          "Découvrir l'histoire des corsaires",
+          "Visiter le Fort National"
+        ],
+        "travel_time": "3h",
+        "travel_time_minutes": 180,
+        "typical_price": "€42",
+        "typical_price_euros": 42,
+        "vibe": "🏴‍☠️ Corsaires & fortifications",
+        "departure": "paris"
+      },
+      {
+        "city": "Arles",
+        "tagline": "Amphithéâtre romain & patrimoine UNESCO",
+        "station": "Arles",
+        "activities": [
+          "Visiter les Arènes romaines",
+          "Explorer le Théâtre antique",
+          "Découvrir les monuments UNESCO"
+        ],
+        "travel_time": "3h40",
+        "travel_time_minutes": 220,
+        "typical_price": "€25",
+        "typical_price_euros": 25,
+        "vibe": "🏛️ Rome & Provence",
+        "departure": "paris"
+      },
+      {
+        "city": "Tours",
+        "tagline": "Châteaux de la Loire & Renaissance",
+        "station": "Tours",
+        "activities": [
+          "Visiter Chenonceau (château sur l'eau)",
+          "Explorer Chambord et Amboise",
+          "Découvrir l'histoire de la Renaissance"
+        ],
+        "travel_time": "1h",
+        "travel_time_minutes": 60,
+        "typical_price": "€15",
+        "typical_price_euros": 15,
+        "vibe": "🏰 Renaissance & jardins",
+        "departure": "paris"
+      },
+      {
+        "city": "Dijon",
+        "tagline": "Palais des Ducs de Bourgogne",
+        "station": "Dijon-Ville",
+        "activities": [
+          "Visiter le Palais des Ducs",
+          "Découvrir la Porte Guillaume",
+          "Explorer l'église Notre-Dame gothique"
+        ],
+        "travel_time": "1h35",
+        "travel_time_minutes": 95,
+        "typical_price": "€20",
+        "typical_price_euros": 20,
+        "vibe": "👑 Ducs & patrimoine",
+        "departure": "paris"
+      },
+      {
+        "city": "Annecy",
+        "tagline": "Lac le plus pur & mobilité douce",
+        "station": "Annecy",
+        "activities": [
+          "Faire le tour du lac à vélo",
+          "Se baigner dans un lac préservé",
+          "Utiliser les pistes cyclables urbaines"
+        ],
+        "travel_time": "3h40",
+        "travel_time_minutes": 220,
+        "typical_price": "€30",
+        "typical_price_euros": 30,
+        "vibe": "🚴 Vélo & nature préservée",
+        "departure": "paris"
+      },
+      {
+        "city": "La Rochelle",
+        "tagline": "Mobilité douce & vélo pour tous",
+        "station": "La Rochelle-Ville",
+        "activities": [
+          "Prendre le vélo gratuit (Yélo)",
+          "Rejoindre l'Île de Ré à vélo",
+          "Explorer la ville sans voiture"
+        ],
+        "travel_time": "2h30",
+        "travel_time_minutes": 150,
+        "typical_price": "€20",
+        "typical_price_euros": 20,
+        "vibe": "🚲 Vélo & île verte",
+        "departure": "paris"
+      },
+      {
+        "city": "Strasbourg",
+        "tagline": "Capitale du vélo en France",
+        "station": "Strasbourg",
+        "activities": [
+          "Pédaler sur 600 km de pistes cyclables",
+          "Découvrir la ville 100% vélo",
+          "Utiliser les Vélhop (vélos en libre-service)"
+        ],
+        "travel_time": "1h45",
+        "travel_time_minutes": 105,
+        "typical_price": "€29",
+        "typical_price_euros": 29,
+        "vibe": "🚴 Capitale européenne du vélo",
+        "departure": "paris"
+      },
+      {
+        "city": "Nantes",
+        "tagline": "Ville verte & créative",
+        "station": "Nantes",
+        "activities": [
+          "Découvrir les espaces verts urbains",
+          "Utiliser le vélo en libre-service",
+          "Visiter l'île de Nantes écologique"
+        ],
+        "travel_time": "2h",
+        "travel_time_minutes": 120,
+        "typical_price": "€10",
+        "typical_price_euros": 10,
+        "vibe": "🌿 Innovation & écologie",
+        "departure": "paris"
+      },
+      {
+        "city": "Rennes",
+        "tagline": "Transports durables & ville verte",
+        "station": "Rennes",
+        "activities": [
+          "Utiliser les  vélos partagés",
+          "Explorer les parcs urbains",
+          "Profiter du réseau de transports propres"
+        ],
+        "travel_time": "1h30",
+        "travel_time_minutes": 90,
+        "typical_price": "€10",
+        "typical_price_euros": 10,
+        "vibe": "🚇 Mobilité durable",
+        "departure": "paris"
+      }
+
 ]
