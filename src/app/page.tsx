@@ -133,8 +133,7 @@ export default function Home() {
           {/* Departure City Switch - hidden when spinning */}
           {!isSpinning && (
             <div className="flex justify-center mb-8">
-              <div className="inline-flex gap-3">
-                {/* Paris button */}
+              {/* Paris button */}
                 <button
                   onClick={() => setDepartureCity('paris')}
                   className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
@@ -145,19 +144,6 @@ export default function Home() {
                 >
                   🗼 PARIS
                 </button>
-
-                {/* Nice button */}
-                <button
-                  onClick={() => setDepartureCity('nice')}
-                  className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
-                    departureCity === 'nice'
-                      ? 'bg-[#4ECDC4] text-white neo-border shadow-[4px_4px_0px_#000000]'
-                      : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
-                  }`}
-                >
-                  🌊 NICE
-                </button>
-              </div>
             </div>
           )}
 
