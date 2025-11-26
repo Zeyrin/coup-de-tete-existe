@@ -121,7 +121,7 @@ export default function Home() {
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
+            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-feedback-button border-2 px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
           >
             💬 Feedback
           </a>
@@ -138,7 +138,7 @@ export default function Home() {
                   onClick={() => setDepartureCity('paris')}
                   className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
                     departureCity === 'paris'
-                      ? 'bg-[#FF6B6B] text-white neo-border shadow-[4px_4px_0px_#000000]'
+                      ? 'bg-[#52688E] text-white neo-border'
                       : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
                   }`}
                 >
@@ -173,7 +173,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-[#FF6B6B] neo-card p-4 mb-8">
+              <div className="bg-[#74D3AE] neo-card p-4 mb-8">
                 <p className="text-center font-bold text-lg">
                   {filteredDestinations.length} DESTINATIONS DISPONIBLES
                 </p>
@@ -183,7 +183,7 @@ export default function Home() {
                 <button
                   onClick={spin}
                   disabled={isSpinning || filteredDestinations.length === 0}
-                  className="w-full bg-[#FF6B6B] text-white neo-button px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#FF4747] text-white neo-button px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50"
                 >
                   {isSpinning ? '🎰 EN COURS...' : '🎲 LANCE LA ROUE !'}
                 </button>
@@ -197,11 +197,11 @@ export default function Home() {
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-border neo-shadow-sm px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
+            className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-feedback-button border-2 px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
           >
             💬 Feedback
           </a>
-          <div className="bg-[#FF6B6B] neo-border p-6 mb-6 -mt-8 -mx-8 relative overflow-hidden">
+          <div className="bg-[#FF6B6B] p-6 mb-6 -mt-8 -mx-8 relative overflow-hidden">
             {/* Winning flash effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-yellow-400 opacity-0 animate-[winning-flash_0.5s_ease-in-out_3]"></div>
             <h1 className="text-4xl md:text-5xl font-bold text-white uppercase text-center relative z-10">
