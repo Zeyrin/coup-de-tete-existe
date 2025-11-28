@@ -47,3 +47,6 @@ src/app/page2.tsx
 components.json
 package-lock.json
 CHARTE_GRAPHIQUE.md
+
+.vercel
+.env*.local

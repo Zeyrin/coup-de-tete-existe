@@ -6,6 +6,10 @@ import TravelTimeCombobox from '@/components/TravelTimeCombobox';
 import BudgetCombobox from '@/components/BudgetCombobox';
 import HelpDialog from '@/components/HelpDialog';
 import BookingHelpPopover from '@/components/BookingHelpPopover';
+import { getLocalGuestUser } from '@/utils/guestUser';
+import { createClient } from '@/utils/supabase/client';
+
+
 
 interface Destination {
   city: string;
@@ -50,7 +54,7 @@ export default function Home() {
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
   const [showActivities, setShowActivities] = useState(false); // Track if activities section is expanded
 
-  const spin = () => {
+  const spin = async () => {
     setIsSpinning(true);
 
     // Filter destinations based on preferences AND departure city
@@ -68,7 +72,7 @@ export default function Home() {
       filtered = availableWithoutRecent;
     }
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const random = filtered[Math.floor(Math.random() * filtered.length)];
       setDestination(random);
       setShowActivities(false); // Reset activities section to collapsed
@@ -80,6 +84,35 @@ export default function Home() {
       });
 
       setIsSpinning(false);
+
+      // Save spin to database
+      try {
+        const supabase = createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+        const guestUser = getLocalGuestUser();
+
+        const response = await fetch('/api/roll', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            destination_city: random.city,
+            departure_city: departureCity,
+            travel_time_minutes: random.travel_time_minutes,
+            typical_price_euros: random.typical_price_euros,
+            is_guest: !user && !!guestUser,
+            guest_user_id: guestUser?.id || null,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          toast.success(`+${data.points_earned} points ! 🎉`);
+        }
+      } catch (error) {
+        console.error('Error saving spin:', error);
+      }
     }, 2000);
   };
 
@@ -299,7 +332,7 @@ export default function Home() {
               </button>
 
               <a
-                href="https://www.sncf-connect.com"
+                href={`https://www.sncf-connect.com/home/search?userInput=${encodeURIComponent(destination.city)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-[#4ECDC4] text-black neo-button py-4 font-bold text-base text-center uppercase inline-block"
