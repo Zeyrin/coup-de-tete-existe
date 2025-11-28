@@ -10,9 +10,10 @@ import type { User } from '@supabase/supabase-js'
 
 interface AuthButtonClientProps {
   serverUser: User | null
+  initialUsername: string | null
 }
 
-export function AuthButtonClient({ serverUser }: AuthButtonClientProps) {
+export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClientProps) {
   const [guestUser, setGuestUser] = useState<ReturnType<typeof getLocalGuestUser>>(null)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
@@ -47,8 +48,9 @@ export function AuthButtonClient({ serverUser }: AuthButtonClientProps) {
     return (
       <div className="flex items-center gap-3">
         <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-white neo-border rounded-lg">
+          <UserCircle className="w-4 h-4" />
           <span className="text-sm font-bold truncate max-w-[150px]">
-            {serverUser.email}
+            {initialUsername || serverUser.email}
           </span>
         </div>
         <button
