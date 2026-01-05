@@ -6,10 +6,17 @@ import TravelTimeCombobox from '@/components/TravelTimeCombobox';
 import BudgetCombobox from '@/components/BudgetCombobox';
 import HelpDialog from '@/components/HelpDialog';
 import BookingHelpPopover from '@/components/BookingHelpPopover';
+import ImageCarousel from '@/components/ImageCarousel';
 import { getLocalGuestUser } from '@/utils/guestUser';
 import { createClient } from '@/utils/supabase/client';
 
 
+
+interface Image {
+  url: string;
+  alt: string;
+  credit?: string;
+}
 
 interface Destination {
   city: string;
@@ -22,6 +29,8 @@ interface Destination {
   typical_price: string;
   typical_price_euros: number;
   vibe: string;
+  image?: string;
+  images?: Image[];
 }
 
 // Roulette Wheel Component
@@ -165,18 +174,30 @@ export default function Home() {
 
           {/* Departure City Switch - hidden when spinning */}
           {!isSpinning && (
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center gap-4 mb-8">
               {/* Paris button */}
-                <button
-                  onClick={() => setDepartureCity('paris')}
-                  className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
-                    departureCity === 'paris'
-                      ? 'bg-[#52688E] text-white neo-border'
-                      : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
-                  }`}
-                >
-                  🗼 PARIS
-                </button>
+              <button
+                onClick={() => setDepartureCity('paris')}
+                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                  departureCity === 'paris'
+                    ? 'bg-[#52688E] text-white neo-border'
+                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
+                }`}
+              >
+                🗼 PARIS
+              </button>
+
+              {/* Nice button */}
+              <button
+                onClick={() => setDepartureCity('nice')}
+                className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
+                  departureCity === 'nice'
+                    ? 'bg-[#52688E] text-white neo-border'
+                    : 'bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80'
+                }`}
+              >
+                🌴 NICE
+              </button>
             </div>
           )}
 
@@ -241,6 +262,19 @@ export default function Home() {
               🎉 {destination.city} 🎉
             </h1>
           </div>
+
+          {/* Photo de la destination */}
+          {destination.images && destination.images.length > 0 ? (
+            <ImageCarousel images={destination.images} />
+          ) : destination.image ? (
+            <div className="w-full h-64 md:h-80 mb-6 neo-border neo-shadow overflow-hidden relative">
+              <img
+                src={destination.image}
+                alt={`Photo de ${destination.city}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : null}
 
           <p className="text-2xl font-bold mb-6 text-center">{destination.tagline}</p>
 
@@ -319,18 +353,6 @@ export default function Home() {
           <div className="space-y-6">
             {/* Ligne unique avec les 3 boutons */}
             <div className="flex gap-3">
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(destination.station);
-                  toast("Gare copiée!", {
-                    description: destination.station,
-                  });
-                }}
-                className="flex-1 bg-[#F7DC6F] text-black neo-button py-4 font-bold text-base uppercase"
-              >
-                📋 Copier la gare
-              </button>
-
               <a
                 href={`https://www.sncf-connect.com/home/search?userInput=${encodeURIComponent(destination.city)}`}
                 target="_blank"
