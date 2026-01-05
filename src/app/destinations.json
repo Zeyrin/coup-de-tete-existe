@@ -4,6 +4,20 @@
     "tagline": "Palais royal & jardins majestueux",
     "station": "Versailles Château Rive Gauche",
     "departure": "paris",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1591828353335-197466da2a4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "alt": "Château de Versailles"
+      },
+      {
+        "url": "https://www.chateauversailles.fr/sites/default/files/dscf6604.jpg",
+        "alt": "Jardins de Versailles"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1575894096239-6a3f0f6bb2d6?w=800&q=80",
+        "alt": "Galerie des Glaces"
+      }
+    ],
     "activities": [
       "Explorer le château de Versailles",
       "Se promener dans les jardins à la française",
@@ -19,6 +33,16 @@
     "city": "Chantilly",
     "tagline": "Château, chevaux & crème fouettée",
     "station": "Chantilly-Gouvieux",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580829065049-698bbaa870b4?w=800&q=80",
+        "alt": "Château de Chantilly"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1553531087-6eef7c0f9028?w=800&q=80",
+        "alt": "Grandes Écuries de Chantilly"
+      }
+    ],
     "activities": [
       "Visiter le château et son musée Condé",
       "Découvrir les Grandes Écuries",
@@ -35,6 +59,16 @@
     "city": "Fontainebleau",
     "tagline": "Château, forêt & escalade",
     "station": "Fontainebleau-Avon",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1599198688305-33cd04b6f4a3?w=800&q=80",
+        "alt": "Château de Fontainebleau"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
+        "alt": "Forêt de Fontainebleau"
+      }
+    ],
     "activities": [
       "Visiter le château de Fontainebleau",
       "Randonner dans 25,000 hectares de forêt",
