@@ -25,23 +25,17 @@ export default function BookingHelpPopover() {
               <div className="bg-[#FF6B6B] neo-border w-7 h-7 flex items-center justify-center text-sm flex-shrink-0 rounded-md">
                 1
               </div>
-              <span className="pt-0.5">Clique sur &ldquo;Copier la gare&rdquo;</span>
+              <span className="pt-0.5">Clique sur &ldquo;Réserver SNCF&rdquo;</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-[#4ECDC4] neo-border w-7 h-7 flex items-center justify-center text-sm flex-shrink-0 rounded-md">
                 2
               </div>
-              <span className="pt-0.5">Ouvre SNCF Connect</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="bg-[#FFE951] neo-border w-7 h-7 flex items-center justify-center text-sm flex-shrink-0 rounded-md">
-                3
-              </div>
-              <span className="pt-0.5">Colle la gare dans la recherche</span>
+              <span className="pt-0.5">Entre ta gare de départ</span>
             </li>
             <li className="flex items-start gap-3">
               <div className="bg-[#98D8C8] neo-border w-7 h-7 flex items-center justify-center text-sm flex-shrink-0 rounded-md">
-                4
+                3
               </div>
               <span className="pt-0.5">Réserve ton billet!</span>
             </li>
