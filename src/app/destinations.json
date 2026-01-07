@@ -14,8 +14,8 @@
         "alt": "Jardins de Versailles"
       },
       {
-        "url": "https://images.unsplash.com/photo-1575894096239-6a3f0f6bb2d6?w=800&q=80",
-        "alt": "Galerie des Glaces"
+        "url": "https://www.chateauversailles.fr/sites/default/files/chateau.jpg",
+        "alt": "Domaine de Trianon (Marie Antoinette)"
       }
     ],
     "activities": [
@@ -35,12 +35,16 @@
     "station": "Chantilly-Gouvieux",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1580829065049-698bbaa870b4?w=800&q=80",
+        "url": "https://chateaudechantilly.fr/app/uploads/2021/03/Copyright-Gary-Otte-Chateau-point-de-vue-jardins-a-la-francaise-3-1500x998.jpg",
         "alt": "Château de Chantilly"
       },
       {
-        "url": "https://images.unsplash.com/photo-1553531087-6eef7c0f9028?w=800&q=80",
+        "url": "https://chateaudechantilly.fr/app/uploads/2024/10/2024_chevaux_et_cavalieres-interieur-exterieur-BD-©Sophie-Lloyd-42-1500x1001.jpg",
         "alt": "Grandes Écuries de Chantilly"
+      },
+      {
+        "url": "https://parisianavores.paris/wp-content/uploads/2019/09/restaurant-du-hameau-chantilly-chateau-visiter-moins-une-heure-paris-5.jpg",
+        "alt": "Restaurant du Hameau"
       }
     ],
     "activities": [
@@ -61,12 +65,16 @@
     "station": "Fontainebleau-Avon",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1599198688305-33cd04b6f4a3?w=800&q=80",
+        "url": "https://www.scandiberique.fr/sites/scandiberique/files/styles/slide_1920x1080/public/medias/images/vue-aerienne-chateau-de-fontainebleau.jpg.webp?itok=QEfgOYdh%201x",
         "alt": "Château de Fontainebleau"
       },
       {
-        "url": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
+        "url": "https://cdn.paris.fr/paris/2023/07/31/huge-2dd2512acfa5be025d90c2c4ea960deb.jpg",
         "alt": "Forêt de Fontainebleau"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1678285581983-9f0409cee234",
+        "alt": "Escalade Fontainebleau"
       }
     ],
     "activities": [
@@ -85,6 +93,16 @@
     "city": "Auvers-sur-Oise",
     "tagline": "Village de Van Gogh",
     "station": "Auvers-sur-Oise",
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg/1280px-Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg",
+        "alt": "Château de Léry"
+      },
+      {
+        "url": "https://cdn.sortiraparis.com/images/80/110083/1169608-auberge-ravoux-img-2336.jpg",
+        "alt": "Auberge Ravoux"
+      }
+    ],
     "activities": [
       "Marcher sur les traces de Van Gogh",
       "Visiter l'auberge Ravoux",
@@ -101,6 +119,16 @@
     "city": "Chartres",
     "tagline": "Cathédrale gothique légendaire",
     "station": "Chartres",
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg/1280px-Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg",
+        "alt": "Château de Léry"
+      },
+      {
+        "url": "https://cdn.sortiraparis.com/images/80/110083/1169608-auberge-ravoux-img-2336.jpg",
+        "alt": "Auberge Ravoux"
+      }
+    ],
     "activities": [
       "Admirer les vitraux de la cathédrale",
       "Se balader dans la vieille ville",
@@ -117,6 +145,16 @@
     "city": "Reims",
     "tagline": "Champagne & cathédrale",
     "station": "Reims",
+    "images":[
+      {
+        "url": "https://visitgrandest.com/wp-content/uploads/2021/04/Reims000.jpg",
+        "alt":"Cathédrale Notre-Dame de Reims"
+      },
+      {
+        "url": "https://blogvoyages.fr/wp-content/uploads/2021/05/visite-cave-champagne.jpg",
+        "alt":"Cave de Champagne"
+      }
+    ],
     "activities": [
       "Visiter les caves de champagne",
       "Admirer la cathédrale Notre-Dame",
