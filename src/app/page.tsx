@@ -7,6 +7,7 @@ import BudgetCombobox from '@/components/BudgetCombobox';
 import HelpDialog from '@/components/HelpDialog';
 import BookingHelpPopover from '@/components/BookingHelpPopover';
 import ImageCarousel from '@/components/ImageCarousel';
+import RouletteWheel from '@/components/RouletteWheel';
 import { getLocalGuestUser } from '@/utils/guestUser';
 import { createClient } from '@/utils/supabase/client';
 
