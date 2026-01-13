@@ -10,6 +10,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import RouletteWheel from '@/components/RouletteWheel';
 import { getLocalGuestUser } from '@/utils/guestUser';
 import { createClient } from '@/utils/supabase/client';
+import Image from 'next/image';
 
 
 
@@ -137,7 +138,7 @@ export default function Home() {
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
           {/* Help button in top left corner */}
           <HelpDialog />
-          
+
           {/* Feedback button in top right corner */}
           <a
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
@@ -245,31 +246,21 @@ export default function Home() {
 
           {/* Photo de la destination */}
           {destination.images && destination.images.length > 0 ? (
-            <ImageCarousel images={destination.images} />
+            <ImageCarousel
+              images={destination.images}
+              travelTime={destination.travel_time}
+              price={destination.typical_price}
+              tagline={destination.tagline}
+            />
           ) : destination.image ? (
             <div className="w-full h-64 md:h-80 mb-6 neo-border neo-shadow overflow-hidden relative">
-              <img
+              <Image
                 src={destination.image}
                 alt={`Photo de ${destination.city}`}
                 className="w-full h-full object-cover"
               />
             </div>
           ) : null}
-
-          <p className="text-2xl font-bold mb-6 text-center">{destination.tagline}</p>
-
-          <div className="flex gap-4 mb-6 flex-wrap">
-            <div className="bg-[#4ECDC4] neo-card px-4 py-3 font-bold flex-1 text-center text-lg">
-              🚂 {destination.travel_time}
-            </div>
-            <div className="bg-[#FFE951] neo-card px-4 py-3 font-bold flex-1 text-center text-lg">
-              💰 {destination.typical_price}
-            </div>
-          </div>
-
-          <div className="bg-[#98D8C8] neo-card p-4 text-center mb-6">
-            <p className="text-xl font-bold">{destination.vibe}</p>
-          </div>
 
           <div className="bg-white neo-card mb-6 overflow-hidden">
             <div className="p-6">
