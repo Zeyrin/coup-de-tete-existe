@@ -8,7 +8,14 @@ interface Image {
   credit?: string;
 }
 
-export default function ImageCarousel({ images }: { images: Image[] }) {
+interface ImageCarouselProps {
+  images: Image[];
+  travelTime?: string;
+  price?: string;
+  tagline?: string;
+}
+
+export default function ImageCarousel({ images, travelTime, price, tagline }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNext = () => {
@@ -39,12 +46,33 @@ export default function ImageCarousel({ images }: { images: Image[] }) {
           />
         ))}
 
+        {/* Time Card - Bottom Left */}
+        {travelTime && (
+          <div className="absolute bottom-3 left-3 bg-[#4ECDC4] neo-card px-4 py-2 font-bold text-sm">
+            🚂 {travelTime}
+          </div>
+        )}
+
+        {/* Price Card - Bottom Right */}
+        {price && (
+          <div className="absolute bottom-3 right-3 bg-[#FFE951] neo-card px-4 py-2 font-bold text-sm">
+            💰 {price.replace(/€(\d+)/, '$1€')}
+          </div>
+        )}
+
+        {/* Tagline - Bottom Center */}
+        {tagline && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 font-bold text-sm rounded">
+            {tagline}
+          </div>
+        )}
+
         {/* Navigation Arrows */}
         {images.length > 1 && (
           <>
             <button
               onClick={goToPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition z-10"
               aria-label="Image précédente"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,7 +81,7 @@ export default function ImageCarousel({ images }: { images: Image[] }) {
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition z-10"
               aria-label="Image suivante"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
