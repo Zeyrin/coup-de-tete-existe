@@ -17,6 +17,7 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, travelTime, price, tagline }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -30,20 +31,33 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
     setCurrentIndex(index);
   };
 
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => new Set(prev).add(index));
+  };
+
   return (
     <div className="relative w-full bg-white neo-card overflow-hidden mb-6">
       {/* Images */}
-      <div className="relative h-64 md:h-80">
+      <div className="relative h-64 md:h-80 bg-gray-200">
         {images.map((image, index) => (
-          <img
-            key={index}
-            src={image.url}
-            alt={image.alt}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-            loading="lazy"
-          />
+          <div key={index} className={`absolute inset-0 transition-opacity duration-500 ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}>
+            {imageErrors.has(index) ? (
+              <div className="w-full h-full flex items-center justify-center bg-gray-300 text-gray-600 font-bold">
+                📷 Image non disponible
+              </div>
+            ) : (
+              <img
+                src={image.url}
+                alt={image.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+                onError={() => handleImageError(index)}
+                style={{ WebkitBackfaceVisibility: 'hidden' }}
+              />
+            )}
+          </div>
         ))}
 
         {/* Time Card - Bottom Left */}
@@ -62,7 +76,7 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
 
         {/* Tagline - Bottom Center */}
         {tagline && (
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 font-bold text-sm rounded">
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 font-bold text-sm rounded text-center max-w-[90%]">
             {tagline}
           </div>
         )}
