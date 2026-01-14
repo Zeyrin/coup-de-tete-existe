@@ -60,23 +60,23 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
           </div>
         ))}
 
-        {/* Time Card - Bottom Left */}
+        {/* Time Card - Bottom Left - Fixed width */}
         {travelTime && (
-          <div className="absolute bottom-3 left-3 bg-[#4ECDC4] neo-card px-4 py-2 font-bold text-sm">
+          <div className="absolute bottom-3 left-3 bg-[#4ECDC4] neo-card px-4 py-2 font-bold text-sm min-w-[100px] text-center">
             🚂 {travelTime}
           </div>
         )}
 
-        {/* Price Card - Bottom Right */}
+        {/* Price Card - Bottom Right - Fixed width matching time card */}
         {price && (
-          <div className="absolute bottom-3 right-3 bg-[#FFE951] neo-card px-4 py-2 font-bold text-sm">
+          <div className="absolute bottom-3 right-3 bg-[#FFE951] neo-card px-4 py-2 font-bold text-sm min-w-[100px] text-center">
             💰 {price.replace(/€(\d+)/, '$1€')}
           </div>
         )}
 
-        {/* Tagline - Bottom Center */}
+        {/* Tagline - Bottom Center - Only show on larger screens or when there's room */}
         {tagline && (
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 font-bold text-sm rounded text-center max-w-[90%]">
+          <div className="hidden sm:block absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 font-bold text-sm rounded text-center max-w-[40%]">
             {tagline}
           </div>
         )}

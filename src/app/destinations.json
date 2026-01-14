@@ -101,6 +101,10 @@
       {
         "url": "https://cdn.sortiraparis.com/images/80/110083/1169608-auberge-ravoux-img-2336.jpg",
         "alt": "Auberge Ravoux"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vincent_van_Gogh_-_Street_in_Auvers-sur-Oise_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Street_in_Auvers-sur-Oise_-_Google_Art_Project.jpg",
+        "alt": "Rue D'Auvers"
       }
     ],
     "activities": [
@@ -121,12 +125,16 @@
     "station": "Chartres",
     "images": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg/1280px-Auvers-sur-Oise_%2895%29%2C_ch%C3%A2teau_de_Leyrit%2C_rue_de_L%C3%A9ry.jpg",
-        "alt": "Château de Léry"
+        "url": "https://www.cathedrale-chartres.org/wp-content/uploads/2020/09/mise-en-avant-vitraux-1.jpg",
+        "alt": "Vitraux de la cathédrale de Chartres"
       },
       {
-        "url": "https://cdn.sortiraparis.com/images/80/110083/1169608-auberge-ravoux-img-2336.jpg",
-        "alt": "Auberge Ravoux"
+        "url": "https://cdn.generationvoyage.fr/2024/09/Chartres-rue-ancienne-avec-tables-de-cafe-et-vue-sur-la-cathedrale.jpeg",
+        "alt": "Vieille ville de Chartres"
+      },
+      {
+        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/15/c8/6a/chartres-cathedral-seen.jpg?w=1200&h=-1&s=1 ",
+        "alt": "Bord de l'Eure à Chartres"
       }
     ],
     "activities": [
@@ -153,6 +161,10 @@
       {
         "url": "https://blogvoyages.fr/wp-content/uploads/2021/05/visite-cave-champagne.jpg",
         "alt":"Cave de Champagne"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt":"Dégustation de champagne local à Reims"
       }
     ],
     "activities": [
@@ -171,6 +183,20 @@
     "city": "Rouen",
     "tagline": "Ville de Jeanne d'Arc",
     "station": "Rouen Rive-Droite",
+    "images":[
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt":"Cathédrale Notre-Dame de Rouen immortalisée par Monet"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt":"Gros-Horloge de Rouen"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt":"Vieux Rouen médiéval"
+      }
+    ],
     "activities": [
       "Voir la cathédrale immortalisée par Monet",
       "Découvrir le Gros-Horloge",
@@ -187,6 +213,20 @@
     "city": "Provins",
     "tagline": "Ville médiévale fortifiée",
     "station": "Provins",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Remparts médiévaux de Provins"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Spectacle de fauconnerie à Provins"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Tour César de Provins"
+      }
+    ],
     "activities": [
       "Explorer les remparts médiévaux",
       "Assister à un spectacle de fauconnerie",
@@ -203,6 +243,20 @@
     "city": "Compiègne",
     "tagline": "Forêt impériale & histoire",
     "station": "Compiègne",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Château impérial de Compiègne"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Forêt domaniale de Compiègne"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Clairière de l'Armistice"
+      }
+    ],
     "activities": [
       "Visiter le château impérial",
       "Se balader dans la forêt domaniale",
@@ -219,6 +273,20 @@
     "city": "Amiens",
     "tagline": "Cathédrale & hortillonnages",
     "station": "Amiens",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Cathédrale Notre-Dame d'Amiens"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Navigation dans les hortillonnages"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Quartier Saint-Leu d'Amiens"
+      }
+    ],
     "activities": [
       "Visiter la plus grande cathédrale de France",
       "Naviguer dans les hortillonnages",
@@ -235,6 +303,20 @@
     "city": "Giverny",
     "tagline": "Les jardins de Monet",
     "station": "Vernon",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Jardins de Claude Monet à Giverny"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Pont japonais iconique de Giverny"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Restaurant Les Nymphéas à Giverny"
+      }
+    ],
     "activities": [
       "Explorer les jardins de Claude Monet",
       "Photographier le pont japonais iconique",
@@ -251,6 +333,20 @@
     "city": "Senlis",
     "tagline": "Médiéval secret sans touristes",
     "station": "Chantilly-Gouvieux",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Ruelles pavées médiévales de Senlis"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Cathédrale gothique de Senlis"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Arènes romaines de Senlis"
+      }
+    ],
     "activities": [
       "Se perdre dans les ruelles pavées médiévales",
       "Visiter la cathédrale gothique",
@@ -267,6 +363,20 @@
     "city": "Meaux",
     "tagline": "Mini Paris & capitale du Brie",
     "station": "Meaux",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Dégustation du Brie de Meaux authentique"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Cathédrale Saint-Étienne de Meaux"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Marché local du samedi à Meaux"
+      }
+    ],
     "activities": [
       "Déguster le Brie de Meaux authentique",
       "Admirer la cathédrale Saint-Étienne",
@@ -283,6 +393,20 @@
     "city": "Moret-sur-Loing",
     "tagline": "Village d'Alfred Sisley",
     "station": "Moret-Veneux-les-Sablons",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Traces de Sisley le long du Loing"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Cité médiévale fortifiée de Moret-sur-Loing"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Crêpes face à la rivière à Moret-sur-Loing"
+      }
+    ],
     "activities": [
       "Marcher sur les traces de Sisley le long du Loing",
       "Explorer la cité médiévale fortifiée",
@@ -299,6 +423,20 @@
     "city": "Maintenon",
     "tagline": "Château & aqueduc spectaculaire",
     "station": "Maintenon",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Château de Madame de Maintenon"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Jardins de Le Nôtre à Maintenon"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Aqueduc monumental de Maintenon"
+      }
+    ],
     "activities": [
       "Visiter le château de Madame de Maintenon",
       "Se promener dans les jardins de Le Nôtre",
@@ -315,6 +453,20 @@
     "city": "Monaco",
     "tagline": "Glamour, jardins & rocher princier",
     "station": "Monaco-Monte-Carlo",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Palais princier et relève de la garde à Monaco"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Jardin exotique avec vue panoramique"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Rues luxueuses de Monte-Carlo"
+      }
+    ],
     "activities": [
       "Visiter le Palais princier et voir la relève de la garde",
       "Explorer le Jardin exotique avec vue panoramique",
@@ -331,6 +483,20 @@
     "city": "Antibes",
     "tagline": "Vieille ville & musée Picasso",
     "station": "Antibes",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Musée Picasso au château Grimaldi"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Remparts d'Antibes avec vue mer"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Marché provençal coloré d'Antibes"
+      }
+    ],
     "activities": [
       "Découvrir le musée Picasso au château Grimaldi",
       "Se balader sur les remparts avec vue mer",
@@ -347,6 +513,20 @@
     "city": "Cannes",
     "tagline": "Croisette, plages & îles de Lérins",
     "station": "Cannes",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Croisette mythique de Cannes"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Île Sainte-Marguerite depuis Cannes"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieux Cannes - Le Suquet"
+      }
+    ],
     "activities": [
       "Marcher sur la Croisette mythique",
       "Prendre le bateau pour l'île Sainte-Marguerite",
@@ -363,6 +543,20 @@
     "city": "Menton",
     "tagline": "Jardins d'exception & citrons",
     "station": "Menton",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Jardin Serre de la Madone à Menton"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieille ville colorée italienne de Menton"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Tarte au citron de Menton"
+      }
+    ],
     "activities": [
       "Visiter le jardin Serre de la Madone",
       "Explorer la vieille ville colorée italienne",
@@ -379,6 +573,20 @@
     "city": "Villefranche-sur-Mer",
     "tagline": "Baie spectaculaire & village pêcheur",
     "station": "Villefranche-sur-Mer",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Baie aux eaux turquoise de Villefranche-sur-Mer"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Ruelles colorées de Villefranche-sur-Mer"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Citadelle et musées gratuits de Villefranche"
+      }
+    ],
     "activities": [
       "Nager dans la baie aux eaux turquoise",
       "Se perdre dans les ruelles colorées",
@@ -395,6 +603,20 @@
     "city": "Èze-sur-Mer",
     "tagline": "Plage secrète sous le village perché",
     "station": "Èze-sur-Mer",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Crique tranquille d'Èze-sur-Mer"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Déjeuner de poisson au bord de l'eau"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Village d'Èze perché au-dessus de la mer"
+      }
+    ],
     "activities": [
       "Se baigner dans une crique tranquille",
       "Déjeuner de poisson au bord de l'eau",
@@ -411,6 +633,20 @@
     "city": "Grasse",
     "tagline": "Capitale mondiale du parfum",
     "station": "Grasse",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Création de parfum chez Fragonard ou Molinard"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieille ville provençale de Grasse"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Usines de parfumerie à Grasse"
+      }
+    ],
     "activities": [
       "Créer son propre parfum chez Fragonard ou Molinard",
       "Explorer la vieille ville provençale",
@@ -427,6 +663,20 @@
     "city": "Ventimiglia (Italie)",
     "tagline": "Marché italien & dolce vita",
     "station": "Ventimiglia",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Marché du vendredi de Ventimiglia"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Pizza italienne pas chère à Ventimiglia"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieille ville médiévale Ventimiglia Alta"
+      }
+    ],
     "activities": [
       "Chiner au marché du vendredi (le plus grand de la région)",
       "Manger une vraie pizza italienne pas chère",
@@ -443,6 +693,20 @@
     "city": "Beaulieu-sur-Mer",
     "tagline": "Villa grecque & baie des Fourmis",
     "station": "Beaulieu-sur-Mer",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Villa Kérylos - reconstitution grecque"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Baie des Fourmis protégée"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Déjeuner face à la mer sur le port de Beaulieu"
+      }
+    ],
     "activities": [
       "Visiter la Villa Kérylos (reconstitution grecque incroyable)",
       "Se baigner dans la baie des Fourmis protégée",
@@ -459,6 +723,20 @@
     "city": "Juan-les-Pins",
     "tagline": "Plages de sable & soirées animées",
     "station": "Juan-les-Pins",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Plages de sable fin de Juan-les-Pins"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Paddle le long de la pinède"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Front de mer animé de Juan-les-Pins"
+      }
+    ],
     "activities": [
       "Bronzer sur les plages de sable fin",
       "Faire du paddle le long de la pinède",
@@ -475,6 +753,20 @@
     "city": "Cagnes-sur-Mer",
     "tagline": "Château médiéval & hippodrome",
     "station": "Cagnes-sur-Mer",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Haut-de-Cagnes médiéval perché"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Château-musée Grimaldi de Cagnes"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Plage du Cros à Cagnes-sur-Mer"
+      }
+    ],
     "activities": [
       "Monter au Haut-de-Cagnes médiéval perché",
       "Visiter le château-musée Grimaldi",
@@ -491,6 +783,20 @@
     "city": "Saint-Raphaël",
     "tagline": "Massif de l'Estérel rouge & calanques",
     "station": "Saint-Raphaël-Valescure",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Massif de l'Estérel aux roches rouges"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Calanques spectaculaires de Saint-Raphaël"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieux port et terrasses de Saint-Raphaël"
+      }
+    ],
     "activities": [
       "Randonner dans le massif de l'Estérel aux roches rouges",
       "Plonger dans les calanques spectaculaires",
@@ -507,6 +813,20 @@
     "city": "Toulon",
     "tagline": "Port militaire & Mont Faron",
     "station": "Toulon",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Téléphérique du Mont Faron avec vue à 360°"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Musée de la Marine nationale à Toulon"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Marché du Mourillon avec poisson frais"
+      }
+    ],
     "activities": [
       "Prendre le téléphérique du Mont Faron pour la vue à 360°",
       "Visiter le musée de la Marine nationale",
@@ -523,6 +843,20 @@
     "city": "Sanremo (Italie)",
     "tagline": "Riviera italienne & casino belle époque",
     "station": "Sanremo",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Lungomare face à la mer à Sanremo"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Vieille ville La Pigna de Sanremo"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Gelato artisanal italien à Sanremo"
+      }
+    ],
     "activities": [
       "Flâner sur le lungomare face à la mer",
       "Explorer la vieille ville La Pigna",
@@ -539,6 +873,20 @@
     "city": "Théoule-sur-Mer",
     "tagline": "Calanques sauvages de l'Estérel",
     "station": "Théoule-sur-Mer",
+    "images": [
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Sentier du littoral aux roches rouges"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Criques isolées de Théoule-sur-Mer"
+      },
+      {
+        "url": "YOUR_IMAGE_URL_HERE",
+        "alt": "Kayak dans les calanques de Théoule"
+      }
+    ],
     "activities": [
       "Randonner le sentier du littoral aux roches rouges",
       "Se baigner dans des criques isolées",
@@ -555,6 +903,20 @@
         "city": "Nice",
         "tagline": "Promenade des Anglais & Côte d'Azur",
         "station": "Nice-Ville",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Promenade des Anglais à Nice"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vieux Nice et ruelles colorées"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Marché aux fleurs du Cours Saleya"
+          }
+        ],
         "activities": [
           "Se promener sur la Promenade des Anglais",
           "Explorer le Vieux Nice et ses ruelles colorées",
@@ -571,6 +933,20 @@
         "city": "Marseille",
         "tagline": "Calanques & authenticité méditerranéenne",
         "station": "Marseille-Saint-Charles",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Calanques de Cassis depuis Marseille"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vieux-Port et le Panier de Marseille"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "MuCEM et Notre-Dame de la Garde"
+          }
+        ],
         "activities": [
           "Randonner dans les Calanques de Cassis",
           "Découvrir le Vieux-Port et le Panier",
@@ -587,6 +963,20 @@
         "city": "La Rochelle",
         "tagline": "Vieux-Port & Île de Ré",
         "station": "La Rochelle-Ville",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Trois tours médiévales du Vieux-Port"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vélo pour l'Île de Ré"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Aquarium de La Rochelle"
+          }
+        ],
         "activities": [
           "Visiter les 3 tours médiévales du Vieux-Port",
           "Prendre le vélo pour l'Île de Ré",
@@ -603,6 +993,20 @@
         "city": "Saint-Malo",
         "tagline": "Cité corsaire & remparts",
         "station": "Saint-Malo",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Remparts de Saint-Malo avec vue mer"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Intra-muros et ruelles pavées"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Fort National à marée basse"
+          }
+        ],
         "activities": [
           "Marcher sur les remparts avec vue mer",
           "Découvrir l'intra-muros et ses ruelles pavées",
@@ -619,6 +1023,20 @@
         "city": "Biarritz",
         "tagline": "Surf & Pays Basque",
         "station": "Biarritz",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Surf sur la Côte des Basques"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Rocher de la Vierge à Biarritz"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Pintxos au marché de Biarritz"
+          }
+        ],
         "activities": [
           "Surfer sur la Côte des Basques",
           "Admirer le Rocher de la Vierge",
@@ -632,57 +1050,23 @@
         "departure": "paris"
       },
       {
-        "city": "Menton",
-        "tagline": "Citrons & jardins méditerranéens",
-        "station": "Menton",
-        "activities": [
-          "Visiter le jardin Serre de la Madone",
-          "Explorer la vieille ville colorée italienne",
-          "Déguster une tarte au citron de Menton"
-        ],
-        "travel_time": "6h",
-        "travel_time_minutes": 360,
-        "typical_price": "€35",
-        "typical_price_euros": 35,
-        "vibe": "🍋 Jardins & dolce vita",
-        "departure": "paris"
-      },
-      {
-        "city": "Antibes",
-        "tagline": "Cap d'Antibes & Picasso",
-        "station": "Antibes",
-        "activities": [
-          "Parcourir le sentier du Cap d'Antibes",
-          "Visiter le Musée Picasso",
-          "Flâner au marché provençal"
-        ],
-        "travel_time": "5h30",
-        "travel_time_minutes": 330,
-        "typical_price": "€35",
-        "typical_price_euros": 35,
-        "vibe": "🏖️ Cap & art moderne",
-        "departure": "paris"
-      },
-      {
-        "city": "Toulon",
-        "tagline": "Port militaire & îles d'Hyères",
-        "station": "Toulon",
-        "activities": [
-          "Monter au Mont Faron en téléphérique",
-          "Prendre le bateau pour Porquerolles",
-          "Visiter le port militaire et la rade"
-        ],
-        "travel_time": "4h",
-        "travel_time_minutes": 240,
-        "typical_price": "€25",
-        "typical_price_euros": 25,
-        "vibe": "⚓ Marine & îles paradisiaques",
-        "departure": "paris"
-      },
-      {
         "city": "Montpellier",
         "tagline": "Méditerranée & architecture moderne",
         "station": "Montpellier-Saint-Roch",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Écusson médiéval de Montpellier"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Tram pour les plages de Montpellier"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Quartier Antigone néoclassique"
+          }
+        ],
         "activities": [
           "Explorer l'Écusson médiéval",
           "Prendre le tram pour les plages (15 min)",
@@ -699,6 +1083,20 @@
         "city": "Annecy",
         "tagline": "Lac le plus pur d'Europe & Alpes",
         "station": "Annecy",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Tour du lac d'Annecy à vélo"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Eaux turquoise du lac d'Annecy"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vieille ville et canaux d'Annecy"
+          }
+        ],
         "activities": [
           "Faire le tour du lac à vélo (40 km)",
           "Se baigner dans les eaux turquoise",
@@ -715,6 +1113,20 @@
         "city": "Chambéry",
         "tagline": "Lac du Bourget & Massif des Bauges",
         "station": "Chambéry-Challes-les-Eaux",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Randonnée au massif des Bauges"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Fontaine des Éléphants de Chambéry"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Lac du Bourget - plus grand lac naturel"
+          }
+        ],
         "activities": [
           "Randonner au massif des Bauges",
           "Visiter la Fontaine des Éléphants",
@@ -731,6 +1143,20 @@
         "city": "Aix-les-Bains",
         "tagline": "Thermes & lac du Bourget",
         "station": "Aix-les-Bains-Le Revard",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Spas et thermes d'Aix-les-Bains"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Bateau sur le lac du Bourget"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Architecture Belle Époque d'Aix-les-Bains"
+          }
+        ],
         "activities": [
           "Se détendre dans les spas et thermes",
           "Faire du bateau sur le lac du Bourget",
@@ -747,6 +1173,20 @@
         "city": "Lyon",
         "tagline": "Capitale gastronomique & traboules",
         "station": "Lyon-Part-Dieu",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Traboules du Vieux Lyon"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Bouchon lyonnais traditionnel"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Basilique de Fourvière à Lyon"
+          }
+        ],
         "activities": [
           "Découvrir les traboules du Vieux Lyon",
           "Dîner dans un bouchon lyonnais",
@@ -763,6 +1203,20 @@
         "city": "Avignon",
         "tagline": "Palais des Papes & Festival",
         "station": "Avignon TGV",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Palais des Papes UNESCO d'Avignon"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Pont d'Avignon"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Festival d'Avignon en juillet"
+          }
+        ],
         "activities": [
           "Visiter le Palais des Papes (UNESCO)",
           "Marcher sur le Pont d'Avignon",
@@ -779,6 +1233,20 @@
         "city": "Arles",
         "tagline": "Van Gogh & amphithéâtre romain",
         "station": "Arles",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Arènes romaines UNESCO d'Arles"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Fondation Luma de Frank Gehry"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Pas de Van Gogh à Arles"
+          }
+        ],
         "activities": [
           "Visiter les Arènes romaines (UNESCO)",
           "Découvrir la Fondation Luma (Frank Gehry)",
@@ -795,6 +1263,20 @@
         "city": "Aix-en-Provence",
         "tagline": "Cézanne & marchés provençaux",
         "station": "Aix-en-Provence TGV",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cours Mirabeau d'Aix-en-Provence"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Montagne Sainte-Victoire de Cézanne"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Marchés provençaux quotidiens d'Aix"
+          }
+        ],
         "activities": [
           "Flâner sur le Cours Mirabeau",
           "Randonner à la Montagne Sainte-Victoire",
@@ -811,6 +1293,20 @@
         "city": "Metz",
         "tagline": "Centre Pompidou & gare monumentale",
         "station": "Metz-Ville",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Centre Pompidou-Metz"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cathédrale Saint-Étienne de Metz"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Gare style Empire allemand de Metz"
+          }
+        ],
         "activities": [
           "Visiter le Centre Pompidou-Metz",
           "Admirer la Cathédrale Saint-Étienne",
@@ -827,6 +1323,20 @@
         "city": "Tours",
         "tagline": "Châteaux de la Loire & douceur de vivre",
         "station": "Tours",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Place Plumereau médiévale de Tours"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Châteaux de la Loire depuis Tours"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vins de Vouvray"
+          }
+        ],
         "activities": [
           "Explorer la Place Plumereau médiévale",
           "Visiter les châteaux de la Loire",
@@ -843,6 +1353,20 @@
         "city": "Strasbourg",
         "tagline": "Capitale européenne & Petite France",
         "station": "Strasbourg",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Petite France de Strasbourg"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cathédrale Notre-Dame de Strasbourg"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Marché de Noël de Strasbourg en décembre"
+          }
+        ],
         "activities": [
           "Se perdre dans la Petite France",
           "Visiter la Cathédrale Notre-Dame",
@@ -859,6 +1383,20 @@
         "city": "Bordeaux",
         "tagline": "Capitale mondiale du vin",
         "station": "Bordeaux-Saint-Jean",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cité du Vin de Bordeaux"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Miroir d'eau de Bordeaux"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vignobles du Médoc"
+          }
+        ],
         "activities": [
           "Visiter la Cité du Vin",
           "Admirer le Miroir d'eau",
@@ -872,25 +1410,23 @@
         "departure": "paris"
       },
       {
-        "city": "Lyon",
-        "tagline": "Bouchons & gastronomie lyonnaise",
-        "station": "Lyon-Part-Dieu",
-        "activities": [
-          "Dîner dans un bouchon lyonnais traditionnel",
-          "Visiter les Halles Paul Bocuse",
-          "Découvrir les quenelles et rosette"
-        ],
-        "travel_time": "2h",
-        "travel_time_minutes": 120,
-        "typical_price": "€16",
-        "typical_price_euros": 16,
-        "vibe": "🍽️ Capitale gastronomique",
-        "departure": "paris"
-      },
-      {
         "city": "Dijon",
         "tagline": "Bourgogne & Route des Grands Crus",
         "station": "Dijon-Ville",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Palais des Ducs de Bourgogne"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Route des Grands Crus de Dijon"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Moutarde et pain d'épices de Dijon"
+          }
+        ],
         "activities": [
           "Visiter le Palais des Ducs de Bourgogne",
           "Parcourir la Route des Grands Crus",
@@ -904,25 +1440,23 @@
         "departure": "paris"
       },
       {
-        "city": "Reims",
-        "tagline": "Champagne & caves prestigieuses",
-        "station": "Reims",
-        "activities": [
-          "Visiter les caves Veuve Clicquot",
-          "Découvrir la Cathédrale UNESCO",
-          "Déguster le champagne avec des biscuits roses"
-        ],
-        "travel_time": "45 min",
-        "travel_time_minutes": 45,
-        "typical_price": "€25",
-        "typical_price_euros": 25,
-        "vibe": "🍾 Bulles & couronnements",
-        "departure": "paris"
-      },
-      {
         "city": "Toulouse",
         "tagline": "Cassoulet & spécialités du Sud-Ouest",
         "station": "Toulouse-Matabiau",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cassoulet toulousain"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Place du Capitole de Toulouse"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cité de l'Espace de Toulouse"
+          }
+        ],
         "activities": [
           "Déguster le cassoulet toulousain",
           "Flâner sur la Place du Capitole",
@@ -936,169 +1470,23 @@
         "departure": "paris"
       },
       {
-        "city": "Strasbourg",
-        "tagline": "Choucroute & Route des vins d'Alsace",
-        "station": "Strasbourg",
-        "activities": [
-          "Déguster la choucroute alsacienne",
-          "Parcourir la Route des vins",
-          "Visiter les winstubs traditionnels"
-        ],
-        "travel_time": "1h45",
-        "travel_time_minutes": 105,
-        "typical_price": "€29",
-        "typical_price_euros": 29,
-        "vibe": "🍷 Tradition alsacienne",
-        "departure": "paris"
-      },
-      {
-        "city": "Avignon",
-        "tagline": "Palais des Papes & remparts",
-        "station": "Avignon TGV",
-        "activities": [
-          "Visiter le Palais des Papes (UNESCO)",
-          "Marcher sur les remparts médiévaux",
-          "Découvrir le Pont d'Avignon"
-        ],
-        "travel_time": "2h40",
-        "travel_time_minutes": 160,
-        "typical_price": "€25",
-        "typical_price_euros": 25,
-        "vibe": "👑 Cité des Papes",
-        "departure": "paris"
-      },
-      {
-        "city": "Reims",
-        "tagline": "Cathédrale des sacres royaux",
-        "station": "Reims",
-        "activities": [
-          "Visiter la Cathédrale Notre-Dame (UNESCO)",
-          "Découvrir le lieu de couronnement des rois",
-          "Explorer le Palais du Tau"
-        ],
-        "travel_time": "45 min",
-        "travel_time_minutes": 45,
-        "typical_price": "€25",
-        "typical_price_euros": 25,
-        "vibe": "👑 Rois & champagne",
-        "departure": "paris"
-      },
-      {
-        "city": "Saint-Malo",
-        "tagline": "Cité corsaire fortifiée",
-        "station": "Saint-Malo",
-        "activities": [
-          "Marcher sur les remparts (2 km)",
-          "Découvrir l'histoire des corsaires",
-          "Visiter le Fort National"
-        ],
-        "travel_time": "3h",
-        "travel_time_minutes": 180,
-        "typical_price": "€42",
-        "typical_price_euros": 42,
-        "vibe": "🏴‍☠️ Corsaires & fortifications",
-        "departure": "paris"
-      },
-      {
-        "city": "Arles",
-        "tagline": "Amphithéâtre romain & patrimoine UNESCO",
-        "station": "Arles",
-        "activities": [
-          "Visiter les Arènes romaines",
-          "Explorer le Théâtre antique",
-          "Découvrir les monuments UNESCO"
-        ],
-        "travel_time": "3h40",
-        "travel_time_minutes": 220,
-        "typical_price": "€25",
-        "typical_price_euros": 25,
-        "vibe": "🏛️ Rome & Provence",
-        "departure": "paris"
-      },
-      {
-        "city": "Tours",
-        "tagline": "Châteaux de la Loire & Renaissance",
-        "station": "Tours",
-        "activities": [
-          "Visiter Chenonceau (château sur l'eau)",
-          "Explorer Chambord et Amboise",
-          "Découvrir l'histoire de la Renaissance"
-        ],
-        "travel_time": "1h",
-        "travel_time_minutes": 60,
-        "typical_price": "€15",
-        "typical_price_euros": 15,
-        "vibe": "🏰 Renaissance & jardins",
-        "departure": "paris"
-      },
-      {
-        "city": "Dijon",
-        "tagline": "Palais des Ducs de Bourgogne",
-        "station": "Dijon-Ville",
-        "activities": [
-          "Visiter le Palais des Ducs",
-          "Découvrir la Porte Guillaume",
-          "Explorer l'église Notre-Dame gothique"
-        ],
-        "travel_time": "1h35",
-        "travel_time_minutes": 95,
-        "typical_price": "€20",
-        "typical_price_euros": 20,
-        "vibe": "👑 Ducs & patrimoine",
-        "departure": "paris"
-      },
-      {
-        "city": "Annecy",
-        "tagline": "Lac le plus pur & mobilité douce",
-        "station": "Annecy",
-        "activities": [
-          "Faire le tour du lac à vélo",
-          "Se baigner dans un lac préservé",
-          "Utiliser les pistes cyclables urbaines"
-        ],
-        "travel_time": "3h40",
-        "travel_time_minutes": 220,
-        "typical_price": "€30",
-        "typical_price_euros": 30,
-        "vibe": "🚴 Vélo & nature préservée",
-        "departure": "paris"
-      },
-      {
-        "city": "La Rochelle",
-        "tagline": "Mobilité douce & vélo pour tous",
-        "station": "La Rochelle-Ville",
-        "activities": [
-          "Prendre le vélo gratuit (Yélo)",
-          "Rejoindre l'Île de Ré à vélo",
-          "Explorer la ville sans voiture"
-        ],
-        "travel_time": "2h30",
-        "travel_time_minutes": 150,
-        "typical_price": "€20",
-        "typical_price_euros": 20,
-        "vibe": "🚲 Vélo & île verte",
-        "departure": "paris"
-      },
-      {
-        "city": "Strasbourg",
-        "tagline": "Capitale du vélo en France",
-        "station": "Strasbourg",
-        "activities": [
-          "Pédaler sur 600 km de pistes cyclables",
-          "Découvrir la ville 100% vélo",
-          "Utiliser les Vélhop (vélos en libre-service)"
-        ],
-        "travel_time": "1h45",
-        "travel_time_minutes": 105,
-        "typical_price": "€29",
-        "typical_price_euros": 29,
-        "vibe": "🚴 Capitale européenne du vélo",
-        "departure": "paris"
-      },
-      {
         "city": "Nantes",
         "tagline": "Ville verte & créative",
         "station": "Nantes",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Espaces verts urbains de Nantes"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Vélo en libre-service à Nantes"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Île de Nantes écologique"
+          }
+        ],
         "activities": [
           "Découvrir les espaces verts urbains",
           "Utiliser le vélo en libre-service",
@@ -1115,6 +1503,20 @@
         "city": "Rennes",
         "tagline": "Transports durables & ville verte",
         "station": "Rennes",
+        "images": [
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Cœur historique de la capitale bretonne"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Parcs urbains de Rennes"
+          },
+          {
+            "url": "YOUR_IMAGE_URL_HERE",
+            "alt": "Musée des Beaux-Arts de Rennes"
+          }
+        ],
         "activities": [
           "Traverser les époques du cœur historique de la capitale bretonne",
           "Explorer les parcs urbains",
