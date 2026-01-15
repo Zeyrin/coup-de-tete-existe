@@ -99,7 +99,7 @@
         "alt": "Château de Léry"
       },
       {
-        "url": "https://cdn.sortiraparis.com/images/80/110083/1169608-auberge-ravoux-img-2336.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Auberge_Ravoux_-_Auvers-sur-Oise_%28FR95%29_-_2021-06-13_-_2.jpg",
         "alt": "Auberge Ravoux"
       },
       {
@@ -163,7 +163,7 @@
         "alt":"Cave de Champagne"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Champagne-glasses.jpg",
         "alt":"Dégustation de champagne local à Reims"
       }
     ],
@@ -185,15 +185,15 @@
     "station": "Rouen Rive-Droite",
     "images":[
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.metropole-rouen-normandie.fr/sites/default/files/styles/cke_media_resize_xl/public/2025-05/AA_240522_Rouen%20cathedrale%20de%20lumiere%202024%C2%A9A_Aubry-Metropole%20Rouen%20Normandie_0001-Avec%20accentuation-.jpg?h=34bbd072&itok=c6dTYzkn",
         "alt":"Cathédrale Notre-Dame de Rouen immortalisée par Monet"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Rouen_2025_-_Le_Gros_Horloge_-_by-RaBoe_183.jpg",
         "alt":"Gros-Horloge de Rouen"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Rouen_Place_du_Vieux-March%C3%A9_05.jpg",
         "alt":"Vieux Rouen médiéval"
       }
     ],
