@@ -215,15 +215,15 @@
     "station": "Provins",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Tour_aux_Engins_des_remparts_de_Provins.jpg",
         "alt": "Remparts médiévaux de Provins"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.vollibre.fr/wp-content/uploads/2021/03/vue-drone.jpg",
         "alt": "Spectacle de fauconnerie à Provins"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://locations.filmfrance.net/sites/default/files/photos/ville-de-provins-la-tour-cesar-149495/2luc3426-tour.jpg",
         "alt": "Tour César de Provins"
       }
     ],
@@ -245,15 +245,15 @@
     "station": "Compiègne",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://i.notretemps.com/1200x0/smart/2022/12/02/chateau-compiegne.jpeg",
         "alt": "Château impérial de Compiègne"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://static-otelico.com/cache/harlay_compiegne/La_foret_de_Compiegne.jpg",
         "alt": "Forêt domaniale de Compiègne"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.oisetourisme.com/assets/uploads/2022/08/clairiere-armistice-aerophotostudiofr.png",
         "alt": "Clairière de l'Armistice"
       }
     ],
@@ -275,15 +275,15 @@
     "station": "Amiens",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://live.staticflickr.com/65535/50160314706_a0be0e0175_o.jpg",
         "alt": "Cathédrale Notre-Dame d'Amiens"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.avygeo.com/Avygeo/uploads/3245/albums/img5_67bc36a49c514/europe/france/hortillonnages-d_amiens.jpg",
         "alt": "Navigation dans les hortillonnages"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d2/76/57/quartier-saint-leu.jpg",
         "alt": "Quartier Saint-Leu d'Amiens"
       }
     ],
