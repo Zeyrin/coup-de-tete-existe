@@ -5,9 +5,11 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'sonner'
+import { Eye, EyeOff } from 'lucide-react'
 
 export default function SignupPage() {
   const [loading, setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -86,16 +88,26 @@ export default function SignupPage() {
               <label htmlFor="password" className="block text-sm font-bold">
                 Mot de passe
               </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                minLength={6}
-                className="block w-full rounded-lg neo-border px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-[#FFE951]"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  required
+                  minLength={6}
+                  className="block w-full rounded-lg neo-border px-4 py-3 pr-12 font-bold focus:outline-none focus:ring-4 focus:ring-[#FFE951]"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800 focus:outline-none"
+                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
               <p className="text-xs text-gray-500">Minimum 6 caractères</p>
             </div>
           </div>
