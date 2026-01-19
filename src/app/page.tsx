@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 import destinations from "./destinations.json";
 import TravelTimeCombobox from "@/components/TravelTimeCombobox";
 import BudgetCombobox from "@/components/BudgetCombobox";
@@ -221,6 +222,20 @@ export default function Home() {
               >
                 {isSpinning ? "🎰 EN COURS..." : "🎲 LANCE LA ROUE !"}
               </button>
+
+              {/* Quiz CTA */}
+              <div className="mt-6 text-center">
+                <Link
+                  href="/quiz"
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-black font-bold transition"
+                >
+                  <span>🎯</span>
+                  <span>Découvre ton profil voyageur</span>
+                  <span className="text-xs bg-[#FFD700] text-black px-2 py-0.5 rounded-full">
+                    NOUVEAU
+                  </span>
+                </Link>
+              </div>
             </>
           )}
         </div>
