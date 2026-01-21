@@ -47,17 +47,20 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
   if (serverUser) {
     return (
       <div className="flex items-center gap-3">
-        <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-white neo-border rounded-lg">
-          <UserCircle className="w-4 h-4" />
-          <span className="text-sm font-bold truncate max-w-[150px]">
+        <Link
+          href="/profile"
+          className="hidden sm:flex items-center gap-2 px-6 py-3 bg-white neo-button font-bold"
+        >
+          <UserCircle className="w-5 h-5" />
+          <span className="truncate max-w-[150px]">
             {initialUsername || serverUser.email}
           </span>
-        </div>
+        </Link>
         <button
           onClick={handleLogout}
-          className="neo-button px-4 py-2 bg-[#FF6B6B] hover:bg-[#ff5252] font-bold flex items-center gap-2"
+          className="neo-button px-6 py-3 bg-[#FF6B6B] font-bold flex items-center gap-2"
         >
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-5 h-5" />
           <span className="hidden sm:inline">Déconnexion</span>
         </button>
       </div>
@@ -68,9 +71,9 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
   if (guestUser) {
     return (
       <div className="flex items-center gap-3">
-        <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-[#FFE951] neo-border rounded-lg">
-          <UserCircle className="w-4 h-4" />
-          <span className="text-sm font-bold truncate max-w-[150px]">
+        <div className="hidden sm:flex items-center gap-2 px-6 py-3 bg-[#FFE951] neo-button font-bold">
+          <UserCircle className="w-5 h-5" />
+          <span className="truncate max-w-[150px]">
             {guestUser.username}
           </span>
           <span className="text-xs bg-black text-white px-2 py-0.5 rounded">
@@ -79,9 +82,9 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
         </div>
         <button
           onClick={handleLogout}
-          className="neo-button px-4 py-2 bg-[#FF6B6B] hover:bg-[#ff5252] font-bold flex items-center gap-2"
+          className="neo-button px-6 py-3 bg-[#FF6B6B] font-bold flex items-center gap-2"
         >
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-5 h-5" />
           <span className="hidden sm:inline">Quitter</span>
         </button>
       </div>
@@ -93,23 +96,23 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
     <div className="flex items-center gap-2">
       <Link
         href="/guest"
-        className="neo-button px-3 py-2 bg-[#F7DC6F] hover:bg-[#f5d04e] font-bold flex items-center gap-2"
+        className="neo-button px-4 py-2.5 bg-[#F7DC6F] font-bold flex items-center gap-2"
       >
-        <UserCircle className="w-4 h-4" />
+        <UserCircle className="w-5 h-5" />
         <span className="hidden sm:inline">Invité</span>
       </Link>
       <Link
         href="/login"
-        className="neo-button px-3 py-2 bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold flex items-center gap-2"
+        className="neo-button px-4 py-2.5 bg-[#98D8C8] font-bold flex items-center gap-2"
       >
-        <LogIn className="w-4 h-4" />
+        <LogIn className="w-5 h-5" />
         <span className="hidden sm:inline">Connexion</span>
       </Link>
       <Link
         href="/signup"
-        className="neo-button px-3 py-2 bg-[#FFE951] hover:bg-[#ffd91a] font-bold flex items-center gap-2"
+        className="neo-button px-4 py-2.5 bg-[#FFE951] font-bold flex items-center gap-2"
       >
-        <UserPlus className="w-4 h-4" />
+        <UserPlus className="w-5 h-5" />
         <span className="hidden sm:inline">Inscription</span>
       </Link>
     </div>
