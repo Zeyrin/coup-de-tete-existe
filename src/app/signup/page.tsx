@@ -3,6 +3,7 @@
 import { signup } from '@/app/actions/auth'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Eye, EyeOff } from 'lucide-react'
@@ -10,6 +11,7 @@ import { Eye, EyeOff } from 'lucide-react'
 export default function SignupPage() {
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -21,6 +23,8 @@ export default function SignupPage() {
     if (result?.error) {
       toast.error(result.error)
       setLoading(false)
+    } else if (result?.success) {
+      router.push('/signup/verify-email')
     }
   }
 
