@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
 import type { ArchetypeId } from '@/types/database';
-import { ARCHETYPES } from '@/data/archetypes';
 import ArchetypeCard from './ArchetypeCard';
 
 interface ArchetypeSelectorProps {

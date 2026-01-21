@@ -1,5 +1,3 @@
-import type { GuestUser as DBGuestUser } from '@/types/database'
-
 export interface LocalGuestUser {
   id: string
   username: string

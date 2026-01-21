@@ -3,11 +3,10 @@
 import { useState } from 'react';
 
 interface SubscriptionCTAProps {
-  currentArchetype?: string;
   onSubscribe?: () => void;
 }
 
-export default function SubscriptionCTA({ currentArchetype, onSubscribe }: SubscriptionCTAProps) {
+export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubscribe = async () => {
@@ -80,7 +79,7 @@ export default function SubscriptionCTA({ currentArchetype, onSubscribe }: Subsc
             </li>
             <li className="flex items-center gap-2 text-gray-400">
               <span>✗</span>
-              Changer d'archétype
+              Changer d&apos;archétype
             </li>
           </ul>
           <div className="mt-4 text-center">
@@ -112,7 +111,7 @@ export default function SubscriptionCTA({ currentArchetype, onSubscribe }: Subsc
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>
-              Changer d'archétype à volonté
+              Changer d&apos;archétype à volonté
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>

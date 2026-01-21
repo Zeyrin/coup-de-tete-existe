@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { QUIZ_QUESTIONS, ARCHETYPES } from '@/data/archetypes';
-import type { ArchetypeId, QuizResult } from '@/types/database';
+import { QUIZ_QUESTIONS } from '@/data/archetypes';
+import type { QuizResult } from '@/types/database';
 import ArchetypeCard from '@/components/archetype/ArchetypeCard';
 
 interface ArchetypeQuizProps {
@@ -109,7 +109,7 @@ export default function ArchetypeQuiz({ onComplete }: ArchetypeQuizProps) {
             onClick={() => router.push('/')}
             className="w-full bg-white text-black neo-button py-4 font-bold uppercase"
           >
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </button>
         </div>
       </div>
