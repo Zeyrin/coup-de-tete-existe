@@ -30,12 +30,16 @@ export async function signup(formData: FormData) {
   const username = formData.get("username") as string;
   const displayName = formData.get("display_name") as string | null;
 
+  // Get the origin from headers for the redirect URL
+  const origin = process.env.NEXT_PUBLIC_APP_URL || "https://coup2tete.vercel.app";
+
   // Create auth user with metadata
   // The database trigger will automatically create the user profile
   const { data: authData, error: authError } = await supabase.auth.signUp({
     email,
     password,
     options: {
+      emailRedirectTo: `${origin}/auth/callback`,
       data: {
         username: username,
         display_name: displayName || null,
@@ -54,8 +58,8 @@ export async function signup(formData: FormData) {
   // User profile is automatically created via database trigger
   // No need to manually insert into users table
 
-  revalidatePath("/", "layout");
-  redirect("/");
+  // Return success - the page will redirect to verify-email
+  return { success: true };
 }
 
 export async function signout() {
