@@ -14,10 +14,9 @@ interface ProfileClientProps {
   user: SupabaseUser;
   userData: DBUser | null;
   preferences: (UserPreferences & { archetype: Archetype | null }) | null;
-  archetypes: Archetype[];
 }
 
-export function ProfileClient({ user, userData, preferences, archetypes }: ProfileClientProps) {
+export function ProfileClient({ user, userData, preferences }: ProfileClientProps) {
   const router = useRouter();
   const [selectedArchetype, setSelectedArchetype] = useState<ArchetypeId | null>(
     preferences?.archetype_id || null

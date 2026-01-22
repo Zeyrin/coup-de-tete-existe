@@ -36,7 +36,8 @@ export async function redirectToCheckout(sessionId: string): Promise<void> {
     throw new Error('Stripe not loaded');
   }
 
-  const { error } = await stripe.redirectToCheckout({ sessionId });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await (stripe as any).redirectToCheckout({ sessionId });
   if (error) {
     throw error;
   }

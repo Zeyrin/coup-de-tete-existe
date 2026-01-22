@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     } = await supabase.auth.getUser();
 
     // Filter base destinations
-    let filteredDestinations = (destinations as Destination[]).filter(
+    const filteredDestinations = (destinations as Destination[]).filter(
       (d) =>
         d.departure === departureCity &&
         d.travel_time_minutes <= maxTravelTime &&

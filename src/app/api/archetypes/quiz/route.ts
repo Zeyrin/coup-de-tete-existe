@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { calculateArchetypeFromAnswers, ARCHETYPES } from '@/data/archetypes';
-import { getLocalGuestUser } from '@/utils/guestUser';
 
 export async function POST(request: NextRequest) {
   try {

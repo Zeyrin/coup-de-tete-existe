@@ -41,7 +41,7 @@ function SubscriptionContent() {
 
           <div className="bg-white neo-card p-6">
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Finaliser l'abonnement Premium
+              Finaliser l&apos;abonnement Premium
             </h2>
             <EmbeddedCheckoutForm onCancel={() => setShowCheckout(false)} />
           </div>
@@ -67,7 +67,7 @@ function SubscriptionContent() {
           href="/"
           className="inline-block mb-6 text-gray-600 hover:text-black font-bold transition"
         >
-          ← Retour à l'accueil
+          ← Retour à l&apos;accueil
         </Link>
 
         {showCanceled && (
@@ -91,7 +91,7 @@ function SubscriptionContent() {
 
         <div className="mt-8 text-center">
           <p className="text-gray-600 mb-4">
-            Tu veux d'abord découvrir ton profil voyageur ?
+            Tu veux d&apos;abord découvrir ton profil voyageur ?
           </p>
           <Link
             href="/quiz"

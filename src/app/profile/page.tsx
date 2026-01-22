@@ -30,18 +30,11 @@ export default async function ProfilePage() {
     .eq('user_id', user.id)
     .single();
 
-  // Fetch all archetypes
-  const { data: archetypes } = await supabase
-    .from('archetypes')
-    .select('*')
-    .order('name_fr', { ascending: true });
-
   return (
     <ProfileClient
       user={user}
       userData={userData as DBUser | null}
       preferences={preferences as (UserPreferences & { archetype: Archetype | null }) | null}
-      archetypes={archetypes as Archetype[] || []}
     />
   );
 }
