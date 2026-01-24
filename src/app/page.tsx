@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
 import destinations from "./destinations.json";
@@ -53,7 +53,7 @@ export default function Home() {
     return () => window.removeEventListener('reset-home-state', handleReset);
   }, []);
 
-  const spin = async () => {
+  const spin = useCallback(async () => {
     setIsSpinning(true);
 
     // Filter destinations based on preferences AND departure city
@@ -117,7 +117,7 @@ export default function Home() {
         console.error("Error saving spin:", error);
       }
     }, 2000);
-  };
+  }, [departureCity, maxTravelTime, maxBudget, recentDestinations]);
 
   const filteredDestinations = (destinations as Destination[]).filter(
     (d) =>
@@ -144,7 +144,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [isSpinning, destination, filteredDestinations.length]);
+  }, [isSpinning, destination, filteredDestinations.length, spin]);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
