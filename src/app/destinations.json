@@ -305,15 +305,15 @@
     "station": "Vernon",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://paris.evous.fr/IMG/jpg/jardin-claude-monet-giverny-adobestock_27903067.jpg",
         "alt": "Jardins de Claude Monet à Giverny"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://magazine.hortus-focus.fr/wp-content/uploads/sites/2/2022/05/jardin-d-eau-giverny-fondation-claude-monet-by-didier-hirsch-xh10404.jpg",
         "alt": "Pont japonais iconique de Giverny"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://photos.smugmug.com/Normandie-Lovers/Giverny/n-v3KR44/Restaurant-Les-Nymph%C3%A9as/i-PZBR9vC/0/519c34f6/L/restaurant-les-nympheas-giverny-41-L.jpg",
         "alt": "Restaurant Les Nymphéas à Giverny"
       }
     ],
@@ -335,15 +335,15 @@
     "station": "Chantilly-Gouvieux",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.chantilly-senlis-tourisme.com/wp-content/uploads/wpetourisme/IMG-20200924-205623-819-1200x1200.jpg",
         "alt": "Ruelles pavées médiévales de Senlis"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://i.la-croix.com/x/smart/croire/2020/06/16/1701100083/cathedrale-Notre-Dame-Senlis_0.jpg",
         "alt": "Cathédrale gothique de Senlis"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.chantilly-senlis-tourisme.com/wp-content/uploads/wpetourisme/WP-20180622-11-08-58-Pro-1200x677.jpg",
         "alt": "Arènes romaines de Senlis"
       }
     ],
@@ -365,22 +365,22 @@
     "station": "Meaux",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
-        "alt": "Dégustation du Brie de Meaux authentique"
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo6rWb4LT1jDaVEPwQ5SkW9w9YyC6euItFgTAqKWJtfnRHexAO1-n-oAmqRVggYqM6MwCmt1TCv9ux3P6pfMBm94IpxmMp04K2VjBw9tEaPIJEP5k17rTxlGtQ82jH1KyIaV7ba-A=w1920-h1080-n-k-no",
+        "alt": "Musée de la grande guerre à Meaux"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.meaux-marne-ourcq.com/wp-content/uploads/2022/09/la-cite-episcopale-de-meaux-studio-mir-aspect-ratio-2000-800.jpg",
         "alt": "Cathédrale Saint-Étienne de Meaux"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://static.actu.fr/uploads/2024/04/9061245a862667461245a862638612v-960x640.jpg",
         "alt": "Marché local du samedi à Meaux"
       }
     ],
     "activities": [
-      "Déguster le Brie de Meaux authentique",
+      "Visiter le musée de la grande guerre",
       "Admirer la cathédrale Saint-Étienne",
-      "Flâner au marché local le samedi"
+      "Déguster le Brie de Meaux au marché local le samedi"
     ],
     "travel_time": "35 min",
     "travel_time_minutes": 35,
@@ -395,15 +395,15 @@
     "station": "Moret-Veneux-les-Sablons",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://media.beauxarts.com/uploads/2025/07/websisleybal_56159-964x681.jpg",
         "alt": "Traces de Sisley le long du Loing"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.plusbeauxdetours.com/wp-content/uploads/2020/04/webavantMoret-sur-Loing.jpg",
         "alt": "Cité médiévale fortifiée de Moret-sur-Loing"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://baladesdenico.com/wp-content/uploads/2023/11/IMG_8593-1.jpg",
         "alt": "Crêpes face à la rivière à Moret-sur-Loing"
       }
     ],
@@ -425,15 +425,15 @@
     "station": "Maintenon",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Ch%C3%A2teau_de_Maintenon_2008.jpg",
         "alt": "Château de Madame de Maintenon"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Jardin_%C3%A0_la_fran%C3%A7aise_du_ch%C3%A2teau_de_Maintenon.JPG",
         "alt": "Jardins de Le Nôtre à Maintenon"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Jardin_Maintenon_Aqueduc_2015.JPG",
         "alt": "Aqueduc monumental de Maintenon"
       }
     ],
@@ -455,15 +455,15 @@
     "station": "Monaco-Monte-Carlo",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.tourazur.com/wp-content/uploads/2024/12/Monaco-palais-visite-1.jpg",
         "alt": "Palais princier et relève de la garde à Monaco"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.vivremaville.mc/uploads/images/large/qPMZis1dtnA55fz8T7OEdIORnu245F7Pif7Itt6w.jpg",
         "alt": "Jardin exotique avec vue panoramique"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.lespinedes.com/wp-content/uploads/2024/03/camping-monaco-rue-1060x795.jpeg",
         "alt": "Rues luxueuses de Monte-Carlo"
       }
     ],
@@ -485,15 +485,15 @@
     "station": "Antibes",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.lequotidiendelart.com/media/cache/article_page_cover/shared/article-image/42572.jpg",
         "alt": "Musée Picasso au château Grimaldi"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://nicematin-focus.sirius.press/2025/06/25/0/0/0/0/1128/752/75/0/0a930cf_upload-from-url-1-y7uy7bmwdge0-data-art-12450865-hrbnvt8a.jpg",
         "alt": "Remparts d'Antibes avec vue mer"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.antibesjuanlespins.com/sites/antibes/files/styles/ogimage/public/page/marcheprovencal-06.jpg?itok=JliBPTcs",
         "alt": "Marché provençal coloré d'Antibes"
       }
     ],
@@ -515,15 +515,15 @@
     "station": "Cannes",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.vinci-autoroutes.com/static/c6107c51a71ea41fb8c3ffae5eab6033/site-touristique-vinci-autoroutes-croisette-cannes.jpg",
         "alt": "Croisette mythique de Cannes"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.cannes.com/_object/ametys-internal%253Asites/www/ametys-internal%253Acontents/ile-sainte-marguerite-galerie-de-photos/_attribute/photos%5B1%5D/image/Ile-Sainte-Marguerite-Etang-du-Bateguier-(c)-Ville-de-Cannes.jpg?objectId=defaultWebContent://710383b0-20e1-4ee3-a4a6-729e2c1a41e1",
         "alt": "Île Sainte-Marguerite depuis Cannes"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://campingprovencale.com/wp-content/uploads/2025/10/Cannes-Suquet-port-2-1024x683.jpeg",
         "alt": "Vieux Cannes - Le Suquet"
       }
     ],
@@ -545,22 +545,22 @@
     "station": "Menton",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://static.apidae-tourisme.com/filestore/objets-touristiques/images/70/46/13446726.jpg",
         "alt": "Jardin Serre de la Madone à Menton"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://cdn.craft.cloud/101e4579-0e19-46b6-95c6-7eb27e4afc41/assets/uploads/Guides/Menton__France.webp?width=1200&height=630&quality=82&fit=cover&s=qB9FVZwicYFuAzI3X7Y5EPKDS8PRSVfaE5dYZUBgo7g",
         "alt": "Vieille ville colorée italienne de Menton"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
-        "alt": "Tarte au citron de Menton"
+        "url": "https://img-4.linternaute.com/QplKkwXCmZlwx-VXHz-sPn8KY3c=/1500x/smart/5f60b76e250f447bb861841a0e4ab85b/ccmcms-linternaute/13929925.jpg",
+        "alt": "Fête du citron de Menton"
       }
     ],
     "activities": [
       "Visiter le jardin Serre de la Madone",
       "Explorer la vieille ville colorée italienne",
-      "Déguster une tarte au citron de Menton"
+      "Assister à la Fête du citron"
     ],
     "travel_time": "35 min",
     "travel_time_minutes": 35,
@@ -575,15 +575,15 @@
     "station": "Villefranche-sur-Mer",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.travelandleisure.com/thmb/iSlyNgKLMAqo3D0_BhlvU-THdQk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-how-to-get-there-VILLEFRANCHESURMER0925-1ee6c2666aa244beb0bb708b2974c78b.jpg",
         "alt": "Baie aux eaux turquoise de Villefranche-sur-Mer"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.piedsdazur.fr/wp-content/uploads/2025/05/ruelle-maisons-colorees-villefranche-1024x768.jpg",
         "alt": "Ruelles colorées de Villefranche-sur-Mer"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://nice.love-spots.com/wp-content/uploads/sites/2/2021/09/Citadelle-monument-historique-Villefranche-sur-Mer-City-Guide-Love-Spots-03.jpeg",
         "alt": "Citadelle et musées gratuits de Villefranche"
       }
     ],
@@ -605,15 +605,15 @@
     "station": "Èze-sur-Mer",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://lh3.googleusercontent.com/pw/AP1GczM3DbMGYnZLksrs-jaLIH47Z3DZePbfX-XIrXlt7AMfcIhH1pd5pcvg1e4N-xgHYwbtLBaw_MhIGX0MIarns2mIqi-AoKL0Ad7dPRrBWLQaoQMAUK-l3iC7AZTsVaCfFLlwP0a5O3nCXI03c3m6FF3syg=w1231-h927-s-no?authuser=0",
         "alt": "Crique tranquille d'Èze-sur-Mer"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2021/07/22/cdc89d03fc17425cad9f7954b890466f_Profil-Hero-Image-Terrasses-Corses.jpg",
         "alt": "Déjeuner de poisson au bord de l'eau"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.explorenicecotedazur.com/content/uploads/2023/07/11944775.jpg",
         "alt": "Village d'Èze perché au-dessus de la mer"
       }
     ],
@@ -635,15 +635,15 @@
     "station": "Grasse",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://www.entrepriseetdecouverte.fr/wp-content/uploads/wpetourisme/entreprise_et_decouverte_galimard-parfumeur-en-1747_grasse-galimard-2.jpg",
         "alt": "Création de parfum chez Fragonard ou Molinard"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://provence-alpes-cotedazur.com/app/uploads/crt-paca/2020/07/thumbs/ville-grasse-antoine-et-marta-konopka-1-1920x960.jpg",
         "alt": "Vieille ville provençale de Grasse"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://usines-parfum.fragonard.com/wp-content/uploads/2019/05/entete-usine-historique.jpg",
         "alt": "Usines de parfumerie à Grasse"
       }
     ],
@@ -665,15 +665,15 @@
     "station": "Ventimiglia",
     "images": [
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://ventimiglia.it/wp-content/uploads/2024/02/Particolare-del-Mercato-di-Ventimiglia-cover.jpg",
         "alt": "Marché du vendredi de Ventimiglia"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://ventimiglia.it/wp-content/uploads/2024/03/Porta-Canarda-di-notte-cover.jpg",
         "alt": "Pizza italienne pas chère à Ventimiglia"
       },
       {
-        "url": "YOUR_IMAGE_URL_HERE",
+        "url": "https://cdn.hometogo.net/assets/media/pics/1200_628/6118eab0bab48.jpg",
         "alt": "Vieille ville médiévale Ventimiglia Alta"
       }
     ],
