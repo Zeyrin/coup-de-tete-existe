@@ -27,7 +27,9 @@ export async function POST(request: NextRequest) {
 
     // Save preferences if user is authenticated
     if (user) {
-      const { error: upsertError } = await supabase
+      console.log('Saving preferences for user:', user.id, 'archetype:', result.archetypeId);
+
+      const { data: upsertData, error: upsertError } = await supabase
         .from('user_preferences')
         .upsert(
           {
@@ -40,11 +42,16 @@ export async function POST(request: NextRequest) {
           {
             onConflict: 'user_id',
           }
-        );
+        )
+        .select();
 
       if (upsertError) {
         console.error('Error saving preferences:', upsertError);
+      } else {
+        console.log('Preferences saved successfully:', upsertData);
       }
+    } else {
+      console.log('No authenticated user found for quiz submission');
     }
 
     return NextResponse.json({
