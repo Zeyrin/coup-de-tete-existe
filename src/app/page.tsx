@@ -42,6 +42,17 @@ export default function Home() {
   const [departureCity, setDepartureCity] = useState<"paris" | "nice">("paris");
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
 
+  // Listen for reset event from header logo click
+  useEffect(() => {
+    const handleReset = () => {
+      setDestination(null);
+      setIsSpinning(false);
+    };
+
+    window.addEventListener('reset-home-state', handleReset);
+    return () => window.removeEventListener('reset-home-state', handleReset);
+  }, []);
+
   const spin = async () => {
     setIsSpinning(true);
 
