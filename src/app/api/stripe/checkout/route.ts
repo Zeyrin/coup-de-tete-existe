@@ -1,30 +1,33 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/utils/api/withAuth';
 import {
   createCheckoutSession,
   createEmbeddedCheckoutSession,
   getOrCreateStripeCustomer,
+  PREMIUM_PRICE_ID,
 } from '@/utils/stripe/server';
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async ({ user, supabase, request }) => {
   try {
-    const body = await request.json().catch(() => ({}));
-    const isEmbedded = body.embedded === true;
-
-    const supabase = await createClient();
-
-    // Get authenticated user
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-
-    if (authError || !user) {
+    // Check Stripe configuration
+    if (!process.env.STRIPE_SECRET_KEY) {
+      console.error('STRIPE_SECRET_KEY is missing');
       return NextResponse.json(
-        { error: 'Non autorisé. Veuillez vous connecter.' },
-        { status: 401 }
+        { error: 'Configuration Stripe manquante (clé secrète)' },
+        { status: 500 }
       );
     }
+
+    if (!PREMIUM_PRICE_ID) {
+      console.error('STRIPE_PREMIUM_PRICE_ID is missing');
+      return NextResponse.json(
+        { error: 'Configuration Stripe manquante (price ID)' },
+        { status: 500 }
+      );
+    }
+
+    const body = await request.json().catch(() => ({}));
+    const isEmbedded = body.embedded === true;
 
     // Get user data including existing stripe customer id
     const { data: userData, error: userError } = await supabase
@@ -34,6 +37,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (userError || !userData) {
+      console.error('User fetch error:', userError);
       return NextResponse.json(
         { error: 'Utilisateur non trouvé' },
         { status: 404 }
@@ -64,11 +68,14 @@ export async function POST(request: NextRequest) {
 
     // Save customer ID if new
     if (!existingSub) {
-      await supabase.from('subscriptions').insert({
+      const { error: insertError } = await supabase.from('subscriptions').insert({
         user_id: user.id,
         stripe_customer_id: customerId,
         status: 'inactive',
       });
+      if (insertError) {
+        console.error('Subscription insert error:', insertError);
+      }
     }
 
     // Get base URL for redirects
@@ -101,4 +108,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
