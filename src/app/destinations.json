@@ -1479,17 +1479,17 @@
             "alt": "Espaces verts urbains de Nantes"
           },
           {
-            "url": "YOUR_IMAGE_URL_HERE",
-            "alt": "Vélo en libre-service à Nantes"
+            "url": "https://www.my-loire-valley.com/wp-content/uploads/2018/05/Claude_Ponti_au_jardin_des_plantes_de_nantesccJP-Dalbera.jpg",
+            "alt": "Jardin des plantes de Nantes"
           },
           {
-            "url": "YOUR_IMAGE_URL_HERE",
-            "alt": "Île de Nantes écologique"
+            "url": "https://www.lesmachines-nantes.fr/wp-content/uploads/2018/01/home_01.jpg",
+            "alt": "Machines de l'Île de Nantes écologique"
           }
         ],
         "activities": [
           "Découvrir les espaces verts urbains",
-          "Utiliser le vélo en libre-service",
+          "Explorer le jardin des plantes",
           "Visiter l'île de Nantes écologique"
         ],
         "travel_time": "2h",
@@ -1505,15 +1505,15 @@
         "station": "Rennes",
         "images": [
           {
-            "url": "YOUR_IMAGE_URL_HERE",
+            "url": "https://cdn.generationvoyage.fr/2020/03/bretagne-rennes.jpg",
             "alt": "Cœur historique de la capitale bretonne"
           },
           {
-            "url": "YOUR_IMAGE_URL_HERE",
-            "alt": "Parcs urbains de Rennes"
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Parc_du_thabor_DSC_4491.JPG",
+            "alt": "Parcs du thabor"
           },
           {
-            "url": "YOUR_IMAGE_URL_HERE",
+            "url": "https://www.rennes-congres.fr/voy_content/uploads/sites/3/2023/11/Facade_Musee_Beaux_Arts-Destination_Rennes-Julien_Mignot.jpg",
             "alt": "Musée des Beaux-Arts de Rennes"
           }
         ],
