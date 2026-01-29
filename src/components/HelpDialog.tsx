@@ -35,63 +35,76 @@ export default function HelpDialog() {
           </DialogTitle>
         </DialogHeader>
 
-        <div className="p-6 space-y-6">
+        <div className="p-6 space-y-5">
           {/* Step 1 */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="bg-[#FF6B6B] neo-border w-10 h-10 flex items-center justify-center font-bold text-xl flex-shrink-0 rounded-md">
+              <div className="bg-[#FF6B6B] neo-border w-9 h-9 flex items-center justify-center font-bold text-lg flex-shrink-0 rounded-md">
                 1
               </div>
-              <h3 className="font-bold text-lg uppercase">Choisis ton départ</h3>
+              <h3 className="font-bold text-base uppercase">Choisis ton départ</h3>
             </div>
-            <p className="text-base pl-[52px]">
-              Sélectionne ta ville de départ : <strong>Paris</strong> ou <strong>Nice</strong>
+            <p className="text-sm pl-12">
+              <strong>Paris</strong> ou <strong>Nice</strong>
             </p>
           </div>
 
           {/* Step 2 */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="bg-[#4ECDC4] neo-border w-10 h-10 flex items-center justify-center font-bold text-xl flex-shrink-0 rounded-md">
+              <div className="bg-[#4ECDC4] neo-border w-9 h-9 flex items-center justify-center font-bold text-lg flex-shrink-0 rounded-md">
                 2
               </div>
-              <h3 className="font-bold text-lg uppercase">Définis tes limites</h3>
+              <h3 className="font-bold text-base uppercase">Définis tes limites</h3>
             </div>
-            <p className="text-base pl-[52px]">
-              Choisis ton <strong>temps de trajet max</strong> et ton <strong>budget max</strong>
+            <p className="text-sm pl-12">
+              <strong>Temps de trajet</strong> et <strong>budget max</strong>
             </p>
           </div>
 
-          {/* Step 3 */}
-          <div className="space-y-2">
+          {/* Step 3 - Profile */}
+          <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="bg-[#FFE951] neo-border w-10 h-10 flex items-center justify-center font-bold text-xl flex-shrink-0 rounded-md">
+              <div className="bg-[#9B59B6] neo-border w-9 h-9 flex items-center justify-center font-bold text-lg flex-shrink-0 rounded-md text-white">
                 3
               </div>
-              <h3 className="font-bold text-lg uppercase">Lance la roue !</h3>
+              <h3 className="font-bold text-base uppercase">Ton profil voyageur</h3>
             </div>
-            <p className="text-base pl-[52px]">
-              Clique sur <strong>LANCE LA ROUE</strong> et découvre ta destination surprise !
+            <p className="text-sm pl-12">
+              Passe le <strong>quiz</strong> pour des destinations sur-mesure ! Tu peux aussi le <strong>désactiver</strong> pour voir toutes les destinations.
             </p>
           </div>
 
           {/* Step 4 */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="bg-[#98D8C8] neo-border w-10 h-10 flex items-center justify-center font-bold text-xl flex-shrink-0 rounded-md">
+              <div className="bg-[#FFE951] neo-border w-9 h-9 flex items-center justify-center font-bold text-lg flex-shrink-0 rounded-md">
                 4
               </div>
-              <h3 className="font-bold text-lg uppercase">Réserve ton billet</h3>
+              <h3 className="font-bold text-base uppercase">Lance la roue !</h3>
             </div>
-            <p className="text-base pl-[52px]">
-              Copie le nom de la gare et réserve ton billet sur <strong>SNCF Connect</strong>
+            <p className="text-sm pl-12">
+              Clique et découvre ta <strong>destination surprise</strong> !
+            </p>
+          </div>
+
+          {/* Step 5 */}
+          <div className="space-y-1">
+            <div className="flex items-center gap-3">
+              <div className="bg-[#98D8C8] neo-border w-9 h-9 flex items-center justify-center font-bold text-lg flex-shrink-0 rounded-md">
+                5
+              </div>
+              <h3 className="font-bold text-base uppercase">Réserve ton billet</h3>
+            </div>
+            <p className="text-sm pl-12">
+              Réserve sur <strong>SNCF Connect</strong>
             </p>
           </div>
 
           {/* Info box */}
-          <div className="bg-[#FF6B6B] neo-card p-4 mt-6">
-            <p className="text-center font-bold text-base">
-              💡 Astuce : L&apos;algo évite de te proposer 3 fois de suite la même destination !
+          <div className="bg-[#FF6B6B] neo-card p-3 mt-4">
+            <p className="text-center font-bold text-sm">
+              💡 L&apos;algo évite de te proposer 3 fois de suite la même destination !
             </p>
           </div>
         </div>
