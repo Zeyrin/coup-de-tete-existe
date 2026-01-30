@@ -34,6 +34,17 @@ interface Destination {
   images?: Image[];
 }
 
+interface UserArchetype {
+  id: string;
+  name_fr: string;
+  icon: string;
+}
+
+interface DestinationArchetypeMapping {
+  destination_city: string;
+  relevance_score: number;
+}
+
 export default function Home() {
   const [maxTravelTime, setMaxTravelTime] = useState(120); // minutes
   const [maxBudget, setMaxBudget] = useState(30); // euros
@@ -41,6 +52,45 @@ export default function Home() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [departureCity, setDepartureCity] = useState<"paris" | "nice">("paris");
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
+
+  // Archetype-based filtering
+  const [userArchetype, setUserArchetype] = useState<UserArchetype | null>(null);
+  const [useArchetypeFilter, setUseArchetypeFilter] = useState(true);
+  const [archetypeMappings, setArchetypeMappings] = useState<DestinationArchetypeMapping[]>([]);
+
+  // Fetch user archetype on mount
+  useEffect(() => {
+    const fetchUserArchetype = async () => {
+      try {
+        const response = await fetch("/api/user/preferences");
+        if (response.ok) {
+          const data = await response.json();
+          if (data.preferences?.archetype) {
+            setUserArchetype({
+              id: data.preferences.archetype.id,
+              name_fr: data.preferences.archetype.name_fr,
+              icon: data.preferences.archetype.icon,
+            });
+
+            // Fetch archetype-destination mappings
+            const supabase = createClient();
+            const { data: mappings } = await supabase
+              .from("destination_archetypes")
+              .select("destination_city, relevance_score")
+              .eq("archetype_id", data.preferences.archetype.id);
+
+            if (mappings) {
+              setArchetypeMappings(mappings);
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user archetype:", error);
+      }
+    };
+
+    fetchUserArchetype();
+  }, []);
 
   // Listen for reset event from header logo click
   useEffect(() => {
@@ -64,6 +114,17 @@ export default function Home() {
         d.typical_price_euros <= maxBudget
     );
 
+    // Apply archetype filter if enabled and user has an archetype
+    if (useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
+      const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
+      const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
+
+      // Only use archetype filter if we have at least 1 matching destination
+      if (archetypeFiltered.length > 0) {
+        filtered = archetypeFiltered;
+      }
+    }
+
     // Exclude the last 3 destinations if there are enough alternatives
     const availableWithoutRecent = filtered.filter(
       (d) => !recentDestinations.includes(d.city)
@@ -74,8 +135,23 @@ export default function Home() {
       filtered = availableWithoutRecent;
     }
 
+    // Select destination NOW so we can preload images during animation
+    const random = filtered[Math.floor(Math.random() * filtered.length)];
+
+    // Preload images while the wheel is spinning (2 seconds of animation time)
+    if (random.images && random.images.length > 0) {
+      random.images.forEach((img) => {
+        if (img.url && img.url !== "YOUR_IMAGE_URL_HERE") {
+          const preloadImg = new window.Image();
+          preloadImg.src = img.url;
+        }
+      });
+    } else if (random.image && random.image !== "YOUR_IMAGE_URL_HERE") {
+      const preloadImg = new window.Image();
+      preloadImg.src = random.image;
+    }
+
     setTimeout(async () => {
-      const random = filtered[Math.floor(Math.random() * filtered.length)];
       setDestination(random);
 
       // Update recent destinations: add new one and keep only last 3
@@ -117,14 +193,28 @@ export default function Home() {
         console.error("Error saving spin:", error);
       }
     }, 2000);
-  }, [departureCity, maxTravelTime, maxBudget, recentDestinations]);
+  }, [departureCity, maxTravelTime, maxBudget, recentDestinations, useArchetypeFilter, userArchetype, archetypeMappings]);
 
-  const filteredDestinations = (destinations as Destination[]).filter(
-    (d) =>
-      d.departure === departureCity &&
-      d.travel_time_minutes <= maxTravelTime &&
-      d.typical_price_euros <= maxBudget
-  );
+  // Calculate filtered destinations for display counter
+  const filteredDestinations = (() => {
+    let filtered = (destinations as Destination[]).filter(
+      (d) =>
+        d.departure === departureCity &&
+        d.travel_time_minutes <= maxTravelTime &&
+        d.typical_price_euros <= maxBudget
+    );
+
+    // Apply archetype filter if enabled
+    if (useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
+      const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
+      const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
+      if (archetypeFiltered.length > 0) {
+        filtered = archetypeFiltered;
+      }
+    }
+
+    return filtered;
+  })();
 
   // Keyboard shortcut: Press R to spin the wheel
   useEffect(() => {
@@ -201,6 +291,38 @@ export default function Home() {
             <RouletteWheel isSpinning={isSpinning} />
           ) : (
             <>
+              {/* Archetype filter toggle - only show if user has an archetype */}
+              {userArchetype && (
+                <div className="mb-6">
+                  <button
+                    onClick={() => setUseArchetypeFilter(!useArchetypeFilter)}
+                    className={`w-full p-4 neo-border rounded-md font-bold text-sm transition-all duration-200 flex items-center justify-between ${
+                      useArchetypeFilter
+                        ? "bg-[#9B59B6] text-white"
+                        : "bg-white text-gray-600"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      {userArchetype.icon} Mon profil: {userArchetype.name_fr}
+                    </span>
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-bold ${
+                        useArchetypeFilter
+                          ? "bg-white text-[#9B59B6]"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
+                      {useArchetypeFilter ? "ACTIVÉ" : "DÉSACTIVÉ"}
+                    </span>
+                  </button>
+                  {!useArchetypeFilter && (
+                    <p className="text-xs text-gray-500 text-center mt-2">
+                      Toutes les destinations seront incluses
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div>
                   <label className="block text-lg font-bold mb-3 uppercase">
@@ -223,6 +345,11 @@ export default function Home() {
               <div className="bg-[#74D3AE] neo-card p-4 mb-8">
                 <p className="text-center font-bold text-lg">
                   {filteredDestinations.length} DESTINATIONS DISPONIBLES
+                  {useArchetypeFilter && userArchetype && archetypeMappings.length > 0 && (
+                    <span className="block text-sm font-normal mt-1">
+                      Filtrées pour {userArchetype.icon} {userArchetype.name_fr}
+                    </span>
+                  )}
                 </p>
               </div>
 
@@ -306,6 +433,11 @@ export default function Home() {
           </div>
 
           <div className="space-y-6">
+            {/* Price disclaimer */}
+            <p className="text-xs text-gray-500 text-center italic">
+              ⚠️ Les prix indiqués sont des estimations. Le tarif réel dépend de la date, l&apos;heure et la disponibilité.
+            </p>
+
             {/* Ligne unique avec les 3 boutons */}
             <div className="flex gap-3">
               <a
@@ -330,17 +462,6 @@ export default function Home() {
               ↻ RELANCER LA ROUE
             </button>
 
-            {/* Feedback message */}
-            <div className="flex justify-center">
-              <a
-                href="https://forms.gle/2aYJDkfBSweDCVzD8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#98D8C8] neo-card px-6 py-3 font-bold text-sm hover:bg-[#85C1B5] transition inline-block"
-              >
-                💬 Partage ton expérience
-              </a>
-            </div>
           </div>
         </div>
       )}
