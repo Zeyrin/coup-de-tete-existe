@@ -67,10 +67,10 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
           </div>
         )}
 
-        {/* Price Card - Bottom Right - Fixed width matching time card */}
+        {/* Price Card - Bottom Right - with + to indicate minimum price */}
         {price && (
           <div className="absolute bottom-3 right-3 bg-[#FFE951] neo-card px-4 py-2 font-bold text-sm min-w-[100px] text-center">
-            💰 {price.replace(/€(\d+)/, '$1€')}
+            💰 {price.replace(/€(\d+)/, '$1€')}+
           </div>
         )}
 
