@@ -51,7 +51,7 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-2">Passe Premium 👑</h2>
         <p className="text-gray-600">
-          Des destinations personnalisées selon ton profil voyageur
+          Soutiens le développement et profite de fonctionnalités exclusives
         </p>
       </div>
 
@@ -69,17 +69,13 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
               <span className="text-green-500">✓</span>
               Filtres temps & budget
             </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">✓</span>
-              Quiz de personnalité
+            <li className="flex items-center gap-2 text-gray-400">
+              <span>✗</span>
+              Quiz profil voyageur
             </li>
             <li className="flex items-center gap-2 text-gray-400">
               <span>✗</span>
               Destinations personnalisées
-            </li>
-            <li className="flex items-center gap-2 text-gray-400">
-              <span>✗</span>
-              Changer d&apos;archétype
             </li>
           </ul>
           <div className="mt-4 text-center">
@@ -93,7 +89,7 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
           <div className="flex items-center gap-2 mb-4">
             <h3 className="font-bold text-lg">Premium</h3>
             <span className="bg-[#FFD700] text-xs px-2 py-1 rounded font-bold">
-              RECOMMANDÉ
+              SOUTIEN
             </span>
           </div>
           <ul className="space-y-2 text-sm">
@@ -103,19 +99,19 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>
-              <strong>Destinations personnalisées</strong>
+              <strong>Quiz profil voyageur</strong>
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>
-              Basées sur ton archétype
+              Destinations selon ton archétype
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>
-              Changer d&apos;archétype à volonté
+              Statut Premium exclusif
             </li>
             <li className="flex items-center gap-2">
               <span className="text-green-500">✓</span>
-              Support prioritaire
+              Soutien au développement ❤️
             </li>
           </ul>
           <div className="mt-4 text-center">
@@ -123,6 +119,14 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
             <span className="text-gray-500">/mois</span>
           </div>
         </div>
+      </div>
+
+      {/* Coming soon features */}
+      <div className="bg-[#9B59B6]/10 neo-card p-4 mb-6">
+        <p className="text-center font-bold text-sm mb-2">🚀 Bientôt pour les Premium :</p>
+        <p className="text-center text-xs text-gray-600">
+          Suggérer des destinations • Cosmétiques • Et plus encore...
+        </p>
       </div>
 
       {/* CTA Button */}

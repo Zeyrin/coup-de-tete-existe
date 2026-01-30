@@ -53,18 +53,32 @@ export default function Home() {
   const [departureCity, setDepartureCity] = useState<"paris" | "nice">("paris");
   const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
 
-  // Archetype-based filtering
+  // Archetype-based filtering (premium feature)
   const [userArchetype, setUserArchetype] = useState<UserArchetype | null>(null);
   const [useArchetypeFilter, setUseArchetypeFilter] = useState(true);
   const [archetypeMappings, setArchetypeMappings] = useState<DestinationArchetypeMapping[]>([]);
+  const [isPremium, setIsPremium] = useState(false);
+  const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
 
-  // Fetch user archetype on mount
+  // Fetch user archetype and premium status on mount
   useEffect(() => {
-    const fetchUserArchetype = async () => {
+    const fetchUserData = async () => {
       try {
-        const response = await fetch("/api/user/preferences");
-        if (response.ok) {
-          const data = await response.json();
+        // Fetch both in parallel for faster loading
+        const [subResponse, prefResponse] = await Promise.all([
+          fetch("/api/subscription/status"),
+          fetch("/api/user/preferences")
+        ]);
+
+        // Process subscription status
+        if (subResponse.ok) {
+          const subData = await subResponse.json();
+          setIsPremium(subData.isPremium === true);
+        }
+
+        // Process user preferences
+        if (prefResponse.ok) {
+          const data = await prefResponse.json();
           if (data.preferences?.archetype) {
             setUserArchetype({
               id: data.preferences.archetype.id,
@@ -85,11 +99,13 @@ export default function Home() {
           }
         }
       } catch (error) {
-        console.error("Error fetching user archetype:", error);
+        console.error("Error fetching user data:", error);
+      } finally {
+        setIsUserDataLoaded(true);
       }
     };
 
-    fetchUserArchetype();
+    fetchUserData();
   }, []);
 
   // Listen for reset event from header logo click
@@ -114,8 +130,8 @@ export default function Home() {
         d.typical_price_euros <= maxBudget
     );
 
-    // Apply archetype filter if enabled and user has an archetype
-    if (useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
+    // Apply archetype filter if enabled, user is premium and has an archetype
+    if (isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
       const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
       const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
 
@@ -193,7 +209,7 @@ export default function Home() {
         console.error("Error saving spin:", error);
       }
     }, 2000);
-  }, [departureCity, maxTravelTime, maxBudget, recentDestinations, useArchetypeFilter, userArchetype, archetypeMappings]);
+  }, [departureCity, maxTravelTime, maxBudget, recentDestinations, useArchetypeFilter, userArchetype, archetypeMappings, isPremium]);
 
   // Calculate filtered destinations for display counter
   const filteredDestinations = (() => {
@@ -204,8 +220,8 @@ export default function Home() {
         d.typical_price_euros <= maxBudget
     );
 
-    // Apply archetype filter if enabled
-    if (useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
+    // Apply archetype filter if premium, enabled and has archetype
+    if (isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
       const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
       const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
       if (archetypeFiltered.length > 0) {
@@ -294,7 +310,7 @@ export default function Home() {
               {/* Archetype filter toggle - only show if user has an archetype */}
               {userArchetype && (
                 <div className="mb-6">
-                  <button
+                                    <button
                     onClick={() => setUseArchetypeFilter(!useArchetypeFilter)}
                     className={`w-full p-4 neo-border rounded-md font-bold text-sm transition-all duration-200 flex items-center justify-between ${
                       useArchetypeFilter
@@ -345,7 +361,7 @@ export default function Home() {
               <div className="bg-[#74D3AE] neo-card p-4 mb-8">
                 <p className="text-center font-bold text-lg">
                   {filteredDestinations.length} DESTINATIONS DISPONIBLES
-                  {useArchetypeFilter && userArchetype && archetypeMappings.length > 0 && (
+                  {isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0 && (
                     <span className="block text-sm font-normal mt-1">
                       Filtrées pour {userArchetype.icon} {userArchetype.name_fr}
                     </span>
@@ -361,19 +377,26 @@ export default function Home() {
                 {isSpinning ? "🎰 EN COURS..." : "🎲 LANCE LA ROUE !"}
               </button>
 
-              {/* Quiz CTA */}
-              <div className="mt-6 text-center">
-                <Link
-                  href="/quiz"
-                  className="inline-flex items-center gap-2 text-gray-600 hover:text-black font-bold transition"
-                >
-                  <span>🎯</span>
-                  <span>Découvre ton profil voyageur</span>
-                  <span className="text-xs bg-[#FFD700] text-black px-2 py-0.5 rounded-full">
-                    NOUVEAU
-                  </span>
-                </Link>
-              </div>
+              {/* Quiz CTA - only show after user data is loaded and if user doesn't have an archetype */}
+              {/* Premium users go to quiz, non-premium go to subscription page */}
+              {isUserDataLoaded && !userArchetype && (
+                <div className="mt-6 text-center">
+                  <Link
+                    href={isPremium ? "/quiz" : "/subscription"}
+                    className="inline-flex items-center gap-2 text-gray-600 hover:text-black font-bold transition"
+                  >
+                    <span>🎯</span>
+                    <span>Découvre ton profil voyageur</span>
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      isPremium
+                        ? "bg-[#FFD700] text-black"
+                        : "bg-[#9B59B6] text-white"
+                    }`}>
+                      {isPremium ? "NOUVEAU" : "PREMIUM"}
+                    </span>
+                  </Link>
+                </div>
+              )}
             </>
           )}
         </div>
