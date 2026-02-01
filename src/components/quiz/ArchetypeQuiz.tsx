@@ -8,9 +8,10 @@ import ArchetypeCard from '@/components/archetype/ArchetypeCard';
 
 interface ArchetypeQuizProps {
   onComplete?: (result: QuizResult) => void;
+  isPremium?: boolean;
 }
 
-export default function ArchetypeQuiz({ onComplete }: ArchetypeQuizProps) {
+export default function ArchetypeQuiz({ onComplete, isPremium = false }: ArchetypeQuizProps) {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -98,18 +99,24 @@ export default function ArchetypeQuiz({ onComplete }: ArchetypeQuizProps) {
         </div>
 
         <div className="space-y-4">
-          <button
-            onClick={() => router.push('/subscription')}
-            className="w-full bg-[#FFD700] text-black neo-button py-4 font-bold text-lg uppercase"
-          >
-            👑 Passer Premium pour des destinations personnalisées
-          </button>
+          {!isPremium && (
+            <button
+              onClick={() => router.push('/subscription')}
+              className="w-full bg-[#FFD700] text-black neo-button py-4 font-bold text-lg uppercase"
+            >
+              👑 Passer Premium pour des destinations personnalisées
+            </button>
+          )}
 
           <button
             onClick={() => router.push('/')}
-            className="w-full bg-white text-black neo-button py-4 font-bold uppercase"
+            className={`w-full neo-button py-4 font-bold uppercase ${
+              isPremium
+                ? 'bg-[#4ECDC4] text-black text-lg'
+                : 'bg-white text-black'
+            }`}
           >
-            Retour à l&apos;accueil
+            {isPremium ? '🎲 Lancer la roue !' : 'Retour à l\'accueil'}
           </button>
         </div>
       </div>
