@@ -115,7 +115,7 @@ export default function SubscriptionCTA({ onSubscribe }: SubscriptionCTAProps) {
             </li>
           </ul>
           <div className="mt-4 text-center">
-            <span className="text-2xl font-bold">4,99€</span>
+            <span className="text-2xl font-bold">2,99€</span>
             <span className="text-gray-500">/mois</span>
           </div>
         </div>
