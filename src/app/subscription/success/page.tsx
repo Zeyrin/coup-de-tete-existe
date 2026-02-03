@@ -52,18 +52,18 @@ function SuccessContent() {
 
     // Countdown to redirect
     const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          router.push('/');
-          return 0;
-        }
-        return prev - 1;
-      });
+      setCountdown((prev) => prev - 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [router, status]);
+  }, [status]);
+
+  // Handle redirect when countdown reaches 0
+  useEffect(() => {
+    if (countdown <= 0 && status === 'success') {
+      router.push('/');
+    }
+  }, [countdown, status, router]);
 
   const triggerConfetti = () => {
     confetti({

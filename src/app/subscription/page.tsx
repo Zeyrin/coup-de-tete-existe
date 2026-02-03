@@ -88,14 +88,6 @@ function SubscriptionContent() {
         )}
 
         <SubscriptionCTA onSubscribe={handleSubscribe} />
-
-        <div className="mt-8 text-center">
-          <div className="bg-[#9B59B6] neo-card p-4">
-            <p className="text-white font-bold">
-              🎯 Le quiz &quot;Découvre ton profil voyageur&quot; est inclus avec Premium !
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
