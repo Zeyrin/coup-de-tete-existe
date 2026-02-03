@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { AuthButton } from "@/components/AuthButton";
 import { HeaderLogo } from "@/components/HeaderLogo";
 import Link from "next/link";
+import { Trophy } from "lucide-react";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -32,9 +33,10 @@ export default function RootLayout({
             <div className="flex items-center gap-1.5 sm:gap-2">
               <Link
                 href="/leaderboard"
-                className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#FFD700] font-bold flex items-center gap-1 text-sm"
+                className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#FFE951] font-bold flex items-center gap-1 text-sm"
               >
-                🏆 <span className="hidden sm:inline">Classement</span>
+                <Trophy className="w-4 h-4" />
+                <span className="hidden sm:inline">Classement</span>
               </Link>
               <AuthButton />
             </div>

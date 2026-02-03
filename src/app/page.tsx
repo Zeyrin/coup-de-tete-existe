@@ -272,7 +272,7 @@ export default function Home() {
             COUP DE TÊTE
           </h1>
           <p className="text-center text-xl mb-6 font-bold">
-            ⚡ AVENTURE SPONTANÉE ⚡
+            ⚡ CASSE TA ROUTINE ⚡
           </p>
 
           {/* Departure City Switch - hidden when spinning */}
@@ -307,34 +307,52 @@ export default function Home() {
             <RouletteWheel isSpinning={isSpinning} />
           ) : (
             <>
-              {/* Archetype filter toggle - only show if user has an archetype */}
+              {/* Archetype filter toggle - show if user has an archetype */}
               {userArchetype && (
                 <div className="mb-6">
-                                    <button
-                    onClick={() => setUseArchetypeFilter(!useArchetypeFilter)}
-                    className={`w-full p-4 neo-border rounded-md font-bold text-sm transition-all duration-200 flex items-center justify-between ${
-                      useArchetypeFilter
-                        ? "bg-[#9B59B6] text-white"
-                        : "bg-white text-gray-600"
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      {userArchetype.icon} Mon profil: {userArchetype.name_fr}
-                    </span>
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        useArchetypeFilter
-                          ? "bg-white text-[#9B59B6]"
-                          : "bg-gray-200 text-gray-500"
-                      }`}
+                  {isPremium ? (
+                    // Premium users can toggle the filter
+                    <>
+                      <button
+                        onClick={() => setUseArchetypeFilter(!useArchetypeFilter)}
+                        className={`w-full p-4 neo-border rounded-md font-bold text-sm transition-all duration-200 flex items-center justify-between ${
+                          useArchetypeFilter
+                            ? "bg-[#9B59B6] text-white"
+                            : "bg-white text-gray-600"
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          {userArchetype.icon} Mon profil: {userArchetype.name_fr}
+                        </span>
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-bold ${
+                            useArchetypeFilter
+                              ? "bg-white text-[#9B59B6]"
+                              : "bg-gray-200 text-gray-500"
+                          }`}
+                        >
+                          {useArchetypeFilter ? "ACTIVÉ" : "DÉSACTIVÉ"}
+                        </span>
+                      </button>
+                      {!useArchetypeFilter && (
+                        <p className="text-xs text-gray-500 text-center mt-2">
+                          Toutes les destinations seront incluses
+                        </p>
+                      )}
+                    </>
+                  ) : (
+                    // Non-premium users see their profile but can't use the filter
+                    <Link
+                      href="/subscription"
+                      className="w-full p-4 neo-border rounded-md font-bold text-sm bg-white text-gray-700 flex items-center justify-between hover:bg-gray-50 transition-all duration-200"
                     >
-                      {useArchetypeFilter ? "ACTIVÉ" : "DÉSACTIVÉ"}
-                    </span>
-                  </button>
-                  {!useArchetypeFilter && (
-                    <p className="text-xs text-gray-500 text-center mt-2">
-                      Toutes les destinations seront incluses
-                    </p>
+                      <span className="flex items-center gap-2">
+                        {userArchetype.icon} Mon profil: {userArchetype.name_fr}
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FFD700] text-black">
+                        👑 ACTIVER
+                      </span>
+                    </Link>
                   )}
                 </div>
               )}
@@ -378,22 +396,14 @@ export default function Home() {
               </button>
 
               {/* Quiz CTA - only show after user data is loaded and if user doesn't have an archetype */}
-              {/* Premium users go to quiz, non-premium go to subscription page */}
               {isUserDataLoaded && !userArchetype && (
                 <div className="mt-6 text-center">
                   <Link
-                    href={isPremium ? "/quiz" : "/subscription"}
+                    href="/quiz"
                     className="inline-flex items-center gap-2 text-gray-600 hover:text-black font-bold transition"
                   >
                     <span>🎯</span>
                     <span>Découvre ton profil voyageur</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${
-                      isPremium
-                        ? "bg-[#FFD700] text-black"
-                        : "bg-[#9B59B6] text-white"
-                    }`}>
-                      {isPremium ? "NOUVEAU" : "PREMIUM"}
-                    </span>
                   </Link>
                 </div>
               )}

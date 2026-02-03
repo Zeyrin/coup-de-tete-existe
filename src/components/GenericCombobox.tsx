@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckIcon, ChevronsUpDown } from "lucide-react"
+import { CheckIcon, ChevronDown } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -52,7 +52,10 @@ export default function GenericCombobox({
           style={{ backgroundColor: accentColor }}
         >
           {options.find((option) => option.value === value)?.label || "Sélectionner..."}
-          <ChevronsUpDown className="ml-2 h-5 w-5 shrink-0" />
+          <ChevronDown className={cn(
+            "ml-2 h-5 w-5 shrink-0 transition-transform duration-200",
+            open && "rotate-180"
+          )} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] border-0 p-0">

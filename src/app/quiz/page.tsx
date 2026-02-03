@@ -1,12 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import ArchetypeQuiz from '@/components/quiz/ArchetypeQuiz';
 import Link from 'next/link';
 
 export default function QuizPage() {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
 
@@ -16,28 +14,16 @@ export default function QuizPage() {
         const response = await fetch('/api/subscription/status');
         if (response.ok) {
           const data = await response.json();
-          if (data.isPremium === true) {
-            setIsPremium(true);
-          } else {
-            // Redirect non-premium users to premium page
-            router.push('/subscription');
-            return;
-          }
-        } else {
-          // Not authenticated or error - redirect to premium
-          router.push('/subscription');
-          return;
+          setIsPremium(data.isPremium === true);
         }
       } catch (error) {
         console.error('Error checking premium status:', error);
-        router.push('/subscription');
-        return;
       }
       setIsLoading(false);
     };
 
     checkPremiumStatus();
-  }, [router]);
+  }, []);
 
   // Show loading while checking premium status
   if (isLoading) {
@@ -49,11 +35,6 @@ export default function QuizPage() {
         </div>
       </div>
     );
-  }
-
-  // Only render quiz for premium users
-  if (!isPremium) {
-    return null;
   }
 
   return (
