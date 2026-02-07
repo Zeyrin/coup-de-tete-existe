@@ -1,15 +1,13 @@
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import PremiumBadge from '@/components/subscription/PremiumBadge';
 import confetti from 'canvas-confetti';
 
 function SuccessContent() {
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const [countdown, setCountdown] = useState(5);
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -17,13 +15,11 @@ function SuccessContent() {
     const sessionId = searchParams.get('session_id');
 
     if (!sessionId) {
-      // No session ID, still show success (might be from webhook redirect)
       setStatus('success');
       triggerConfetti();
       return;
     }
 
-    // Verify session status
     fetch(`/api/stripe/session-status?session_id=${sessionId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +27,6 @@ function SuccessContent() {
           setStatus('success');
           triggerConfetti();
         } else if (data.status === 'open') {
-          // Session still open, payment not complete
           setErrorMessage('Le paiement n\'a pas encore été confirmé.');
           setStatus('error');
         } else {
@@ -41,29 +36,10 @@ function SuccessContent() {
       })
       .catch((err) => {
         console.error('Error checking session status:', err);
-        // Still show success page on error (webhook might have processed it)
         setStatus('success');
         triggerConfetti();
       });
   }, [searchParams]);
-
-  useEffect(() => {
-    if (status !== 'success') return;
-
-    // Countdown to redirect
-    const timer = setInterval(() => {
-      setCountdown((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [status]);
-
-  // Handle redirect when countdown reaches 0
-  useEffect(() => {
-    if (countdown <= 0 && status === 'success') {
-      router.push('/');
-    }
-  }, [countdown, status, router]);
 
   const triggerConfetti = () => {
     confetti({
@@ -109,7 +85,7 @@ function SuccessContent() {
         <div className="text-6xl mb-4">🎉</div>
 
         <h1 className="text-3xl md:text-4xl font-bold mb-4 uppercase">
-          Bienvenue Premium !
+          Tu es maintenant Premium !
         </h1>
 
         <div className="flex justify-center mb-6">
@@ -117,7 +93,7 @@ function SuccessContent() {
         </div>
 
         <p className="text-gray-600 mb-8">
-          Tu as maintenant accès aux destinations personnalisées selon ton profil voyageur.
+          Merci pour le soutien ! Tu as maintenant accès aux destinations personnalisées selon ton profil voyageur.
         </p>
 
         <div className="space-y-4">
@@ -135,10 +111,6 @@ function SuccessContent() {
             Lancer une roulette personnalisée
           </Link>
         </div>
-
-        <p className="text-sm text-gray-500 mt-6">
-          Redirection automatique dans {countdown} secondes...
-        </p>
       </div>
     </div>
   );
