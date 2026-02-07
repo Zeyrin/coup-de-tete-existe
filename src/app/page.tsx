@@ -253,7 +253,7 @@ export default function Home() {
   }, [isSpinning, destination, filteredDestinations.length, spin]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4 md:p-8">
       {!destination ? (
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
           {/* Help button in top left corner */}
@@ -350,7 +350,7 @@ export default function Home() {
                         {userArchetype.icon} Mon profil: {userArchetype.name_fr}
                       </span>
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FFD700] text-black">
-                        👑 ACTIVER
+                        👑 ACTIVER LE FILTRAGE
                       </span>
                     </Link>
                   )}
