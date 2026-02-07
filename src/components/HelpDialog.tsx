@@ -101,10 +101,13 @@ export default function HelpDialog() {
             </p>
           </div>
 
-          {/* Info box */}
-          <div className="bg-[#FF6B6B] neo-card p-3 mt-4">
-            <p className="text-center font-bold text-sm">
-              💡 L&apos;algo évite de te proposer 3 fois de suite la même destination !
+          {/* Premium feature box */}
+          <div className="bg-[#FFD700] neo-card p-4 mt-4">
+            <p className="text-center font-bold text-sm uppercase mb-1">
+              👑 Ton profil voyageur
+            </p>
+            <p className="text-center text-sm">
+              Passe le quiz pour des destinations <strong>sur-mesure</strong> ! Tu peux aussi le désactiver pour voir toutes les destinations.
             </p>
           </div>
         </div>
