@@ -42,7 +42,7 @@ export const ARCHETYPES: Record<ArchetypeId, Omit<Archetype, 'created_at'>> = {
     id: 'beach_relaxer',
     name_fr: 'Le Rêveur',
     name_en: 'The Dreamer',
-    description_fr: "Recherche les plages, l'ambiance méditerranéenne et la détente",
+    description_fr: "Recherche la détente, l'ambiance méditerranéenne et les plages",
     description_en: 'Craves beaches, Mediterranean vibes, and relaxation',
     icon: '🏖️',
     color: '#3498DB',
