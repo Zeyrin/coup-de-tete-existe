@@ -66,7 +66,7 @@ export const POST = withAuth(async ({ user, supabase, request }) => {
       existingSub?.stripe_customer_id
     );
 
-    // Save customer ID if new
+    // Save or update customer ID
     if (!existingSub) {
       const { error: insertError } = await supabase.from('subscriptions').insert({
         user_id: user.id,
@@ -76,6 +76,11 @@ export const POST = withAuth(async ({ user, supabase, request }) => {
       if (insertError) {
         console.error('Subscription insert error:', insertError);
       }
+    } else if (existingSub.stripe_customer_id !== customerId) {
+      // Customer ID changed (e.g. switching test/live mode), update it
+      await supabase.from('subscriptions').update({
+        stripe_customer_id: customerId,
+      }).eq('user_id', user.id);
     }
 
     // Get base URL for redirects

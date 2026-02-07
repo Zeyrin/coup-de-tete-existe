@@ -23,7 +23,14 @@ export async function getOrCreateStripeCustomer(
   existingCustomerId?: string
 ): Promise<string> {
   if (existingCustomerId) {
-    return existingCustomerId;
+    // Verify the customer still exists in Stripe (may not if switching test/live mode)
+    try {
+      await stripe.customers.retrieve(existingCustomerId);
+      return existingCustomerId;
+    } catch {
+      // Customer doesn't exist in current mode, create a new one
+      console.log(`Customer ${existingCustomerId} not found, creating new one`);
+    }
   }
 
   const customer = await stripe.customers.create({
