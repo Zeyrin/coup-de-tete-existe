@@ -1,15 +1,7 @@
 "use client"
 
 import GenericCombobox, { ComboboxOption } from "./GenericCombobox"
-
-const travelTimes: ComboboxOption[] = [
-  { value: 30, label: "30 minutes" },
-  { value: 60, label: "1 heure" },
-  { value: 90, label: "1h30" },
-  { value: 120, label: "2 heures" },
-  { value: 180, label: "3 heures" },
-  { value: 999, label: "3 heures et plus" },
-]
+import { useLanguage } from '@/i18n/LanguageContext'
 
 interface TravelTimeComboboxProps {
   value: number
@@ -17,12 +9,23 @@ interface TravelTimeComboboxProps {
 }
 
 export default function TravelTimeCombobox({ value, onChange }: TravelTimeComboboxProps) {
+  const { t } = useLanguage()
+
+  const travelTimes: ComboboxOption[] = [
+    { value: 30, label: t('travel.30min') },
+    { value: 60, label: t('travel.1h') },
+    { value: 90, label: t('travel.1h30') },
+    { value: 120, label: t('travel.2h') },
+    { value: 180, label: t('travel.3h') },
+    { value: 999, label: t('travel.3hPlus') },
+  ]
+
   return (
     <GenericCombobox
       value={value}
       onChange={onChange}
       options={travelTimes}
-      emptyMessage="Aucun temps trouvé."
+      emptyMessage={t('travel.empty')}
       accentColor="#FFE951"
     />
   )

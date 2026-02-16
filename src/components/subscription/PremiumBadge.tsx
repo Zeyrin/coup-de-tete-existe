@@ -1,5 +1,7 @@
 'use client';
 
+import { useLanguage } from '@/i18n/LanguageContext';
+
 interface PremiumBadgeProps {
   size?: 'sm' | 'md' | 'lg';
   showText?: boolean;
@@ -9,6 +11,7 @@ export default function PremiumBadge({
   size = 'md',
   showText = true,
 }: PremiumBadgeProps) {
+  const { t } = useLanguage();
   const sizeClasses = {
     sm: 'text-xs px-2 py-0.5',
     md: 'text-sm px-3 py-1',
@@ -25,7 +28,7 @@ export default function PremiumBadge({
       `}
     >
       <span>👑</span>
-      {showText && <span>Premium</span>}
+      {showText && <span>{t('premium.label')}</span>}
     </span>
   );
 }

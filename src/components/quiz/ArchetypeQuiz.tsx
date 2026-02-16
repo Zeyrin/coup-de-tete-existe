@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { QUIZ_QUESTIONS } from '@/data/archetypes';
 import type { QuizResult } from '@/types/database';
 import ArchetypeCard from '@/components/archetype/ArchetypeCard';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface ArchetypeQuizProps {
   onComplete?: (result: QuizResult) => void;
@@ -12,6 +13,7 @@ interface ArchetypeQuizProps {
 }
 
 export default function ArchetypeQuiz({ onComplete, isPremium = false }: ArchetypeQuizProps) {
+  const { t, lang } = useLanguage();
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -77,9 +79,9 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
   if (result) {
     return (
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-2">Ton profil voyageur</h2>
+        <h2 className="text-3xl font-bold mb-2">{t('quiz.resultTitle')}</h2>
         <p className="text-gray-600 mb-8">
-          Basé sur tes réponses, tu es...
+          {t('quiz.resultSubtitle')}
         </p>
 
         <div className="flex justify-center mb-8">
@@ -94,7 +96,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
 
         <div className="bg-gray-100 neo-card p-4 mb-8">
           <p className="text-sm text-gray-600">
-            Confiance: <span className="font-bold">{result.confidence}%</span>
+            {t('quiz.confidence')} <span className="font-bold">{result.confidence}%</span>
           </p>
         </div>
 
@@ -104,7 +106,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
               onClick={() => router.push('/subscription')}
               className="w-full bg-[#FFD700] text-black neo-button py-4 font-bold text-lg uppercase"
             >
-              👑 Passer Premium pour des destinations personnalisées
+              {t('quiz.premiumCTA')}
             </button>
           )}
 
@@ -116,7 +118,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
                 : 'bg-white text-black'
             }`}
           >
-            {isPremium ? '🎲 Lancer la roue !' : 'Retour à l\'accueil'}
+            {isPremium ? t('quiz.launchWheel') : t('quiz.backHome')}
           </button>
         </div>
       </div>
@@ -129,7 +131,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
       {/* Progress bar */}
       <div className="mb-8">
         <div className="flex justify-between text-sm mb-2">
-          <span>Question {currentQuestion + 1}/{QUIZ_QUESTIONS.length}</span>
+          <span>{t('quiz.question')} {currentQuestion + 1}/{QUIZ_QUESTIONS.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
         <div className="h-3 bg-gray-200 neo-card overflow-hidden">
@@ -142,7 +144,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
 
       {/* Question */}
       <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-        {question.question_fr}
+        {lang === 'en' ? question.question_en : question.question_fr}
       </h2>
 
       {/* Options */}
@@ -163,7 +165,7 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
                 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}
             >
-              {option.label_fr}
+              {lang === 'en' ? option.label_en : option.label_fr}
             </button>
           );
         })}
@@ -176,13 +178,13 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
           disabled={isSubmitting}
           className="mt-6 text-gray-600 font-bold hover:text-black transition"
         >
-          ← Question précédente
+          {t('quiz.prevQuestion')}
         </button>
       )}
 
       {isSubmitting && (
         <div className="mt-8 text-center">
-          <p className="font-bold animate-pulse">Analyse en cours...</p>
+          <p className="font-bold animate-pulse">{t('quiz.analyzing')}</p>
         </div>
       )}
     </div>

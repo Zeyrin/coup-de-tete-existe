@@ -2,28 +2,31 @@
 
 import Link from 'next/link';
 import { UserPlus, Trophy, History, Shield, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function UpgradePage() {
+  const { t } = useLanguage();
+
   const benefits = [
     {
       icon: <Trophy className="w-6 h-6" />,
-      title: 'Sauvegarde tes points',
-      description: 'Tes points sont sauvegardés définitivement et accessibles depuis n\'importe quel appareil',
+      title: t('upgrade.benefit1Title'),
+      description: t('upgrade.benefit1Desc'),
     },
     {
       icon: <History className="w-6 h-6" />,
-      title: 'Historique complet',
-      description: 'Retrouve toutes tes destinations passées et tes statistiques de voyage',
+      title: t('upgrade.benefit2Title'),
+      description: t('upgrade.benefit2Desc'),
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: 'Données sécurisées',
-      description: 'Tes données sont protégées et ne seront jamais perdues',
+      title: t('upgrade.benefit3Title'),
+      description: t('upgrade.benefit3Desc'),
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: 'Accès Premium',
-      description: 'Possibilité de passer Premium pour des destinations personnalisées selon ton profil',
+      title: t('upgrade.benefit4Title'),
+      description: t('upgrade.benefit4Desc'),
     },
   ];
 
@@ -35,7 +38,7 @@ export default function UpgradePage() {
           href="/"
           className="absolute top-4 left-4 text-gray-600 hover:text-black font-bold transition"
         >
-          ← Retour
+          {t('common.back')}
         </Link>
 
         <div className="text-center mb-8 pt-4">
@@ -43,12 +46,10 @@ export default function UpgradePage() {
             <UserPlus className="w-8 h-8" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-2 uppercase">
-            Crée ton compte
+            {t('upgrade.title')}
           </h1>
           <p className="text-gray-600">
-            En tant qu&apos;invité, tu n&apos;as pas accès à ton profil.
-            <br />
-            Crée un compte gratuit pour débloquer toutes les fonctionnalités !
+            {t('upgrade.subtitle')}
           </p>
         </div>
 
@@ -73,7 +74,7 @@ export default function UpgradePage() {
         {/* Current guest status */}
         <div className="bg-[#FFE951] neo-card p-4 mb-6">
           <p className="text-sm text-center">
-            <span className="font-bold">Mode invité actuel :</span> Tes données restent uniquement sur cet appareil et peuvent être perdues.
+            <span className="font-bold">{t('upgrade.guestStatus')}</span> {t('upgrade.guestWarning')}
           </p>
         </div>
 
@@ -83,14 +84,14 @@ export default function UpgradePage() {
             href="/signup"
             className="block w-full bg-[#4ECDC4] text-black neo-button py-4 font-bold text-lg uppercase text-center"
           >
-            Créer mon compte gratuit
+            {t('upgrade.createAccount')}
           </Link>
 
           <Link
             href="/login"
             className="block w-full bg-white text-black neo-button py-3 font-bold uppercase text-center"
           >
-            J&apos;ai déjà un compte
+            {t('upgrade.hasAccount')}
           </Link>
         </div>
       </div>

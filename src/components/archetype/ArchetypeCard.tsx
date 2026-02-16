@@ -2,6 +2,7 @@
 
 import type { Archetype, ArchetypeId } from '@/types/database';
 import { ARCHETYPES } from '@/data/archetypes';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface ArchetypeCardProps {
   archetypeId: ArchetypeId;
@@ -20,6 +21,7 @@ export default function ArchetypeCard({
   showDescription = true,
   size = 'md',
 }: ArchetypeCardProps) {
+  const { lang } = useLanguage();
   const data = archetype || ARCHETYPES[archetypeId];
 
   const sizeClasses = {
@@ -58,13 +60,13 @@ export default function ArchetypeCard({
         <h3
           className={`font-bold mt-2 ${titleSizes[size]} ${selected ? 'text-white' : ''}`}
         >
-          {data.name_fr}
+          {lang === 'en' ? data.name_en : data.name_fr}
         </h3>
         {showDescription && (
           <p
             className={`text-sm mt-1 ${selected ? 'text-white/90' : 'text-gray-600'}`}
           >
-            {data.description_fr}
+            {lang === 'en' ? data.description_en : data.description_fr}
           </p>
         )}
       </div>

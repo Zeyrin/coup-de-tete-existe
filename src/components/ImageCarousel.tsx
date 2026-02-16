@@ -125,7 +125,7 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
               className={`w-2 h-2 rounded-full transition ${
                 index === currentIndex ? 'bg-black w-6' : 'bg-gray-400'
               }`}
-              aria-label={`Aller à l'image ${index + 1}`}
+              aria-label={`${t('carousel.goToImage')} ${index + 1}`}
             />
           ))}
         </div>

@@ -16,6 +16,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
+import { useLanguage } from '@/i18n/LanguageContext'
 
 export interface ComboboxOption {
   value: number
@@ -37,6 +38,7 @@ export default function GenericCombobox({
   emptyMessage = "Aucune option trouvée.",
   accentColor,
 }: GenericComboboxProps) {
+  const { t } = useLanguage()
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -51,7 +53,7 @@ export default function GenericCombobox({
           )}
           style={{ backgroundColor: accentColor }}
         >
-          {options.find((option) => option.value === value)?.label || "Sélectionner..."}
+          {options.find((option) => option.value === value)?.label || t('combobox.select')}
           <ChevronDown className={cn(
             "ml-2 h-5 w-5 shrink-0 transition-transform duration-200",
             open && "rotate-180"

@@ -44,7 +44,7 @@ export default function EmbeddedCheckoutForm({ onCancel }: EmbeddedCheckoutFormP
     return (
       <div className="bg-red-100 neo-card p-4 text-center">
         <p className="font-bold text-red-600">
-          Configuration Stripe manquante
+          {t('checkout.stripeError')}
         </p>
       </div>
     );
@@ -59,13 +59,13 @@ export default function EmbeddedCheckoutForm({ onCancel }: EmbeddedCheckoutFormP
         {isAuthError ? (
           <div className="space-y-3">
             <p className="text-sm text-gray-600">
-              Tu dois te connecter pour devenir Premium.
+              {t('checkout.authError')}
             </p>
             <a
               href="/login?redirect=/subscription"
               className="inline-block bg-[#4ECDC4] text-black neo-button px-6 py-3 font-bold"
             >
-              Se connecter
+              {t('checkout.loginButton')}
             </a>
           </div>
         ) : (
@@ -74,7 +74,7 @@ export default function EmbeddedCheckoutForm({ onCancel }: EmbeddedCheckoutFormP
               onClick={onCancel}
               className="bg-gray-200 text-black neo-button px-4 py-2 font-bold"
             >
-              Retour
+              {t('checkout.back')}
             </button>
           )
         )}

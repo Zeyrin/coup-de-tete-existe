@@ -68,13 +68,13 @@ function SuccessContent() {
       <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
         <div className="bg-white neo-border neo-shadow p-8 max-w-lg w-full text-center">
           <div className="text-6xl mb-4">⚠️</div>
-          <h1 className="text-2xl font-bold mb-4">Problème de paiement</h1>
+          <h1 className="text-2xl font-bold mb-4">{t('success.errorTitle')}</h1>
           <p className="text-gray-600 mb-6">{errorMessage}</p>
           <Link
             href="/subscription"
             className="block w-full bg-[#FFD700] text-black neo-button py-4 font-bold uppercase"
           >
-            Réessayer
+            {t('common.retry')}
           </Link>
         </div>
       </div>
@@ -87,7 +87,7 @@ function SuccessContent() {
         <div className="text-6xl mb-4">🎉</div>
 
         <h1 className="text-3xl md:text-4xl font-bold mb-4 uppercase">
-          Tu es maintenant Premium !
+          {t('success.title')}
         </h1>
 
         <div className="flex justify-center mb-6">
@@ -95,7 +95,7 @@ function SuccessContent() {
         </div>
 
         <p className="text-gray-600 mb-8">
-          Merci pour le soutien ! Tu as maintenant accès aux destinations personnalisées selon ton profil voyageur.
+          {t('success.subtitle')}
         </p>
 
         <div className="space-y-4">
@@ -103,14 +103,14 @@ function SuccessContent() {
             href="/quiz"
             className="block w-full bg-[#4ECDC4] text-black neo-button py-4 font-bold uppercase"
           >
-            Découvrir mon profil voyageur
+            {t('success.discoverProfile')}
           </Link>
 
           <Link
             href="/"
             className="block w-full bg-[#FFD700] text-black neo-button py-4 font-bold uppercase"
           >
-            Lancer une roulette personnalisée
+            {t('success.launchWheel')}
           </Link>
         </div>
       </div>
