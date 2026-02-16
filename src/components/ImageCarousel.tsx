@@ -1,6 +1,7 @@
 // components/ImageCarousel.tsx
 'use client';
 import { useState } from 'react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface Image {
   url: string;
@@ -16,6 +17,7 @@ interface ImageCarouselProps {
 }
 
 export default function ImageCarousel({ images, travelTime, price, tagline }: ImageCarouselProps) {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
 
@@ -45,7 +47,7 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
           }`}>
             {imageErrors.has(index) ? (
               <div className="w-full h-full flex items-center justify-center bg-gray-300 text-gray-600 font-bold">
-                📷 Image non disponible
+                {t('carousel.imageUnavailable')}
               </div>
             ) : (
               <img
@@ -87,7 +89,7 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
             <button
               onClick={goToPrev}
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition z-10"
-              aria-label="Image précédente"
+              aria-label={t('carousel.prevImage')}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -96,7 +98,7 @@ export default function ImageCarousel({ images, travelTime, price, tagline }: Im
             <button
               onClick={goToNext}
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition z-10"
-              aria-label="Image suivante"
+              aria-label={t('carousel.nextImage')}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

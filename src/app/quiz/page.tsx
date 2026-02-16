@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import ArchetypeQuiz from '@/components/quiz/ArchetypeQuiz';
 import Link from 'next/link';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function QuizPage() {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
 
@@ -31,7 +33,7 @@ export default function QuizPage() {
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="text-center">
           <div className="animate-spin text-4xl mb-4">🎯</div>
-          <p className="text-gray-600 font-bold">Chargement...</p>
+          <p className="text-gray-600 font-bold">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -45,15 +47,15 @@ export default function QuizPage() {
           href="/"
           className="absolute top-4 left-4 text-gray-600 hover:text-black font-bold transition"
         >
-          ← Retour
+          {t('common.back')}
         </Link>
 
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 uppercase">
-            Quel voyageur es-tu ?
+            {t('quiz.title')}
           </h1>
           <p className="text-gray-600">
-            Réponds à 6 questions pour découvrir ton profil
+            {t('quiz.subtitle')}
           </p>
         </div>
 

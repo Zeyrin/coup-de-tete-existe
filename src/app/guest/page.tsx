@@ -8,8 +8,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'sonner'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 export default function GuestPage() {
+  const { t } = useLanguage()
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -65,16 +67,16 @@ export default function GuestPage() {
           <div className="flex justify-center">
             <UserCircle className="w-16 h-16" />
           </div>
-          <h2 className="text-3xl font-bold">Mode Invité</h2>
+          <h2 className="text-3xl font-bold">{t('guest.title')}</h2>
           <p className="text-sm text-gray-600">
-            Entre un pseudo pour commencer l&apos;aventure sans créer de compte
+            {t('guest.subtitle')}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="username" className="block text-sm font-bold">
-              Ton pseudo
+              {t('guest.usernameLabel')}
             </label>
             <input
               id="username"
@@ -88,7 +90,7 @@ export default function GuestPage() {
               className="block w-full rounded-lg neo-border px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-[#FFE951]"
               placeholder="SuperVoyageur"
             />
-            <p className="text-xs text-gray-500">3-30 caractères</p>
+            <p className="text-xs text-gray-500">{t('guest.usernameHint')}</p>
           </div>
 
           <div className="space-y-3">
@@ -97,7 +99,7 @@ export default function GuestPage() {
               disabled={loading}
               className="w-full neo-button bg-[#FFE951] hover:bg-[#ffd91a] font-bold py-6 text-lg text-black"
             >
-              {loading ? 'Chargement...' : "C'est parti ! 🚀"}
+              {loading ? t('guest.submitting') : t('guest.submit')}
             </Button>
 
             <div className="relative">
@@ -105,7 +107,7 @@ export default function GuestPage() {
                 <div className="w-full border-t-2 border-black"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-4 font-bold">OU</span>
+                <span className="bg-white px-4 font-bold">{t('common.or')}</span>
               </div>
             </div>
 
@@ -113,23 +115,23 @@ export default function GuestPage() {
               href="/signup"
               className="block w-full neo-button px-4 py-3 bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold text-center"
             >
-              Créer un compte complet
+              {t('guest.createAccount')}
             </Link>
           </div>
 
           <div className="text-center text-sm">
-            <span className="text-gray-600">Déjà un compte ? </span>
+            <span className="text-gray-600">{t('guest.hasAccount')} </span>
             <Link href="/login" className="font-bold underline">
-              Connecte-toi
+              {t('guest.loginLink')}
             </Link>
           </div>
 
           <div className="neo-card bg-[#FFE951] p-4 space-y-2">
-            <p className="text-xs font-bold">ℹ️ Mode invité :</p>
+            <p className="text-xs font-bold">{t('guest.infoTitle')}</p>
             <ul className="text-xs space-y-1 list-disc list-inside">
-              <li>Tes données restent sur cet appareil uniquement</li>
-              <li>Tu peux créer un compte plus tard</li>
-              <li>Parfait pour essayer l&apos;app !</li>
+              <li>{t('guest.info1')}</li>
+              <li>{t('guest.info2')}</li>
+              <li>{t('guest.info3')}</li>
             </ul>
           </div>
         </form>

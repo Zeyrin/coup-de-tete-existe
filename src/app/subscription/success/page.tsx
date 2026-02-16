@@ -5,8 +5,10 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import PremiumBadge from '@/components/subscription/PremiumBadge';
 import confetti from 'canvas-confetti';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 function SuccessContent() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [errorMessage, setErrorMessage] = useState('');
@@ -27,7 +29,7 @@ function SuccessContent() {
           setStatus('success');
           triggerConfetti();
         } else if (data.status === 'open') {
-          setErrorMessage('Le paiement n\'a pas encore été confirmé.');
+          setErrorMessage(t('success.paymentPending'));
           setStatus('error');
         } else {
           setStatus('success');
@@ -39,7 +41,7 @@ function SuccessContent() {
         setStatus('success');
         triggerConfetti();
       });
-  }, [searchParams]);
+  }, [searchParams, t]);
 
   const triggerConfetti = () => {
     confetti({
@@ -55,7 +57,7 @@ function SuccessContent() {
       <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
         <div className="bg-white neo-border neo-shadow p-8 max-w-lg w-full text-center">
           <div className="text-6xl mb-4 animate-pulse">⏳</div>
-          <h1 className="text-2xl font-bold">Vérification du paiement...</h1>
+          <h1 className="text-2xl font-bold">{t('success.verifying')}</h1>
         </div>
       </div>
     );

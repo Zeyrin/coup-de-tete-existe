@@ -9,6 +9,7 @@ import { Mail, Calendar, Trophy, Shuffle, User as UserIcon, CreditCard } from 'l
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { ARCHETYPES } from '@/data/archetypes';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface ProfileClientProps {
   user: SupabaseUser;
@@ -18,6 +19,7 @@ interface ProfileClientProps {
 
 export function ProfileClient({ user, userData, preferences }: ProfileClientProps) {
   const router = useRouter();
+  const { t, lang } = useLanguage();
   const [selectedArchetype, setSelectedArchetype] = useState<ArchetypeId | null>(
     preferences?.archetype_id || null
   );
@@ -54,7 +56,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('fr-FR', {
+    return new Date(dateString).toLocaleDateString(lang === 'en' ? 'en-US' : 'fr-FR', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -83,7 +85,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
             <div className="bg-[#FFE951] neo-border p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Trophy className="w-5 h-5" />
-                <span className="font-bold">Points</span>
+                <span className="font-bold">{t('profile.points')}</span>
               </div>
               <p className="text-2xl font-bold">{userData?.points || 0}</p>
             </div>
@@ -91,7 +93,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
             <div className="bg-[#98D8C8] neo-border p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Shuffle className="w-5 h-5" />
-                <span className="font-bold">Tours joués</span>
+                <span className="font-bold">{t('profile.spinsPlayed')}</span>
               </div>
               <p className="text-2xl font-bold">{userData?.total_spins || 0}</p>
             </div>
@@ -99,10 +101,10 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
             <div className="bg-[#F7DC6F] neo-border p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <CreditCard className="w-5 h-5" />
-                <span className="font-bold">Abonnement</span>
+                <span className="font-bold">{t('profile.subscription')}</span>
               </div>
               <p className="text-lg font-bold capitalize">
-                {userData?.subscription_tier === 'premium' ? 'Premium ⭐' : 'Gratuit'}
+                {userData?.subscription_tier === 'premium' ? t('profile.premiumStatus') : t('profile.freeStatus')}
               </p>
             </div>
           </div>
@@ -110,7 +112,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
 
         {/* User Info */}
         <div className="bg-white neo-border neo-shadow p-6 mb-6 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Informations du compte</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('profile.accountInfo')}</h2>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-gray-600" />
@@ -119,7 +121,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-gray-600" />
               <span className="text-gray-700">
-                Membre depuis le {formatDate(userData?.created_at || user.created_at)}
+                {t('profile.memberSince')} {formatDate(userData?.created_at || user.created_at)}
               </span>
             </div>
           </div>
@@ -128,12 +130,12 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
         {/* Archetype Section */}
         <div className="bg-white neo-border neo-shadow p-6 mb-6 rounded-lg">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold">Ton archétype de voyageur</h2>
+            <h2 className="text-2xl font-bold">{t('profile.archetypeTitle')}</h2>
             <Button
               onClick={handleStartQuiz}
               className="neo-button bg-[#FFE951] font-bold text-black"
             >
-              {preferences?.quiz_completed ? 'Refaire le quiz' : 'Commencer le quiz'}
+              {preferences?.quiz_completed ? t('profile.retakeQuiz') : t('profile.startQuiz')}
             </Button>
           </div>
 
@@ -145,18 +147,18 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-3xl">{preferences.archetype.icon}</span>
                 <div>
-                  <h3 className="text-xl font-bold text-black">{preferences.archetype.name_fr}</h3>
+                  <h3 className="text-xl font-bold text-black">{lang === 'en' ? preferences.archetype.name_en : preferences.archetype.name_fr}</h3>
                   <p className="text-sm text-gray-800">
-                    {preferences.quiz_completed ? 'Résultat du quiz' : 'Sélection manuelle'}
+                    {preferences.quiz_completed ? t('profile.quizResult') : t('profile.manualSelection')}
                   </p>
                 </div>
               </div>
-              <p className="text-gray-900 mt-2">{preferences.archetype.description_fr}</p>
+              <p className="text-gray-900 mt-2">{lang === 'en' ? preferences.archetype.description_en : preferences.archetype.description_fr}</p>
             </div>
           )}
 
           <div>
-            <h3 className="text-lg font-bold mb-3">Choisir un archétype manuellement</h3>
+            <h3 className="text-lg font-bold mb-3">{t('profile.chooseArchetype')}</h3>
             <ArchetypeSelector
               selectedArchetype={selectedArchetype}
               onSelect={handleArchetypeChange}
@@ -168,15 +170,15 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
         {/* Subscription Upgrade */}
         {userData?.subscription_tier !== 'premium' && (
           <div className="bg-gradient-to-r from-yellow-100 to-orange-100 neo-border neo-shadow p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-3">Passe à Premium ! ⭐</h2>
+            <h2 className="text-2xl font-bold mb-3">{t('profile.goPremiumTitle')}</h2>
             <p className="text-gray-700 mb-4">
-              Débloque des destinations exclusives, plus de points et bien plus encore !
+              {t('profile.goPremiumDesc')}
             </p>
             <Button
               onClick={() => router.push('/subscription')}
               className="neo-button bg-[#FFE951] hover:bg-[#ffd91a] font-bold text-black"
             >
-              Découvrir Premium
+              {t('profile.goPremiumButton')}
             </Button>
           </div>
         )}

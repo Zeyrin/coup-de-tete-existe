@@ -9,9 +9,11 @@ import HelpDialog from "@/components/HelpDialog";
 import BookingHelpPopover from "@/components/BookingHelpPopover";
 import ImageCarousel from "@/components/ImageCarousel";
 import RouletteWheel from "@/components/RouletteWheel";
+import HomePageSkeleton from "@/components/HomePageSkeleton";
 import { getLocalGuestUser } from "@/utils/guestUser";
 import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Image {
   url: string;
@@ -46,37 +48,33 @@ interface DestinationArchetypeMapping {
 }
 
 export default function Home() {
-  const [maxTravelTime, setMaxTravelTime] = useState(120); // minutes
-  const [maxBudget, setMaxBudget] = useState(30); // euros
+  const { t } = useLanguage();
+  const [maxTravelTime, setMaxTravelTime] = useState(120);
+  const [maxBudget, setMaxBudget] = useState(30);
   const [destination, setDestination] = useState<Destination | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [departureCity, setDepartureCity] = useState<"paris" | "nice">("paris");
-  const [recentDestinations, setRecentDestinations] = useState<string[]>([]); // Track last 3 destinations
+  const [recentDestinations, setRecentDestinations] = useState<string[]>([]);
 
-  // Archetype-based filtering (premium feature)
   const [userArchetype, setUserArchetype] = useState<UserArchetype | null>(null);
   const [useArchetypeFilter, setUseArchetypeFilter] = useState(true);
   const [archetypeMappings, setArchetypeMappings] = useState<DestinationArchetypeMapping[]>([]);
   const [isPremium, setIsPremium] = useState(false);
   const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
 
-  // Fetch user archetype and premium status on mount
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Fetch both in parallel for faster loading
         const [subResponse, prefResponse] = await Promise.all([
           fetch("/api/subscription/status"),
           fetch("/api/user/preferences")
         ]);
 
-        // Process subscription status
         if (subResponse.ok) {
           const subData = await subResponse.json();
           setIsPremium(subData.isPremium === true);
         }
 
-        // Process user preferences
         if (prefResponse.ok) {
           const data = await prefResponse.json();
           if (data.preferences?.archetype) {
@@ -86,7 +84,6 @@ export default function Home() {
               icon: data.preferences.archetype.icon,
             });
 
-            // Fetch archetype-destination mappings
             const supabase = createClient();
             const { data: mappings } = await supabase
               .from("destination_archetypes")
@@ -108,7 +105,6 @@ export default function Home() {
     fetchUserData();
   }, []);
 
-  // Listen for reset event from header logo click
   useEffect(() => {
     const handleReset = () => {
       setDestination(null);
@@ -122,7 +118,6 @@ export default function Home() {
   const spin = useCallback(async () => {
     setIsSpinning(true);
 
-    // Filter destinations based on preferences AND departure city
     let filtered = (destinations as Destination[]).filter(
       (d) =>
         d.departure === departureCity &&
@@ -130,31 +125,25 @@ export default function Home() {
         d.typical_price_euros <= maxBudget
     );
 
-    // Apply archetype filter if enabled, user is premium and has an archetype
     if (isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
       const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
       const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
 
-      // Only use archetype filter if we have at least 1 matching destination
       if (archetypeFiltered.length > 0) {
         filtered = archetypeFiltered;
       }
     }
 
-    // Exclude the last 3 destinations if there are enough alternatives
     const availableWithoutRecent = filtered.filter(
       (d) => !recentDestinations.includes(d.city)
     );
 
-    // Only exclude recent destinations if we have at least 4 other options
     if (availableWithoutRecent.length >= 4) {
       filtered = availableWithoutRecent;
     }
 
-    // Select destination NOW so we can preload images during animation
     const random = filtered[Math.floor(Math.random() * filtered.length)];
 
-    // Preload images while the wheel is spinning (2 seconds of animation time)
     if (random.images && random.images.length > 0) {
       random.images.forEach((img) => {
         if (img.url && img.url !== "YOUR_IMAGE_URL_HERE") {
@@ -170,15 +159,13 @@ export default function Home() {
     setTimeout(async () => {
       setDestination(random);
 
-      // Update recent destinations: add new one and keep only last 3
       setRecentDestinations((prev) => {
         const updated = [random.city, ...prev];
-        return updated.slice(0, 3); // Keep only the 3 most recent
+        return updated.slice(0, 3);
       });
 
       setIsSpinning(false);
 
-      // Save spin to database
       try {
         const supabase = createClient();
         const {
@@ -211,7 +198,6 @@ export default function Home() {
     }, 2000);
   }, [departureCity, maxTravelTime, maxBudget, recentDestinations, useArchetypeFilter, userArchetype, archetypeMappings, isPremium]);
 
-  // Calculate filtered destinations for display counter
   const filteredDestinations = (() => {
     let filtered = (destinations as Destination[]).filter(
       (d) =>
@@ -220,7 +206,6 @@ export default function Home() {
         d.typical_price_euros <= maxBudget
     );
 
-    // Apply archetype filter if premium, enabled and has archetype
     if (isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0) {
       const archetypeCities = new Set(archetypeMappings.map((m) => m.destination_city));
       const archetypeFiltered = filtered.filter((d) => archetypeCities.has(d.city));
@@ -232,10 +217,8 @@ export default function Home() {
     return filtered;
   })();
 
-  // Keyboard shortcut: Press R to spin the wheel
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // Only trigger if not in an input/textarea and wheel is not already spinning
       if (
         event.key.toLowerCase() === "r" &&
         !isSpinning &&
@@ -252,33 +235,33 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [isSpinning, destination, filteredDestinations.length, spin]);
 
+  if (!isUserDataLoaded) {
+    return <HomePageSkeleton />;
+  }
+
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4 md:p-8">
       {!destination ? (
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full relative">
-          {/* Help button in top left corner */}
           <HelpDialog />
 
-          {/* Feedback button in top right corner */}
           <a
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
             target="_blank"
             rel="noopener noreferrer"
             className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-feedback-button border-2 px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
           >
-            💬 Feedback
+            {t('common.feedback')}
           </a>
           <h1 className="text-5xl md:text-6xl font-bold mb-2 text-center uppercase">
-            COUP DE TÊTE
+            {t('home.title')}
           </h1>
           <p className="text-center text-xl mb-6 font-bold">
-            ⚡ CASSE TA ROUTINE ⚡
+            {t('home.tagline')}
           </p>
 
-          {/* Departure City Switch - hidden when spinning */}
           {!isSpinning && (
             <div className="flex justify-center gap-4 mb-8">
-              {/* Paris button */}
               <button
                 onClick={() => setDepartureCity("paris")}
                 className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
@@ -287,10 +270,9 @@ export default function Home() {
                     : "bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80"
                 }`}
               >
-                🗼 PARIS
+                {t('home.paris')}
               </button>
 
-              {/* Nice button */}
               <button
                 onClick={() => setDepartureCity("nice")}
                 className={`px-8 py-4 font-bold text-lg uppercase transition-all duration-200 rounded-md ${
@@ -299,7 +281,7 @@ export default function Home() {
                     : "bg-white text-black neo-border shadow-[2px_2px_0px_#000000] opacity-60 hover:opacity-80"
                 }`}
               >
-                🌴 NICE
+                {t('home.nice')}
               </button>
             </div>
           )}
@@ -307,11 +289,9 @@ export default function Home() {
             <RouletteWheel isSpinning={isSpinning} />
           ) : (
             <>
-              {/* Archetype filter toggle - show if user has an archetype */}
               {userArchetype && (
                 <div className="mb-6">
                   {isPremium ? (
-                    // Premium users can toggle the filter
                     <>
                       <button
                         onClick={() => setUseArchetypeFilter(!useArchetypeFilter)}
@@ -322,7 +302,7 @@ export default function Home() {
                         }`}
                       >
                         <span className="flex items-center gap-2">
-                          {userArchetype.icon} Mon profil: {userArchetype.name_fr}
+                          {userArchetype.icon} {t('home.myProfile')} {userArchetype.name_fr}
                         </span>
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -331,26 +311,25 @@ export default function Home() {
                               : "bg-gray-200 text-gray-500"
                           }`}
                         >
-                          {useArchetypeFilter ? "ACTIVÉ" : "DÉSACTIVÉ"}
+                          {useArchetypeFilter ? t('home.enabled') : t('home.disabled')}
                         </span>
                       </button>
                       {!useArchetypeFilter && (
                         <p className="text-xs text-gray-500 text-center mt-2">
-                          Toutes les destinations seront incluses
+                          {t('home.allDestinations')}
                         </p>
                       )}
                     </>
                   ) : (
-                    // Non-premium users see their profile but can't use the filter
                     <Link
                       href="/subscription"
                       className="w-full p-4 neo-border rounded-md font-bold text-sm bg-white text-gray-700 flex items-center justify-between hover:bg-gray-50 transition-all duration-200"
                     >
                       <span className="flex items-center gap-2">
-                        {userArchetype.icon} Mon profil: {userArchetype.name_fr}
+                        {userArchetype.icon} {t('home.myProfile')} {userArchetype.name_fr}
                       </span>
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FFD700] text-black">
-                        👑 ACTIVER LE FILTRAGE
+                        {t('home.enableFilter')}
                       </span>
                     </Link>
                   )}
@@ -360,7 +339,7 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div>
                   <label className="block text-lg font-bold mb-3 uppercase">
-                    🚂 Temps de trajet max:
+                    {t('home.travelTimeLabel')}
                   </label>
                   <TravelTimeCombobox
                     value={maxTravelTime}
@@ -370,7 +349,7 @@ export default function Home() {
 
                 <div>
                   <label className="block text-lg font-bold mb-3 uppercase">
-                    💰 Budget max:
+                    {t('home.budgetLabel')}
                   </label>
                   <BudgetCombobox value={maxBudget} onChange={setMaxBudget} />
                 </div>
@@ -378,10 +357,10 @@ export default function Home() {
 
               <div className="bg-[#74D3AE] neo-card p-4 mb-8">
                 <p className="text-center font-bold text-lg">
-                  {filteredDestinations.length} DESTINATIONS DISPONIBLES
+                  {filteredDestinations.length} {t('home.destinationsAvailable')}
                   {isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0 && (
                     <span className="block text-sm font-normal mt-1">
-                      Filtrées pour {userArchetype.icon} {userArchetype.name_fr}
+                      {t('home.filteredFor')} {userArchetype.icon} {userArchetype.name_fr}
                     </span>
                   )}
                 </p>
@@ -392,18 +371,16 @@ export default function Home() {
                 disabled={isSpinning || filteredDestinations.length === 0}
                 className="w-full bg-[#FF4747] text-white neo-button px-8 py-6 text-2xl md:text-3xl font-bold uppercase disabled:opacity-50"
               >
-                {isSpinning ? "🎰 EN COURS..." : "🎲 LANCE LA ROUE !"}
+                {isSpinning ? t('home.spinning') : t('home.spin')}
               </button>
 
-              {/* Quiz CTA - only show after user data is loaded and if user doesn't have an archetype */}
               {isUserDataLoaded && !userArchetype && (
                 <div className="mt-6 text-center">
                   <Link
                     href="/quiz"
                     className="inline-flex items-center gap-2 text-gray-600 hover:text-black font-bold transition"
                   >
-                    <span>🎯</span>
-                    <span>Découvre ton profil voyageur</span>
+                    <span>{t('home.discoverProfile')}</span>
                   </Link>
                 </div>
               )}
@@ -412,24 +389,21 @@ export default function Home() {
         </div>
       ) : (
         <div className="bg-white neo-border neo-shadow p-8 max-w-2xl w-full animate-[shake_0.5s_ease-in-out] relative">
-          {/* Feedback button in top right corner */}
           <a
             href="https://forms.gle/2aYJDkfBSweDCVzD8"
             target="_blank"
             rel="noopener noreferrer"
             className="absolute -top-3 -right-3 bg-[#4ECDC4] text-black neo-feedback-button border-2 px-4 py-2 font-bold text-sm uppercase hover:bg-[#45B7D1] transition z-10"
           >
-            💬 Feedback
+            {t('common.feedback')}
           </a>
           <div className="bg-[#FF6B6B] p-6 mb-6 -mt-8 -mx-8 relative overflow-hidden">
-            {/* Winning flash effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-yellow-400 opacity-0 animate-[winning-flash_0.5s_ease-in-out_3]"></div>
             <h1 className="text-4xl md:text-5xl font-bold text-white uppercase text-center relative z-10">
               🎉 {destination.city} 🎉
             </h1>
           </div>
 
-          {/* Photo de la destination */}
           {destination.images && destination.images.length > 0 ? (
             <ImageCarousel
               images={destination.images}
@@ -450,7 +424,7 @@ export default function Home() {
           <div className="bg-white neo-card mb-6 overflow-hidden">
             <div className="p-6">
               <h3 className="font-bold text-xl mb-4 uppercase">
-                ⚡ À FAIRE:
+                {t('home.resultTodo')}
               </h3>
               <ul className="space-y-3">
                 {destination.activities.map((activity, i) => (
@@ -466,12 +440,10 @@ export default function Home() {
           </div>
 
           <div className="space-y-6">
-            {/* Price disclaimer */}
             <p className="text-xs text-gray-500 text-center italic">
-              ⚠️ Les prix indiqués sont des estimations. Le tarif réel dépend de la date, l&apos;heure et la disponibilité.
+              {t('home.priceDisclaimer')}
             </p>
 
-            {/* Ligne unique avec les 3 boutons */}
             <div className="flex gap-3">
               <a
                 href={`https://www.sncf-connect.com/home/search?userInput=${encodeURIComponent(
@@ -481,18 +453,17 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex-1 bg-[#4ECDC4] text-black neo-button py-4 font-bold text-base text-center uppercase inline-block"
               >
-                🚂 Réserver SNCF
+                {t('home.bookSNCF')}
               </a>
 
               <BookingHelpPopover />
             </div>
 
-            {/* Bouton relancer avec plus d'espace */}
             <button
               onClick={() => setDestination(null)}
               className="w-full bg-[#FF6B6B] text-white neo-button py-6 font-bold text-xl uppercase mt-2"
             >
-              ↻ RELANCER LA ROUE
+              {t('home.respin')}
             </button>
 
           </div>

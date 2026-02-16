@@ -2,8 +2,10 @@
 
 import Link from 'next/link'
 import { Mail, ArrowLeft } from 'lucide-react'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 export default function VerifyEmailPage() {
+  const { t } = useLanguage()
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#80a0c3]">
       <div className="w-full max-w-md space-y-6 rounded-xl bg-white p-8 neo-border neo-shadow text-center">
@@ -14,32 +16,32 @@ export default function VerifyEmailPage() {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold">Vérifie tes emails !</h1>
+          <h1 className="text-3xl font-bold">{t('verify.title')}</h1>
           <p className="text-gray-600">
-            On t&apos;a envoyé un lien de confirmation.
+            {t('verify.subtitle')}
           </p>
         </div>
 
         <div className="bg-[#f0f9ff] rounded-lg p-4 neo-border space-y-2">
-          <p className="font-bold text-sm">Prochaines étapes :</p>
+          <p className="font-bold text-sm">{t('verify.nextSteps')}</p>
           <ol className="text-left text-sm space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <span className="font-bold text-[#4ECDC4]">1.</span>
-              Ouvre ta boîte mail
+              {t('verify.step1')}
             </li>
             <li className="flex items-start gap-2">
               <span className="font-bold text-[#4ECDC4]">2.</span>
-              Clique sur le lien de confirmation
+              {t('verify.step2')}
             </li>
             <li className="flex items-start gap-2">
               <span className="font-bold text-[#4ECDC4]">3.</span>
-              Reviens ici et connecte-toi !
+              {t('verify.step3')}
             </li>
           </ol>
         </div>
 
         <p className="text-xs text-gray-500">
-          Tu ne vois pas l&apos;email ? Vérifie tes spams ou attends quelques minutes.
+          {t('verify.spam')}
         </p>
 
         <div className="pt-4 space-y-3">
@@ -47,7 +49,7 @@ export default function VerifyEmailPage() {
             href="/login"
             className="block w-full neo-button px-4 py-3 bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold text-center text-black"
           >
-            Se connecter
+            {t('verify.loginButton')}
           </Link>
 
           <Link
@@ -55,7 +57,7 @@ export default function VerifyEmailPage() {
             className="inline-flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-black"
           >
             <ArrowLeft size={16} />
-            Retour à l&apos;inscription
+            {t('verify.backSignup')}
           </Link>
         </div>
       </div>

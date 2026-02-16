@@ -7,8 +7,10 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Eye, EyeOff } from 'lucide-react'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 export default function SignupPage() {
+  const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
@@ -32,9 +34,9 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#80a0c3]">
       <div className="w-full max-w-md space-y-6 rounded-xl bg-white p-8 neo-border neo-shadow">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold">Inscription</h2>
+          <h2 className="text-3xl font-bold">{t('signup.title')}</h2>
           <p className="text-sm text-gray-600">
-            Crée ton compte pour commencer l&apos;aventure
+            {t('signup.subtitle')}
           </p>
         </div>
 
@@ -42,7 +44,7 @@ export default function SignupPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="username" className="block text-sm font-bold">
-                Nom d&apos;utilisateur
+                {t('signup.username')}
               </label>
               <input
                 id="username"
@@ -55,12 +57,12 @@ export default function SignupPage() {
                 className="block w-full rounded-lg neo-border px-4 py-3 font-bold focus:outline-none focus:ring-4 focus:ring-[#FFE951]"
                 placeholder="ton_username"
               />
-              <p className="text-xs text-gray-500">3-30 caractères</p>
+              <p className="text-xs text-gray-500">{t('signup.usernameHint')}</p>
             </div>
 
             <div className="space-y-2">
               <label htmlFor="display_name" className="block text-sm font-bold">
-                Nom d&apos;affichage <span className="text-gray-400">(optionnel)</span>
+                {t('signup.displayName')} <span className="text-gray-400">{t('signup.displayNameOptional')}</span>
               </label>
               <input
                 id="display_name"
@@ -75,7 +77,7 @@ export default function SignupPage() {
 
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm font-bold">
-                Email
+                {t('signup.email')}
               </label>
               <input
                 id="email"
@@ -90,7 +92,7 @@ export default function SignupPage() {
 
             <div className="space-y-2">
               <label htmlFor="password" className="block text-sm font-bold">
-                Mot de passe
+                {t('signup.password')}
               </label>
               <div className="relative">
                 <input
@@ -107,12 +109,12 @@ export default function SignupPage() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800 focus:outline-none"
-                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                  aria-label={showPassword ? t('login.hidePassword') : t('login.showPassword')}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
-              <p className="text-xs text-gray-500">Minimum 6 caractères</p>
+              <p className="text-xs text-gray-500">{t('signup.passwordHint')}</p>
             </div>
           </div>
 
@@ -122,7 +124,7 @@ export default function SignupPage() {
               disabled={loading}
               className="w-full neo-button bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold py-6 text-lg text-black"
             >
-              {loading ? 'Création...' : "S'inscrire 🚀"}
+              {loading ? t('signup.submitting') : t('signup.submit')}
             </Button>
 
             <div className="relative">
@@ -130,7 +132,7 @@ export default function SignupPage() {
                 <div className="w-full border-t-2 border-black"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-4 font-bold">OU</span>
+                <span className="bg-white px-4 font-bold">{t('common.or')}</span>
               </div>
             </div>
 
@@ -138,14 +140,14 @@ export default function SignupPage() {
               href="/guest"
               className="block w-full neo-button px-4 py-3 bg-[#FFE951] hover:bg-[#ffd91a] font-bold text-center text-black"
             >
-              Essayer en mode invité
+              {t('signup.guestMode')}
             </Link>
           </div>
 
           <div className="text-center text-sm">
-            <span className="text-gray-600">Déjà un compte ? </span>
+            <span className="text-gray-600">{t('signup.hasAccount')} </span>
             <Link href="/login" className="font-bold underline">
-              Connecte-toi
+              {t('signup.loginLink')}
             </Link>
           </div>
         </form>

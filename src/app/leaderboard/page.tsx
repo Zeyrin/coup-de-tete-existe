@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import type { LeaderboardEntry } from '@/types/database';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 // NOTE: Period types kept for future use - API supports weekly/monthly/all-time
 // type Period = 'weekly' | 'monthly' | 'all-time';
@@ -32,6 +33,7 @@ interface LeaderboardResponse {
 // };
 
 export default function LeaderboardPage() {
+  const { t } = useLanguage();
   const [data, setData] = useState<LeaderboardResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +51,7 @@ export default function LeaderboardPage() {
         setData(result);
       } catch (err) {
         console.error('Error fetching leaderboard:', err);
-        setError('Impossible de charger le classement');
+        setError(t('leaderboard.error'));
       } finally {
         setIsLoading(false);
       }
@@ -92,12 +94,12 @@ export default function LeaderboardPage() {
           href="/"
           className="absolute top-4 left-4 text-gray-600 hover:text-black font-bold transition"
         >
-          ← Retour
+          {t('common.back')}
         </Link>
 
         <div className="text-center mb-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 uppercase">
-            🏆 Classement
+            {t('leaderboard.title')}
           </h1>
         </div>
 
@@ -127,7 +129,7 @@ export default function LeaderboardPage() {
         {isLoading && (
           <div className="text-center py-12">
             <div className="animate-spin text-4xl mb-4">🏆</div>
-            <p className="text-gray-600 font-bold">Chargement...</p>
+            <p className="text-gray-600 font-bold">{t('common.loading')}</p>
           </div>
         )}
 
@@ -139,7 +141,7 @@ export default function LeaderboardPage() {
               onClick={() => window.location.reload()}
               className="text-gray-600 hover:text-black font-bold transition"
             >
-              Réessayer
+              {t('common.retry')}
             </button>
           </div>
         )}
@@ -149,13 +151,13 @@ export default function LeaderboardPage() {
           <>
             {/* Stats */}
             <p className="text-center text-gray-600 mb-6">
-              {data.pagination.total} {data.pagination.total === 1 ? 'aventurier' : 'aventuriers'}
+              {data.pagination.total} {data.pagination.total === 1 ? t('leaderboard.adventurerSingular') : t('leaderboard.adventurerPlural')}
             </p>
 
             {/* Current user banner if not in top 10 */}
             {data.currentUser && data.currentUser.rank > 10 && (
               <div className="mb-6 p-4 bg-[#4ECDC4] neo-card">
-                <p className="text-sm font-bold mb-2">Ta position</p>
+                <p className="text-sm font-bold mb-2">{t('leaderboard.yourPosition')}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="font-bold text-lg">#{data.currentUser.rank}</span>
@@ -197,17 +199,17 @@ export default function LeaderboardPage() {
                             </span>
                             {entry.user_type === 'guest' && (
                               <span className="text-xs bg-gray-200 px-2 py-0.5 rounded-full">
-                                Invité
+                                {t('leaderboard.guestBadge')}
                               </span>
                             )}
                             {isCurrentUser && (
                               <span className="text-xs bg-[#4ECDC4] text-black px-2 py-0.5 rounded-full font-bold">
-                                Toi
+                                {t('leaderboard.youBadge')}
                               </span>
                             )}
                           </div>
                           <div className="text-sm opacity-75">
-                            {entry.total_spins} {entry.total_spins === 1 ? 'spin' : 'spins'}
+                            {entry.total_spins} {entry.total_spins === 1 ? t('leaderboard.spinSingular') : t('leaderboard.spinPlural')}
                           </div>
                         </div>
                       </div>
@@ -215,7 +217,7 @@ export default function LeaderboardPage() {
                       {/* Points */}
                       <div className="text-right">
                         <div className="font-bold text-xl">{entry.points}</div>
-                        <div className="text-sm opacity-75">points</div>
+                        <div className="text-sm opacity-75">{t('common.points')}</div>
                       </div>
                     </div>
                   </div>
@@ -228,10 +230,10 @@ export default function LeaderboardPage() {
               <div className="text-center py-12">
                 <p className="text-4xl mb-4">🎲</p>
                 <p className="text-gray-600 font-bold">
-                  Aucun aventurier pour le moment
+                  {t('leaderboard.empty')}
                 </p>
                 <p className="text-gray-500 text-sm mt-2">
-                  Sois le premier à lancer la roue !
+                  {t('leaderboard.emptySubtitle')}
                 </p>
               </div>
             )}
@@ -240,7 +242,7 @@ export default function LeaderboardPage() {
             {data.pagination.hasMore && (
               <div className="mt-6 text-center">
                 <p className="text-gray-500 text-sm">
-                  Et {data.pagination.total - data.leaderboard.length} autres aventuriers...
+                  {t('leaderboard.moreAdventurers', { count: data.pagination.total - data.leaderboard.length })}
                 </p>
               </div>
             )}
@@ -253,7 +255,7 @@ export default function LeaderboardPage() {
             href="/"
             className="block w-full bg-[#FF4747] text-white neo-button py-4 font-bold text-lg uppercase text-center"
           >
-            🎲 Lancer la roue pour gagner des points !
+            {t('leaderboard.cta')}
           </Link>
         </div>
       </div>

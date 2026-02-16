@@ -6,8 +6,10 @@ import Link from 'next/link';
 import SubscriptionCTA from '@/components/subscription/SubscriptionCTA';
 import EmbeddedCheckoutForm from '@/components/subscription/EmbeddedCheckout';
 import { createClient } from '@/utils/supabase/client';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 function SubscriptionContent() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
   const [showCanceled, setShowCanceled] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
@@ -36,12 +38,12 @@ function SubscriptionContent() {
             onClick={() => setShowCheckout(false)}
             className="inline-block mb-6 text-gray-600 hover:text-black font-bold transition"
           >
-            ← Retour aux offres
+            {t('sub.backOffers')}
           </button>
 
           <div className="bg-white neo-card p-6">
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Finaliser l&apos;abonnement Premium
+              {t('sub.checkoutTitle')}
             </h2>
             <EmbeddedCheckoutForm onCancel={() => setShowCheckout(false)} />
           </div>
@@ -67,13 +69,13 @@ function SubscriptionContent() {
           href="/"
           className="inline-block mb-6 text-gray-600 hover:text-black font-bold transition"
         >
-          ← Retour à l&apos;accueil
+          {t('common.backHome')}
         </Link>
 
         {showCanceled && (
           <div className="bg-yellow-100 neo-card p-4 mb-6">
             <p className="font-bold text-center">
-              Paiement annulé. Tu peux réessayer quand tu veux !
+              {t('sub.canceled')}
             </p>
           </div>
         )}
@@ -82,7 +84,7 @@ function SubscriptionContent() {
         {isAuthenticated === false && (
           <div className="bg-blue-100 neo-card p-4 mb-6">
             <p className="font-bold text-center">
-              Connecte-toi pour devenir Premium
+              {t('sub.authNotice')}
             </p>
           </div>
         )}

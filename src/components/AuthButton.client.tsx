@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import type { User } from '@supabase/supabase-js'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 interface AuthButtonClientProps {
   serverUser: User | null
@@ -14,6 +15,7 @@ interface AuthButtonClientProps {
 }
 
 export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClientProps) {
+  const { t } = useLanguage()
   const [guestUser, setGuestUser] = useState<ReturnType<typeof getLocalGuestUser>>(null)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
@@ -61,7 +63,7 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
           className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#FF6B6B] font-bold flex items-center gap-1 text-sm"
         >
           <LogOut className="w-4 h-4" />
-          <span className="hidden sm:inline">Déconnexion</span>
+          <span className="hidden sm:inline">{t('auth.logout')}</span>
         </button>
       </div>
     )
@@ -80,7 +82,7 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
             {guestUser.username}
           </span>
           <span className="text-xs bg-black text-white px-1 py-0.5 rounded">
-            INVITÉ
+            {t('auth.guestLabel')}
           </span>
         </Link>
         <button
@@ -88,7 +90,7 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
           className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#FF6B6B] font-bold flex items-center gap-1 text-sm"
         >
           <LogOut className="w-4 h-4" />
-          <span className="hidden sm:inline">Quitter</span>
+          <span className="hidden sm:inline">{t('auth.quit')}</span>
         </button>
       </div>
     )
@@ -102,21 +104,21 @@ export function AuthButtonClient({ serverUser, initialUsername }: AuthButtonClie
         className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#F7DC6F] font-bold flex items-center gap-1 text-sm"
       >
         <UserCircle className="w-4 h-4" />
-        <span className="hidden sm:inline">Invité</span>
+        <span className="hidden sm:inline">{t('auth.guest')}</span>
       </Link>
       <Link
         href="/login"
         className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#98D8C8] font-bold flex items-center gap-1 text-sm"
       >
         <LogIn className="w-4 h-4" />
-        <span className="hidden sm:inline">Connexion</span>
+        <span className="hidden sm:inline">{t('auth.login')}</span>
       </Link>
       <Link
         href="/signup"
         className="neo-button px-2 sm:px-3 py-1.5 sm:py-2 bg-[#FFE951] font-bold flex items-center gap-1 text-sm"
       >
         <UserPlus className="w-4 h-4" />
-        <span className="hidden sm:inline">Inscription</span>
+        <span className="hidden sm:inline">{t('auth.signup')}</span>
       </Link>
     </div>
   )

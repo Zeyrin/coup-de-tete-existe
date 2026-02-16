@@ -6,8 +6,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Eye, EyeOff } from 'lucide-react'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 export default function LoginPage() {
+  const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
@@ -28,9 +30,9 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-[#80a0c3]">
       <div className="w-full max-w-md space-y-6 rounded-xl bg-white p-8 neo-border neo-shadow">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold">Connexion</h2>
+          <h2 className="text-3xl font-bold">{t('login.title')}</h2>
           <p className="text-sm text-gray-600">
-            Connecte-toi pour accéder à ton compte
+            {t('login.subtitle')}
           </p>
         </div>
 
@@ -38,7 +40,7 @@ export default function LoginPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm font-bold">
-                Email
+                {t('login.email')}
               </label>
               <input
                 id="email"
@@ -53,7 +55,7 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <label htmlFor="password" className="block text-sm font-bold">
-                Mot de passe
+                {t('login.password')}
               </label>
               <div className="relative">
                 <input
@@ -69,7 +71,7 @@ export default function LoginPage() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800 focus:outline-none"
-                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                  aria-label={showPassword ? t('login.hidePassword') : t('login.showPassword')}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
@@ -83,7 +85,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full neo-button bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold py-6 text-lg text-black"
             >
-              {loading ? 'Connexion...' : 'Se connecter 🚀'}
+              {loading ? t('login.submitting') : t('login.submit')}
             </Button>
 
             <div className="relative">
@@ -91,7 +93,7 @@ export default function LoginPage() {
                 <div className="w-full border-t-2 border-black"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-4 font-bold">OU</span>
+                <span className="bg-white px-4 font-bold">{t('common.or')}</span>
               </div>
             </div>
 
@@ -99,14 +101,14 @@ export default function LoginPage() {
               href="/guest"
               className="block w-full neo-button px-4 py-3 bg-[#FFE951] hover:bg-[#ffd91a] font-bold text-center text-black"
             >
-              Continuer en tant qu&apos;invité
+              {t('login.guestContinue')}
             </Link>
           </div>
 
           <div className="text-center text-sm">
-            <span className="text-gray-600">Pas encore de compte ? </span>
+            <span className="text-gray-600">{t('login.noAccount')} </span>
             <Link href="/signup" className="font-bold underline">
-              Inscris-toi
+              {t('login.signupLink')}
             </Link>
           </div>
         </form>

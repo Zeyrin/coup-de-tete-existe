@@ -6,12 +6,14 @@ import {
   EmbeddedCheckout,
 } from '@stripe/react-stripe-js';
 import { getStripePromise } from '@/utils/stripe/client';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 interface EmbeddedCheckoutFormProps {
   onCancel?: () => void;
 }
 
 export default function EmbeddedCheckoutForm({ onCancel }: EmbeddedCheckoutFormProps) {
+  const { t } = useLanguage();
   const [error, setError] = useState<string | null>(null);
   const stripePromise = getStripePromise();
 
