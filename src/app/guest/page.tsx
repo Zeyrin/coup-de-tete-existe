@@ -20,17 +20,17 @@ export default function GuestPage() {
     e.preventDefault()
 
     if (!username.trim()) {
-      toast.error('Le pseudo est requis')
+      toast.error(t('guest.errorRequired'))
       return
     }
 
     if (username.length < 3) {
-      toast.error('Le pseudo doit contenir au moins 3 caractères')
+      toast.error(t('guest.errorTooShort'))
       return
     }
 
     if (username.length > 30) {
-      toast.error('Le pseudo ne peut pas dépasser 30 caractères')
+      toast.error(t('guest.errorTooLong'))
       return
     }
 
@@ -51,11 +51,11 @@ export default function GuestPage() {
     if (result.data) {
       // Store guest user ID and username in localStorage
       setLocalGuestUser(result.data.user_id, result.data.username)
-      toast.success(`Bienvenue ${username} !`)
+      toast.success(t('guest.welcome').replace('{username}', username))
       router.push('/')
       router.refresh()
     } else {
-      toast.error('Une erreur est survenue')
+      toast.error(t('guest.errorGeneric'))
       setLoading(false)
     }
   }

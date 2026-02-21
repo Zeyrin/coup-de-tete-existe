@@ -35,10 +35,11 @@ export default function GenericCombobox({
   value,
   onChange,
   options,
-  emptyMessage = "Aucune option trouvée.",
+  emptyMessage,
   accentColor,
 }: GenericComboboxProps) {
   const { t } = useLanguage()
+  const resolvedEmptyMessage = emptyMessage ?? t('combobox.empty')
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -63,7 +64,7 @@ export default function GenericCombobox({
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] border-0 p-0">
         <Command className="neo-border bg-white">
           <CommandList className="p-1">
-            <CommandEmpty>{emptyMessage}</CommandEmpty>
+            <CommandEmpty>{resolvedEmptyMessage}</CommandEmpty>
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem

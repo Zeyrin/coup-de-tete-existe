@@ -20,6 +20,7 @@ const fr = {
   "auth.quit": "Quitter",
   "auth.guest": "Invité",
   "auth.guestLabel": "INVITÉ",
+  "auth.connectedAs": "Connecté en tant que",
 
   // Home
   "home.title": "COUP DE TÊTE",
@@ -132,6 +133,11 @@ const fr = {
   "verify.backSignup": "Retour à l'inscription",
 
   // Guest
+  "guest.errorRequired": "Le pseudo est requis",
+  "guest.errorTooShort": "Le pseudo doit contenir au moins 3 caractères",
+  "guest.errorTooLong": "Le pseudo ne peut pas dépasser 30 caractères",
+  "guest.errorGeneric": "Une erreur est survenue",
+  "guest.welcome": "Bienvenue {username} !",
   "guest.title": "Mode Invité",
   "guest.subtitle": "Entre un pseudo pour commencer l'aventure sans créer de compte",
   "guest.usernameLabel": "Ton pseudo",
@@ -175,6 +181,8 @@ const fr = {
   "leaderboard.cta": "🎲 Lancer la roue pour gagner des points !",
 
   // Profile
+  "profile.updateSuccess": "Archétype mis à jour avec succès !",
+  "profile.updateError": "Erreur lors de la mise à jour de l'archétype",
   "profile.title": "Profil",
   "profile.points": "Points",
   "profile.spinsPlayed": "Tours joués",

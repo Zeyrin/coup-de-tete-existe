@@ -37,15 +37,15 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
       });
 
       if (!response.ok) {
-        throw new Error('Erreur lors de la mise à jour');
+        throw new Error('update_failed');
       }
 
       setSelectedArchetype(archetypeId);
-      toast.success('Archétype mis à jour avec succès !');
+      toast.success(t('profile.updateSuccess'));
       router.refresh();
     } catch (error) {
       console.error('Error updating archetype:', error);
-      toast.error('Erreur lors de la mise à jour de l\'archétype');
+      toast.error(t('profile.updateError'));
     } finally {
       setIsUpdating(false);
     }

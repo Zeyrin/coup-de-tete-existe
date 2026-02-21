@@ -22,6 +22,7 @@ const en: Record<TranslationKey, string> = {
   "auth.quit": "Quit",
   "auth.guest": "Guest",
   "auth.guestLabel": "GUEST",
+  "auth.connectedAs": "Logged in as",
 
   // Home
   "home.title": "COUP DE TÊTE",
@@ -134,6 +135,11 @@ const en: Record<TranslationKey, string> = {
   "verify.backSignup": "Back to sign up",
 
   // Guest
+  "guest.errorRequired": "Nickname is required",
+  "guest.errorTooShort": "Nickname must be at least 3 characters",
+  "guest.errorTooLong": "Nickname cannot exceed 30 characters",
+  "guest.errorGeneric": "An error occurred",
+  "guest.welcome": "Welcome {username}!",
   "guest.title": "Guest Mode",
   "guest.subtitle": "Enter a nickname to start the adventure without creating an account",
   "guest.usernameLabel": "Your nickname",
@@ -177,6 +183,8 @@ const en: Record<TranslationKey, string> = {
   "leaderboard.cta": "🎲 Spin the wheel to earn points!",
 
   // Profile
+  "profile.updateSuccess": "Archetype updated successfully!",
+  "profile.updateError": "Error updating archetype",
   "profile.title": "Profile",
   "profile.points": "Points",
   "profile.spinsPlayed": "Spins played",

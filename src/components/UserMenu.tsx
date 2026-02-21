@@ -11,12 +11,14 @@ import { createClient } from '@/utils/supabase/client'
 import { User } from '@supabase/supabase-js'
 import { LogOut, User as UserIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useLanguage } from '@/i18n/LanguageContext'
 
 interface UserMenuProps {
   user: User | null
 }
 
 export function UserMenu({ user }: UserMenuProps) {
+  const { t } = useLanguage()
   const [username, setUsername] = useState<string | null>(null)
 
   useEffect(() => {
@@ -45,13 +47,13 @@ export function UserMenu({ user }: UserMenuProps) {
           asChild
           className="neo-button bg-[#98D8C8] hover:bg-[#7ec9b8] font-bold px-4 py-2"
         >
-          <a href="/login">Connexion</a>
+          <a href="/login">{t('auth.login')}</a>
         </Button>
         <Button
           asChild
           className="neo-button bg-[#FFE951] hover:bg-[#ffd91a] font-bold px-4 py-2"
         >
-          <a href="/signup">Inscription</a>
+          <a href="/signup">{t('auth.signup')}</a>
         </Button>
       </div>
     )
@@ -70,7 +72,7 @@ export function UserMenu({ user }: UserMenuProps) {
       <PopoverContent className="w-64 neo-border neo-shadow" align="end">
         <div className="space-y-4">
           <div className="space-y-1">
-            <p className="text-sm font-bold">Connecté en tant que</p>
+            <p className="text-sm font-bold">{t('auth.connectedAs')}</p>
             <p className="text-sm text-gray-600">{username || user.email}</p>
           </div>
 
@@ -80,7 +82,7 @@ export function UserMenu({ user }: UserMenuProps) {
               className="w-full neo-button bg-[#FF6B6B] hover:bg-[#ff5252] font-bold flex items-center gap-2 justify-start"
             >
               <LogOut className="h-4 w-4" />
-              Déconnexion
+              {t('auth.logout')}
             </Button>
           </form>
         </div>

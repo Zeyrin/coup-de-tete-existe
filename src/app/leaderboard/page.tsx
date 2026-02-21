@@ -51,7 +51,7 @@ export default function LeaderboardPage() {
         setData(result);
       } catch (err) {
         console.error('Error fetching leaderboard:', err);
-        setError(t('leaderboard.error'));
+        setError('leaderboard.error');
       } finally {
         setIsLoading(false);
       }
@@ -136,7 +136,7 @@ export default function LeaderboardPage() {
         {/* Error state */}
         {error && !isLoading && (
           <div className="text-center py-12">
-            <p className="text-red-500 font-bold mb-4">{error}</p>
+            <p className="text-red-500 font-bold mb-4">{error ? t(error as Parameters<typeof t>[0]) : ''}</p>
             <button
               onClick={() => window.location.reload()}
               className="text-gray-600 hover:text-black font-bold transition"

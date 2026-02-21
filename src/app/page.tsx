@@ -24,14 +24,17 @@ interface Image {
 interface Destination {
   city: string;
   tagline: string;
+  tagline_en?: string;
   station: string;
   departure: "paris" | "nice";
   activities: string[];
+  activities_en?: string[];
   travel_time: string;
   travel_time_minutes: number;
   typical_price: string;
   typical_price_euros: number;
   vibe: string;
+  vibe_en?: string;
   image?: string;
   images?: Image[];
 }
@@ -39,6 +42,7 @@ interface Destination {
 interface UserArchetype {
   id: string;
   name_fr: string;
+  name_en: string;
   icon: string;
 }
 
@@ -48,7 +52,7 @@ interface DestinationArchetypeMapping {
 }
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [maxTravelTime, setMaxTravelTime] = useState(120);
   const [maxBudget, setMaxBudget] = useState(30);
   const [destination, setDestination] = useState<Destination | null>(null);
@@ -81,6 +85,7 @@ export default function Home() {
             setUserArchetype({
               id: data.preferences.archetype.id,
               name_fr: data.preferences.archetype.name_fr,
+              name_en: data.preferences.archetype.name_en,
               icon: data.preferences.archetype.icon,
             });
 
@@ -302,7 +307,7 @@ export default function Home() {
                         }`}
                       >
                         <span className="flex items-center gap-2">
-                          {userArchetype.icon} {t('home.myProfile')} {userArchetype.name_fr}
+                          {userArchetype.icon} {t('home.myProfile')} {lang === 'en' ? userArchetype.name_en : userArchetype.name_fr}
                         </span>
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -326,7 +331,7 @@ export default function Home() {
                       className="w-full p-4 neo-border rounded-md font-bold text-sm bg-white text-gray-700 flex items-center justify-between hover:bg-gray-50 transition-all duration-200"
                     >
                       <span className="flex items-center gap-2">
-                        {userArchetype.icon} {t('home.myProfile')} {userArchetype.name_fr}
+                        {userArchetype.icon} {t('home.myProfile')} {lang === 'en' ? userArchetype.name_en : userArchetype.name_fr}
                       </span>
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FFD700] text-black">
                         {t('home.enableFilter')}
@@ -360,7 +365,7 @@ export default function Home() {
                   {filteredDestinations.length} {t('home.destinationsAvailable')}
                   {isPremium && useArchetypeFilter && userArchetype && archetypeMappings.length > 0 && (
                     <span className="block text-sm font-normal mt-1">
-                      {t('home.filteredFor')} {userArchetype.icon} {userArchetype.name_fr}
+                      {t('home.filteredFor')} {userArchetype.icon} {lang === 'en' ? userArchetype.name_en : userArchetype.name_fr}
                     </span>
                   )}
                 </p>
@@ -409,7 +414,7 @@ export default function Home() {
               images={destination.images}
               travelTime={destination.travel_time}
               price={destination.typical_price}
-              tagline={destination.tagline}
+              tagline={lang === 'en' && destination.tagline_en ? destination.tagline_en : destination.tagline}
             />
           ) : destination.image ? (
             <div className="w-full h-64 md:h-80 mb-6 neo-border neo-shadow overflow-hidden relative">
@@ -427,7 +432,7 @@ export default function Home() {
                 {t('home.resultTodo')}
               </h3>
               <ul className="space-y-3">
-                {destination.activities.map((activity, i) => (
+                {(lang === 'en' && destination.activities_en ? destination.activities_en : destination.activities).map((activity, i) => (
                   <li key={i} className="flex items-center">
                     <span className="text-xl mr-3">→</span>
                     <span className="font-bold text-base leading-relaxed">

@@ -1,31 +1,30 @@
 'use client';
 
+import { Switch } from '@/components/ui/switch';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function LanguageSwitch() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="flex neo-border overflow-hidden">
+    <div className="flex items-center gap-2">
       <button
         onClick={() => setLang('fr')}
-        className={`px-2 py-1.5 font-bold text-sm uppercase transition-all duration-200 ${
-          lang === 'fr'
-            ? 'bg-[#52688E] text-white'
-            : 'bg-white text-black opacity-60 hover:opacity-80'
-        }`}
+        className={`text-2xl leading-none transition-all duration-200 ${lang === 'fr' ? 'scale-125 drop-shadow-lg' : 'opacity-40 scale-100'}`}
       >
-        FR
+        🇫🇷
       </button>
+
+      <Switch
+        checked={lang === 'en'}
+        onCheckedChange={(checked) => setLang(checked ? 'en' : 'fr')}
+      />
+
       <button
         onClick={() => setLang('en')}
-        className={`px-2 py-1.5 font-bold text-sm uppercase transition-all duration-200 border-l-2 border-black ${
-          lang === 'en'
-            ? 'bg-[#52688E] text-white'
-            : 'bg-white text-black opacity-60 hover:opacity-80'
-        }`}
+        className={`text-2xl leading-none transition-all duration-200 ${lang === 'en' ? 'scale-125 drop-shadow-lg' : 'opacity-40 scale-100'}`}
       >
-        EN
+        🇬🇧
       </button>
     </div>
   );

@@ -120,7 +120,7 @@ function SuccessContent() {
 
 export default function SubscriptionSuccessPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Chargement...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
       <SuccessContent />
     </Suspense>
   );

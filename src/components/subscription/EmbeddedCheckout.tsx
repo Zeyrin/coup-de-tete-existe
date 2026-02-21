@@ -35,10 +35,10 @@ export default function EmbeddedCheckoutForm({ onCancel }: EmbeddedCheckoutFormP
       const data = await response.json();
       return data.clientSecret;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Une erreur est survenue');
+      setError(err instanceof Error ? err.message : t('guest.errorGeneric'));
       throw err;
     }
-  }, []);
+  }, [t]);
 
   if (!stripePromise) {
     return (
