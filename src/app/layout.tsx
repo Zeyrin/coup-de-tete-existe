@@ -16,7 +16,19 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Coup de Tête - Aventure Spontanée",
-  description: "Découvre ta prochaine destination en un coup de roue!",
+  description: "Découvre ta prochaine destination en un coup de roue ! Lance la roulette et pars à l'aventure depuis Paris ou Nice.",
+  openGraph: {
+    title: "Coup de Tête - Aventure Spontanée",
+    description: "Lance la roulette et découvre ta prochaine escapade en train 🎲",
+    type: "website",
+    locale: "fr_FR",
+    siteName: "Coup de Tête",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Coup de Tête - Aventure Spontanée",
+    description: "Lance la roulette et découvre ta prochaine escapade en train 🎲",
+  },
 };
 
 export default function RootLayout({

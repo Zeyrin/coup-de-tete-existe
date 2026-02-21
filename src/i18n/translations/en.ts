@@ -166,6 +166,9 @@ const en: Record<TranslationKey, string> = {
   "quiz.backHome": "Back to home",
   "quiz.prevQuestion": "← Previous question",
   "quiz.analyzing": "Analyzing...",
+  "quiz.guestSaveTitle": "💾 Save your results",
+  "quiz.guestSaveDesc": "As a guest, your results will be lost. Create an account to keep them.",
+  "quiz.guestCTA": "✨ Create a free account",
 
   // Leaderboard
   "leaderboard.title": "🏆 Leaderboard",
@@ -200,8 +203,10 @@ const en: Record<TranslationKey, string> = {
   "profile.manualSelection": "Manual selection",
   "profile.chooseArchetype": "Choose an archetype manually",
   "profile.goPremiumTitle": "Go Premium! ⭐",
-  "profile.goPremiumDesc": "Unlock exclusive destinations, more points and much more!",
+  "profile.goPremiumDesc": "Unlock personalized destinations, more points and much more!",
   "profile.goPremiumButton": "Discover Premium",
+  "profile.manageSubscription": "Manage my subscription",
+  "profile.manageSubscriptionError": "Couldn't open the portal. Please try again.",
 
   // Subscription
   "sub.backOffers": "← Back to offers",

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /profile/
+Disallow: /subscription/success
+Disallow: /subscription/cancel
+
+Sitemap: https://coupdetete.app/sitemap.xml

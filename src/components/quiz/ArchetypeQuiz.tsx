@@ -10,9 +10,10 @@ import { useLanguage } from '@/i18n/LanguageContext';
 interface ArchetypeQuizProps {
   onComplete?: (result: QuizResult) => void;
   isPremium?: boolean;
+  isGuest?: boolean;
 }
 
-export default function ArchetypeQuiz({ onComplete, isPremium = false }: ArchetypeQuizProps) {
+export default function ArchetypeQuiz({ onComplete, isPremium = false, isGuest = false }: ArchetypeQuizProps) {
   const { t, lang } = useLanguage();
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -101,7 +102,20 @@ export default function ArchetypeQuiz({ onComplete, isPremium = false }: Archety
         </div>
 
         <div className="space-y-4">
-          {!isPremium && (
+          {isGuest && (
+            <div className="bg-[#FFE951] neo-card p-4 text-left">
+              <p className="font-bold text-sm mb-1">{t('quiz.guestSaveTitle')}</p>
+              <p className="text-xs text-gray-700 mb-3">{t('quiz.guestSaveDesc')}</p>
+              <button
+                onClick={() => router.push('/signup')}
+                className="w-full bg-[#4ECDC4] text-black neo-button py-3 font-bold uppercase"
+              >
+                {t('quiz.guestCTA')}
+              </button>
+            </div>
+          )}
+
+          {!isPremium && !isGuest && (
             <button
               onClick={() => router.push('/subscription')}
               className="w-full bg-[#FFD700] text-black neo-button py-4 font-bold text-lg uppercase"

@@ -164,6 +164,9 @@ const fr = {
   "quiz.backHome": "Retour à l'accueil",
   "quiz.prevQuestion": "← Question précédente",
   "quiz.analyzing": "Analyse en cours...",
+  "quiz.guestSaveTitle": "💾 Sauvegarde tes résultats",
+  "quiz.guestSaveDesc": "En tant qu'invité, tes résultats seront perdus. Crée un compte pour les conserver.",
+  "quiz.guestCTA": "✨ Créer un compte gratuit",
 
   // Leaderboard
   "leaderboard.title": "🏆 Classement",
@@ -198,8 +201,10 @@ const fr = {
   "profile.manualSelection": "Sélection manuelle",
   "profile.chooseArchetype": "Choisir un archétype manuellement",
   "profile.goPremiumTitle": "Passe à Premium ! ⭐",
-  "profile.goPremiumDesc": "Débloque des destinations exclusives, plus de points et bien plus encore !",
+  "profile.goPremiumDesc": "Débloque des destinations personnalisées, plus de points et bien plus encore !",
   "profile.goPremiumButton": "Découvrir Premium",
+  "profile.manageSubscription": "Gérer mon abonnement",
+  "profile.manageSubscriptionError": "Impossible d'ouvrir le portail. Réessaie.",
 
   // Subscription
   "sub.backOffers": "← Retour aux offres",

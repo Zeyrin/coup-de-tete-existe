@@ -24,6 +24,7 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
     preferences?.archetype_id || null
   );
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isPortalLoading, setIsPortalLoading] = useState(false);
 
   const handleArchetypeChange = async (archetypeId: ArchetypeId) => {
     setIsUpdating(true);
@@ -53,6 +54,23 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
 
   const handleStartQuiz = () => {
     router.push('/quiz');
+  };
+
+  const handleManageSubscription = async () => {
+    setIsPortalLoading(true);
+    try {
+      const response = await fetch('/api/stripe/portal', { method: 'POST' });
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        toast.error(t('profile.manageSubscriptionError'));
+      }
+    } catch {
+      toast.error(t('profile.manageSubscriptionError'));
+    } finally {
+      setIsPortalLoading(false);
+    }
   };
 
   const formatDate = (dateString: string) => {
@@ -179,6 +197,22 @@ export function ProfileClient({ user, userData, preferences }: ProfileClientProp
               className="neo-button bg-[#FFE951] hover:bg-[#ffd91a] font-bold text-black"
             >
               {t('profile.goPremiumButton')}
+            </Button>
+          </div>
+        )}
+
+        {/* Manage Subscription (premium only) */}
+        {userData?.subscription_tier === 'premium' && (
+          <div className="bg-white neo-border neo-shadow p-6 rounded-lg">
+            <h2 className="text-2xl font-bold mb-3">{t('profile.subscription')}</h2>
+            <p className="text-gray-700 mb-4">{t('profile.premiumStatus')}</p>
+            <Button
+              onClick={handleManageSubscription}
+              disabled={isPortalLoading}
+              className="neo-button bg-white hover:bg-gray-100 font-bold text-black border-2 border-black"
+            >
+              <CreditCard className="w-4 h-4 mr-2" />
+              {isPortalLoading ? '...' : t('profile.manageSubscription')}
             </Button>
           </div>
         )}

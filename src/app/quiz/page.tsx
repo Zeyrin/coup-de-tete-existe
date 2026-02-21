@@ -9,6 +9,7 @@ export default function QuizPage() {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
+  const [isGuest, setIsGuest] = useState(false);
 
   useEffect(() => {
     const checkPremiumStatus = async () => {
@@ -17,6 +18,7 @@ export default function QuizPage() {
         if (response.ok) {
           const data = await response.json();
           setIsPremium(data.isPremium === true);
+          setIsGuest(data.isAuthenticated === false);
         }
       } catch (error) {
         console.error('Error checking premium status:', error);
@@ -59,7 +61,7 @@ export default function QuizPage() {
           </p>
         </div>
 
-        <ArchetypeQuiz isPremium={isPremium} />
+        <ArchetypeQuiz isPremium={isPremium} isGuest={isGuest} />
       </div>
     </div>
   );
